@@ -13,10 +13,20 @@ import Bithumb from '../../assets/images/home/Bithumb.png'
 import HuoBiGlobal from '../../assets/images/home/HuoBiGlobal.png'
 import ChainSwap from '../../assets/images/home/ChainSwap.png'
 import PancakeSwap from '../../assets/images/home/PancakeSwap.png'
-import {ReactComponent as TwitterLogo} from '../../assets/svg/twitter.svg'
-import {ReactComponent as MediumLogo} from '../../assets/svg/medium.svg'
-import {ReactComponent as TelegramLogo} from '../../assets/svg/telegram.svg'
-import {ReactComponent as GithubLogo} from '../../assets/svg/github.svg'
+import CrossChain from '../../assets/images/home/CrossChain.png'
+import SocialTrading from '../../assets/images/home/SocialTrading.png'
+import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
+import IDO from '../../assets/images/home/IDO.png'
+import Alphabit from '../../assets/images/home/Alphabit.png'
+import NGC from '../../assets/images/home/NGC.png'
+import TheLeagueofTraders from '../../assets/images/home/TheLeagueofTraders.png'
+import {ReactComponent as TwitterLogo} from '../../assets/svg/Twitter.svg'
+import {ReactComponent as MediumLogo} from '../../assets/svg/Medium.svg'
+import {ReactComponent as TelegramLogo} from '../../assets/svg/Telegram.svg'
+import {ReactComponent as GithubLogo} from '../../assets/svg/Github.svg'
+import {ReactComponent as KakaoLogo} from '../../assets/svg/Kakao.svg'
+import {ReactComponent as WeChatLogo} from '../../assets/svg/WeChat.svg'
+import {ReactComponent as WeiboLogo} from '../../assets/svg/Weibo.svg'
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
@@ -147,28 +157,19 @@ const FifthContent = styled.div`
 `
 const StyledLink = styled.a`
     display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    background: #DADADA;
-    border-radius: 50%;
-    padding: 5px;
     margin: 0 10px;
-`
+    svg{
+        width: 32px;
+        .cls-1{fill:#fff;}
+        .cls-2{fill:#d8d8d8;}
+        &:hover{
+            .cls-1{fill:#fff;}
+            .cls-2{fill:#3C17B8;}
+        }
 
-const Footer = styled.div`
-    &>div{
-        margin: 0 auto;
-        max-width: 1200px;
-        padding: 30px 0;
-        @media (max-width: 1200px) {
-            padding: 30px 130px;
-        }
-        @media (max-width: 767px) {
-            padding: 20px;
-        }
     }
 `
+
 const Copyright = styled.div`
     float: right;
 `
@@ -279,6 +280,27 @@ const Home: React.FC = () =>  {
                         <h2 style={{textAlign: 'center'}}>What is RAI Finance?</h2>
                         <p>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, cross-chain trading and social function.</p>
                         <Button type="primary">Learn More</Button>
+                        <Row
+                            gutter={16}
+                            className="raiFinance"
+                        >
+                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                                <img src={CrossChain} />
+                                <p>Cross Chain</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                                <img src={SocialTrading} />
+                                <p>Social Trading</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                                <img src={UniqueAsset} />
+                                <p>Unique  Asset</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                                <img src={IDO} />
+                                <p>IDO</p>
+                            </Col>
+                        </Row>
                     </div>
                 </SecondContent> 
                 <ThirdContent>
@@ -369,43 +391,42 @@ const Home: React.FC = () =>  {
                 </FourthContent>
                 <FifthContent>
                     <div>
-                        <h2>Partners</h2>
+                        <h2 style={{textAlign: 'center'}}>Partners</h2>
                         <Row
                             gutter={16}
+                            className="parteners"
                         >
-                            <Col className="gutter-row" xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <div style={style}></div>
+                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                                <img src={Alphabit}/>
                             </Col>
-                            <Col className="gutter-row" xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <div style={style}></div>
+                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                                <img src={NGC}/>
                             </Col>
-                            <Col className="gutter-row" xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <div style={style}></div>
-                            </Col>
-                            <Col className="gutter-row" xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <div style={style}></div>
+                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                                <img src={TheLeagueofTraders}/>
                             </Col>
                         </Row>
-                        <div style={{marginTop: '30px'}}>
-                            <StyledLink 
-                                target='_blank'
-                                href="https://twitter.com/RaiFinance">
+                        <div style={{marginTop: '100px'}}>
+                            <StyledLink target='_blank' href="https://github.com/RaiFinance">
+                                <GithubLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://open.kakao.com/o/gLPmITEc">
+                                <KakaoLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://medium.com/rai-finance">
+                                <MediumLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://t.me/RaiFinance">
+                                <TelegramLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://twitter.com/RaiFinance">
                                 <TwitterLogo fill="#fff"/>
                             </StyledLink>
-                            <StyledLink 
-                                target='_blank'
-                                href="https://github.com/RaiFinance">
-                                    <GithubLogo fill="#fff"/>
+                            <StyledLink target='javascript:void(0);'>
+                                <WeChatLogo fill="#fff"/>
                             </StyledLink>
-                            <StyledLink 
-                                target='_blank'
-                                href="https://medium.com/rai-finance">
-                                    <MediumLogo fill="#fff"/>
-                            </StyledLink>
-                            <StyledLink 
-                                target='_blank'
-                                href="https://t.me/RaiFinance">
-                                <TelegramLogo fill="#fff"/>
+                            <StyledLink target='_blank' href="https://weibo.com/u/7583482257">
+                                <WeiboLogo fill="#fff"/>
                             </StyledLink>
                             <Copyright>
                             © 2021 RAI.Finance
