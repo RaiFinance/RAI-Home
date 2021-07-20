@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { Layout, Menu, Row, Col, Button, List, Card } from 'antd';
+import { Layout, Menu, Row, Col, Button, List, Card, Avatar } from 'antd';
 import { CSSTransition } from "react-transition-group";
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
 import Image1 from '../../assets/images/home/image1.png'
@@ -125,14 +125,6 @@ const FourthContent = styled.div`
             padding: 20px;
         }
     }
-    .ant-card-cover{
-        img{
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 40px auto;
-        }
-    }
     .ant-card-body{
         margin: 0 auto;
         text-align: center;
@@ -194,7 +186,7 @@ const Home: React.FC = () =>  {
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
         return () => {
-          window.removeEventListener('scroll', scrollHeader, false);
+            window.removeEventListener('scroll', scrollHeader, false);
         }
     }, [])
 
@@ -375,6 +367,7 @@ const Home: React.FC = () =>  {
                             renderItem={item => (
                             <List.Item>
                                 <Card 
+                                    className="teamCard"
                                     cover={
                                         <img
                                         alt="example"
@@ -382,8 +375,14 @@ const Home: React.FC = () =>  {
                                         />
                                     }
                                 >
-                                    <h2 style={{textAlign: 'center'}}>Joana Leite</h2>
-                                    Card content
+                                    <h2>Joana Leite</h2>
+                                    <h3>Card content</h3>
+                                    <div className="des">
+                                        <Avatar size={64} icon={<UserOutlined />} />
+                                        <h2 className="name">Joana Leite</h2>
+                                        <h3 className="title">Card content</h3>
+                                        XXXXX is the co-founder of Acala. He is also co-founder and CEO of Laminar - a leading synthetic asset and margin trading platform. Ruitao has led design & development of state-of-art token economic models.
+                                    </div>
                                 </Card>
                             </List.Item>
                             )}
