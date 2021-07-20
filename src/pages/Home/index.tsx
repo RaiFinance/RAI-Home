@@ -20,13 +20,13 @@ import IDO from '../../assets/images/home/IDO.png'
 import Alphabit from '../../assets/images/home/Alphabit.png'
 import NGC from '../../assets/images/home/NGC.png'
 import TheLeagueofTraders from '../../assets/images/home/TheLeagueofTraders.png'
-import {ReactComponent as TwitterLogo} from '../../assets/svg/Twitter.svg'
-import {ReactComponent as MediumLogo} from '../../assets/svg/Medium.svg'
-import {ReactComponent as TelegramLogo} from '../../assets/svg/Telegram.svg'
-import {ReactComponent as GithubLogo} from '../../assets/svg/Github.svg'
-import {ReactComponent as KakaoLogo} from '../../assets/svg/Kakao.svg'
-import {ReactComponent as WeChatLogo} from '../../assets/svg/WeChat.svg'
-import {ReactComponent as WeiboLogo} from '../../assets/svg/Weibo.svg'
+import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
+import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
+import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
+import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.svg'
+import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
+import {ReactComponent as WeChatLogo} from '../../assets/images/home/svg/WeChat.svg'
+import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
@@ -248,8 +248,9 @@ const Home: React.FC = () =>  {
                     >
                         <nav className="Nav">
                         <a href="/">Home</a>
-                        <a href="/">Articles</a>
-                        <a href="/">About</a>
+                        <a href="/">IDO</a>
+                        <a href="/">SWAP</a>
+                        <a href="/">STS</a>
                         <Button type="primary">Button</Button>
                         </nav>
                     </CSSTransition>
