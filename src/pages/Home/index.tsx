@@ -108,19 +108,23 @@ const ThirdContent = styled.div`
         margin-left: 44px;
         display: block;
     }
-    .ant-row{
-        margin-top: 50px;
-    }
 `
 const FourthContent = styled.div`
     background: rgba(255, 255, 255, 0.6);
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 0;
+        padding: 50px 0;
         @media (max-width: 1200px) {
             padding: 100px 130px;
         }
+        @media (max-width: 767px) {
+            padding: 20px;
+        }
+    }
+    p{
+        padding: 20px 100px;
+        text-align: center;
         @media (max-width: 767px) {
             padding: 20px;
         }
@@ -137,7 +141,7 @@ const FifthContent = styled.div`
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 0;
+        padding: 50px 0;
         @media (max-width: 1200px) {
             padding: 100px 130px;
         }
@@ -260,7 +264,7 @@ const Home: React.FC = () =>  {
                                 <p>
                                 RAI Finance aims to become the epicenter of the Web 3.0 world, through the issuance of digital assets, cross chain trading and its social trading platform.
                                 </p>
-                                <Button type="primary">Enter</Button>
+                                <Button type="primary"><a href="https://alpha.rai.finance/#/" target="_blank">Enter</a></Button>
                             </Col>
                             <Col md={12} sm={24}>
                                 <img src={Image1} />
@@ -271,8 +275,7 @@ const Home: React.FC = () =>  {
                 <SecondContent>
                     <div>
                         <h2 style={{textAlign: 'center'}}>What is RAI Finance?</h2>
-                        <p>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, cross-chain trading and social function.</p>
-                        <Button type="primary">Learn More</Button>
+                        <p style={{textAlign: 'center'}}>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, cross-chain trading and social function.</p>
                         <Row
                             gutter={16}
                             className="raiFinance"
@@ -312,27 +315,27 @@ const Home: React.FC = () =>  {
                                 <img src={Image2} />
                             </Col>
                         </Row>
-                        <h2 style={{textAlign: 'center'}}>RAI Finance Product</h2>
+                        <h2 style={{textAlign: 'center', marginTop: '50px'}}>RAI Finance Product</h2>
                         <Row>
                             <Col md={10} sm={24}>
                                 <img src={Image3} />
                             </Col>
                             <Col md={14} sm={24}>
+                                <h3>STS</h3>
+                                <p>Social trading system, combine Trading and Social Others </p>
                                 <h3>DEX</h3>
                                 <p>Trade multi-chain asset in an decentralized way</p>
                                 <h3>SWAP</h3>
                                 <p>A quicker way to exchange your multi-chain asset</p>
                                 <h3>IDO</h3>
                                 <p>Initial DeFi Offering</p>
-                                <h3>STS</h3>
-                                <p>Social trading system, combine Trading and Social Others </p>
                                 <h3>Others</h3>
                                 <p> Provide a wider usecase range for web 3.0 finance</p>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={10} sm={24}>
-                                <h2>RAI Finance's White Paper</h2>
+                                <h2>RAI Finance's Whitepaper</h2>
                                 <Button type="primary">Read More</Button>
                                 <h3><img style={{width: '32px'}} src={RAIToken} />&nbsp;&nbsp;RAI Token </h3>
                                 <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
