@@ -11,7 +11,7 @@ import Image4 from '../../assets/images/home/image4.png'
 import RAIToken from '../../assets/images/home/RAIToken.png'
 import Bithumb from '../../assets/images/home/Bithumb.png'
 import HuoBiGlobal from '../../assets/images/home/HuoBiGlobal.png'
-import ChainSwap from '../../assets/images/home/ChainSwap.png'
+import Dodo from '../../assets/images/home/Dodo.png'
 import PancakeSwap from '../../assets/images/home/PancakeSwap.png'
 import CrossChain from '../../assets/images/home/CrossChain.png'
 import SocialTrading from '../../assets/images/home/SocialTrading.png'
@@ -332,14 +332,14 @@ const Home: React.FC = () =>  {
                         </Row>
                         <Row>
                             <Col md={10} sm={24}>
-                                <h2>RAI Finance's White Pape</h2>
+                                <h2>RAI Finance's White Paper</h2>
                                 <Button type="primary">Read More</Button>
                                 <h3><img style={{width: '32px'}} src={RAIToken} />&nbsp;&nbsp;RAI Token </h3>
                                 <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
                                 <ul className="compenyList">
                                     <li><img src={Bithumb}/></li>
                                     <li><img src={HuoBiGlobal}/></li>
-                                    <li><img src={ChainSwap}/></li>
+                                    <li><img src={Dodo}/></li>
                                     <li><img src={PancakeSwap}/></li>
                                 </ul>
                             </Col>
