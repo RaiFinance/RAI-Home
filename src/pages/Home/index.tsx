@@ -1,13 +1,17 @@
-import React, {useEffect, useState} from 'react'
-import { Layout, Menu, Row, Col, Button, List, Card, Avatar } from 'antd';
+import React, {useEffect, useState, useRef} from 'react'
+import { Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
 import Image1 from '../../assets/images/home/image1.png'
+import Image11 from '../../assets/images/home/image1-1.png'
 import Image2 from '../../assets/images/home/image2.png'
 import Image3 from '../../assets/images/home/image3.png'
 import Image4 from '../../assets/images/home/image4.png'
+import Team1 from '../../assets/images/home/team04-01.png';
+import Team2 from '../../assets/images/home/team05-01.png';
+import Team3 from '../../assets/images/home/team06-01.png';
 import RAIToken from '../../assets/images/home/RAIToken.png'
 import Bithumb from '../../assets/images/home/Bithumb.png'
 import HuoBiGlobal from '../../assets/images/home/HuoBiGlobal.png'
@@ -51,7 +55,26 @@ const FirstContent = styled.div`
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding-top: 260px;
+        padding: 260px 0 50px;
+        position: relative;
+        overflow: hidden;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: url(${Image11}) no-repeat;
+            background-size: 60%;
+            background-position: center;
+            transform: translateX(-50%);
+        }
+        @media (max-width: 992px) {
+            &:before{
+                display: none;
+            }
+        }
         @media (max-width: 1200px) {
             padding: 260px 130px 100px;
         }
@@ -98,14 +121,53 @@ const ThirdContent = styled.div`
         color: #79869F;
         padding: 0;
     }
-    img{
-        width: 100%;
+    .product{
+        position: relative;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -30%;
+            width: 100%;
+            height: 100%;
+            background: url(${Image3}) no-repeat;
+            background-size: 65%;
+            background-position: center;
+        }
+        @media (max-width: 767px) {
+            &:before{
+                display: none;
+            }
+        }
+        h3{
+            margin-top: 0;
+            font-weight: 700;
+        }
+        .img{
+            display: none;
+            @media (max-width: 767px) {
+                display: block;
+            }
+        }
+    }
+    .whitepaper{
+        margin-top: 60px;
+        @media (max-width: 767px) {
+            margin-top: 20px;
+        }
+        .img{
+            width: auto;
+            height: 440px;
+            @media (max-width: 767px) {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
     .tokenDes{
         font-size: 14px;
         line-height: 24px;
-        color: #3C17B8;
-        margin-left: 44px;
+        color: #79869F;
         display: block;
     }
 `
@@ -174,18 +236,26 @@ const Home: React.FC = () =>  {
 
     const data = [
         {
-          title: 'Title 1',
+          title: 'CEO, Kevin Lee',
+          img: Team1,
+          des: 'Research Analyst at Honestfund \nCo-founder of VIU \nBA at Konkuk University, Management Information System'
         },
         {
-          title: 'Title 2',
+          title: 'CTO, Minkyu Cho',
+          img: Team2,
+          des: 'Co-founder & COO at DEXEOS \nCo-founder at League of Traders \nResearcher at Samsung Electronics \nBA at Seoul National University, Industrial Engineering'
         },
         {
-          title: 'Title 3',
+          title: 'CMO, Sandy Liang',
+          img: Team3,
+          des: 'Operation Director at BitKan \nSenior Operation Manager at Ontology \nMA at Hong Kong Polytechnic University, Bilingual Corporate Communication'
         },
       ];
     const style = { background: '#C4C4C4', padding: '20px 0' };
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const carouselRef = useRef<any>()
+    console.log('carouselRef:', carouselRef);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
@@ -193,6 +263,12 @@ const Home: React.FC = () =>  {
             window.removeEventListener('scroll', scrollHeader, false);
         }
     }, [])
+
+    const goTo = (index: number) => {
+        if(carouselRef.current){
+            carouselRef.current.goTo(index);
+        }
+    }
 
     const scrollHeader = () => {
         if (!document.querySelector('.ant-layout-header')) {
@@ -243,11 +319,10 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                        <a href="/">Home</a>
-                        <a href="/">IDO</a>
-                        <a href="/">SWAP</a>
-                        <a href="/">STS</a>
-                        <Button type="primary">Button</Button>
+                            <a href="/">Home</a>
+                            <a href="/">IDO</a>
+                            <a href="/">SWAP</a>
+                            <a href="/">STS</a>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -302,23 +377,38 @@ const Home: React.FC = () =>  {
                 <ThirdContent>
                     <div>
                         <Row>
-                            <Col md={14} sm={24}>
-                                <h2>Socialized Your DeFi Experience</h2>
+                            <Col md={10} sm={24}>
+                                <h2 className="defiTitle">Socialized Your DeFi Experience</h2>
                                 <ul>
                                     <li>Share Investment Set</li>
                                     <li>Communicate with KOL</li>
                                     <li>Analyze Investment Data</li>
                                     <li>Invest with Professionals</li>
                                 </ul>
-                            </Col>
-                            <Col md={10} sm={24}>
-                                <img src={Image2} />
+                            </Col> 
+                            <Col md={14} sm={24}>
+                                <div className="defiCarousel">
+                                    <Carousel autoplay dots={false} ref={carouselRef as any}>
+                                        <div className="item">
+                                            1
+                                        </div>
+                                        <div className="item">
+                                            2
+                                        </div>
+                                        <div className="item">
+                                            3
+                                        </div>
+                                    </Carousel>
+                                    <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
+                                    <button className="analyzeBtn" onClick={() => {goTo(1)}}>Analyze</button>
+                                    <button className="communicateBtn" onClick={() => {goTo(2)}}>Communicate</button>
+                                </div>
                             </Col>
                         </Row>
-                        <h2 style={{textAlign: 'center', marginTop: '50px'}}>RAI Finance Product</h2>
-                        <Row>
+                        <h2 style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
+                        <Row className="product">
                             <Col md={10} sm={24}>
-                                <img src={Image3} />
+                                <img className="img" src={Image3} />
                             </Col>
                             <Col md={14} sm={24}>
                                 <h3>STS</h3>
@@ -333,11 +423,11 @@ const Home: React.FC = () =>  {
                                 <p> Provide a wider usecase range for web 3.0 finance</p>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="whitepaper">
                             <Col md={10} sm={24}>
-                                <h2>RAI Finance's Whitepaper</h2>
-                                <Button type="primary">Read More</Button>
-                                <h3><img style={{width: '32px'}} src={RAIToken} />&nbsp;&nbsp;RAI Token </h3>
+                                <h2 style={{marginTop: '40px'}}>RAI Finance's Whitepaper</h2>
+                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
+                                <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
                                 <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
                                 <ul className="compenyList">
                                     <li><img src={Bithumb}/></li>
@@ -347,7 +437,7 @@ const Home: React.FC = () =>  {
                                 </ul>
                             </Col>
                             <Col md={14} sm={24}>
-                                <img src={Image4} />
+                                <img className="img" src={Image4} />
                             </Col>
                         </Row>
                     </div>
@@ -372,19 +462,14 @@ const Home: React.FC = () =>  {
                                 <Card 
                                     className="teamCard"
                                     cover={
-                                        <img
-                                        alt="example"
-                                        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                                        />
+                                        <Avatar size={180} src={item.img} />
                                     }
                                 >
-                                    <h2>Joana Leite</h2>
-                                    <h3>Card content</h3>
+                                    <h2>{item.title}</h2>
                                     <div className="des">
-                                        <Avatar size={64} icon={<UserOutlined />} />
-                                        <h2 className="name">Joana Leite</h2>
-                                        <h3 className="title">Card content</h3>
-                                        XXXXX is the co-founder of Acala. He is also co-founder and CEO of Laminar - a leading synthetic asset and margin trading platform. Ruitao has led design & development of state-of-art token economic models.
+                                        <Avatar size={64} src={item.img} />
+                                        <h2 className="name">{item.title}</h2>
+                                        {item.des}
                                     </div>
                                 </Card>
                             </List.Item>
@@ -424,9 +509,6 @@ const Home: React.FC = () =>  {
                             </StyledLink>
                             <StyledLink target='_blank' href="https://twitter.com/RaiFinance">
                                 <TwitterLogo fill="#fff"/>
-                            </StyledLink>
-                            <StyledLink target='javascript:void(0);'>
-                                <WeChatLogo fill="#fff"/>
                             </StyledLink>
                             <StyledLink target='_blank' href="https://weibo.com/u/7583482257">
                                 <WeiboLogo fill="#fff"/>
