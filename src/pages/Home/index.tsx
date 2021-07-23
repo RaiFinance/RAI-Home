@@ -127,7 +127,7 @@ const ThirdContent = styled.div`
             content: '';
             position: absolute;
             top: 0;
-            left: -30%;
+            left: -20%;
             width: 100%;
             height: 100%;
             background: url(${Image3}) no-repeat;
@@ -251,12 +251,9 @@ const Home: React.FC = () =>  {
           des: 'Operation Director at BitKan \nSenior Operation Manager at Ontology \nMA at Hong Kong Polytechnic University, Bilingual Corporate Communication'
         },
       ];
-    const style = { background: '#C4C4C4', padding: '20px 0' };
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const carouselRef = useRef<any>()
-    console.log('carouselRef:', carouselRef);
-
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
         return () => {
@@ -407,10 +404,10 @@ const Home: React.FC = () =>  {
                         </Row>
                         <h2 style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
                         <Row className="product">
-                            <Col md={10} sm={24}>
+                            <Col md={12} sm={24}>
                                 <img className="img" src={Image3} />
                             </Col>
-                            <Col md={14} sm={24}>
+                            <Col md={12} sm={24}>
                                 <h3>STS</h3>
                                 <p>Social trading system, combine Trading and Social Others </p>
                                 <h3>DEX</h3>
@@ -462,7 +459,7 @@ const Home: React.FC = () =>  {
                                 <Card 
                                     className="teamCard"
                                     cover={
-                                        <Avatar size={180} src={item.img} />
+                                        <Avatar size={{ xs: 100, sm: 100, md: 100, lg: 180, xl: 180, xxl: 180 }} src={item.img} />
                                     }
                                 >
                                     <h2>{item.title}</h2>
