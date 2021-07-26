@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react'
-import { Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
+import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
@@ -21,6 +21,10 @@ import CrossChain from '../../assets/images/home/CrossChain.png'
 import SocialTrading from '../../assets/images/home/SocialTrading.png'
 import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
 import IDO from '../../assets/images/home/IDO.png'
+import CrossChainGIF from '../../assets/images/home/Cross-Chain.gif'
+import SocialTradingGIF from '../../assets/images/home/Social-Trading.gif'
+import UniqueAssetGIF from '../../assets/images/home/Unique-Asset.gif'
+import IDOGIF from '../../assets/images/home/IDO.gif'
 import Alphabit from '../../assets/images/home/Alphabit.png'
 import NGC from '../../assets/images/home/NGC.png'
 import TheLeagueofTraders from '../../assets/images/home/TheLeagueofTraders.png'
@@ -34,8 +38,7 @@ import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.sv
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
-const { SubMenu } = Menu;
-
+const { Link } = Anchor;
 const HeaderContent = styled.div`
     max-width: 1200px;
     margin: 0 auto;
@@ -316,10 +319,11 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <a href="/">Home</a>
-                            <a href="/">IDO</a>
-                            <a href="/">SWAP</a>
-                            <a href="/">STS</a>
+                            <a href="#Finance">Finance</a>
+                            <a href="#Experience">Experience</a>
+                            <a href="#Whitepaper">Whitepaper</a>
+                            <a href="#Product">Product</a>
+                            <a href="#Team">Team</a>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -346,26 +350,70 @@ const Home: React.FC = () =>  {
                 </FirstContent>
                 <SecondContent>
                     <div>
-                        <h2 style={{textAlign: 'center'}}>What is RAI Finance?</h2>
+                        <h2 id="Finance" style={{textAlign: 'center'}}>What is RAI Finance?</h2>
                         <p style={{textAlign: 'center'}}>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, cross-chain trading and social function.</p>
                         <Row
                             gutter={16}
                             className="raiFinance"
                         >
                             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <img src={CrossChain} />
+                                <img 
+                                    id="gif-1" 
+                                    src={CrossChain} 
+                                    onMouseOver={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-1').src = CrossChainGIF
+                                    }}
+                                    onMouseOut={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-1').src = CrossChain
+                                    }}
+                                />
                                 <p>Cross Chain</p>
                             </Col>
                             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <img src={SocialTrading} />
+                                <img 
+                                    id="gif-2" 
+                                    src={SocialTrading} 
+                                    onMouseOver={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-2').src = SocialTradingGIF
+                                    }}
+                                    onMouseOut={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-2').src = SocialTrading
+                                    }}
+                                />
                                 <p>Social Trading</p>
                             </Col>
                             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <img src={UniqueAsset} />
-                                <p>Unique  Asset</p>
+                                <img 
+                                    id="gif-3" 
+                                    src={UniqueAsset} 
+                                    onMouseOver={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-3').src = UniqueAssetGIF
+                                    }}
+                                    onMouseOut={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-3').src = UniqueAsset
+                                    }}
+                                />
+                                <p>Unique Asset</p>
                             </Col>
                             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <img src={IDO} />
+                                <img 
+                                    id="gif-4" 
+                                    src={IDO} 
+                                    onMouseOver={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-4').src = IDOGIF
+                                    }}
+                                    onMouseOut={() => { 
+                                        //@ts-ignore
+                                        document.getElementById('gif-4').src = IDO
+                                    }}
+                                />
                                 <p>IDO</p>
                             </Col>
                         </Row>
@@ -375,7 +423,7 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={10} sm={24}>
-                                <h2 className="defiTitle">Socialized Your DeFi Experience</h2>
+                                <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
                                 <ul>
                                     <li>Share Investment Set</li>
                                     <li>Communicate with KOL</li>
@@ -402,7 +450,7 @@ const Home: React.FC = () =>  {
                                 </div>
                             </Col>
                         </Row>
-                        <h2 style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
+                        <h2 id="Product" style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
                         <Row className="product">
                             <Col md={12} sm={24}>
                                 <img className="img" src={Image3} />
@@ -422,7 +470,7 @@ const Home: React.FC = () =>  {
                         </Row>
                         <Row className="whitepaper">
                             <Col md={10} sm={24}>
-                                <h2 style={{marginTop: '40px'}}>RAI Finance's Whitepaper</h2>
+                                <h2 id="Whitepaper" style={{marginTop: '40px'}}>RAI Finance's Whitepaper</h2>
                                 <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
                                 <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
                                 <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
@@ -441,7 +489,7 @@ const Home: React.FC = () =>  {
                 </ThirdContent>
                 <FourthContent>
                     <div>
-                        <h2 style={{textAlign: 'center'}}>Team</h2>  
+                        <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
                         <p>The team consists of KR, CN and US members. Each of them has expertise in their local markets, and on average 3+ years’ experience in blockchain industry. </p>
                         <List
                             grid={{

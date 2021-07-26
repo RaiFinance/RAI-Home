@@ -1,5 +1,6 @@
 .homePage{
     width: 100%;
+    scroll-behavior: smooth;
     .ant-layout-header{
         position: fixed;
         z-index: 1;
@@ -20,7 +21,7 @@
         .Nav {
             display: grid;
             grid-area: nav;
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(5, auto);
             align-items: center;
             justify-items: center;
             margin-right: -50px;
@@ -164,6 +165,7 @@
       position: relative;
       padding: 40px 0;
       overflow: hidden;
+      min-height: 300px;
       .ant-card-cover{
         span{
           margin: 0 auto; 
