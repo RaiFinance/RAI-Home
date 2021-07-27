@@ -450,10 +450,10 @@ const Home: React.FC = () =>  {
                         </Row>
                         <h2 id="Product" style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
                         <Row className="product">
-                            <Col md={12} sm={24}>
+                            <Col md={13} sm={24}>
                                 <img className="img" src={Image3} />
                             </Col>
-                            <Col md={12} sm={24}>
+                            <Col md={11} sm={24}>
                                 <h3>STS</h3>
                                 <p>Social trading system combines both trading and socializing</p>
                                 <h3>DEX</h3>
