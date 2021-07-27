@@ -448,7 +448,7 @@ const Home: React.FC = () =>  {
                                 </div>
                             </Col>
                         </Row>
-                        <h2 id="Product" style={{textAlign: 'center', marginTop: '100px'}}>RAI Finance Product</h2>
+                        <h2 id="Product" style={{textAlign: 'center', paddingTop: '100px'}}>RAI Finance Product</h2>
                         <Row className="product">
                             <Col md={13} sm={24}>
                                 <img className="img" src={Image3} />
@@ -468,7 +468,7 @@ const Home: React.FC = () =>  {
                         </Row>
                         <Row className="whitepaper">
                             <Col md={10} sm={24}>
-                                <h2 id="Whitepaper" style={{marginTop: '40px'}}>RAI Finance's Whitepaper</h2>
+                                <h2 id="Whitepaper" style={{paddingTop: '40px'}}>RAI Finance's Whitepaper</h2>
                                 <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
                                 <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
                                 <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
