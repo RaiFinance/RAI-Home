@@ -130,7 +130,7 @@ const ThirdContent = styled.div`
             content: '';
             position: absolute;
             top: 0;
-            left: -20%;
+            left: -25%;
             width: 100%;
             height: 100%;
             background: url(${Image3}) no-repeat;
@@ -448,12 +448,11 @@ const Home: React.FC = () =>  {
                                 </div>
                             </Col>
                         </Row>
-                        <h2 id="Product" style={{textAlign: 'center', paddingTop: '100px'}}>RAI Finance Product</h2>
+                        <h2 id="Product" style={{textAlign: 'center', paddingTop: '120px'}}>RAI Finance Product</h2>
                         <Row className="product">
-                            <Col md={13} sm={24}>
-                                <img className="img" src={Image3} />
+                            <Col md={12} sm={24}>
                             </Col>
-                            <Col md={11} sm={24}>
+                            <Col md={12} sm={24}>
                                 <h3>STS</h3>
                                 <p>Social trading system combines both trading and socializing</p>
                                 <h3>DEX</h3>
@@ -505,6 +504,7 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             <List.Item>
                                 <Card 
                                     className="teamCard"
+                                    bordered={false}
                                     cover={
                                         <Avatar size={{ xs: 100, sm: 100, md: 100, lg: 180, xl: 180, xxl: 180 }} src={item.img} />
                                     }
