@@ -145,6 +145,7 @@ const ThirdContent = styled.div`
         h3{
             margin-top: 0;
             font-weight: 700;
+            font-size:24px;
         }
         .img{
             display: none;
@@ -425,23 +426,20 @@ const Home: React.FC = () =>  {
                             <Col md={10} sm={24}>
                                 <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
                                 <ul>
-                                    <li>Share Investment Set</li>
+                                    <li>Share investment set</li>
                                     <li>Communicate with KOL</li>
-                                    <li>Analyze Investment Data</li>
-                                    <li>Invest with Professionals</li>
+                                    <li>Analyze investment data</li>
+                                    <li>Invest with professionals</li>
                                 </ul>
                             </Col> 
                             <Col md={14} sm={24}>
                                 <div className="defiCarousel">
                                     <Carousel autoplay dots={false} ref={carouselRef as any}>
                                         <div className="item">
-                                            1
                                         </div>
                                         <div className="item">
-                                            2
                                         </div>
                                         <div className="item">
-                                            3
                                         </div>
                                     </Carousel>
                                     <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
@@ -457,13 +455,13 @@ const Home: React.FC = () =>  {
                             </Col>
                             <Col md={12} sm={24}>
                                 <h3>STS</h3>
-                                <p>Social trading system, combine Trading and Social Others </p>
+                                <p>Social trading system combines both trading and socializing</p>
                                 <h3>DEX</h3>
-                                <p>Trade multi-chain asset in an decentralized way</p>
+                                <p>Trade multi-chain assets in an decentralized way</p>
                                 <h3>SWAP</h3>
-                                <p>A quicker way to exchange your multi-chain asset</p>
+                                <p>The fastest way to swap-and-go your multi-chain assets</p>
                                 <h3>IDO</h3>
-                                <p>Initial DeFi Offering</p>
+                                <p>Access to high quality early stage projects via Initial DeFi Offering</p>
                                 <h3>Others</h3>
                                 <p> Provide a wider usecase range for web 3.0 finance</p>
                             </Col>
@@ -490,7 +488,8 @@ const Home: React.FC = () =>  {
                 <FourthContent>
                     <div>
                         <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
-                        <p>The team consists of KR, CN and US members. Each of them has expertise in their local markets, and on average 3+ years’ experience in blockchain industry. </p>
+                        <p> The team consists of Korea, China and the western English speaking countries members.
+Each of them has expertise in their local markets, and with average 3+ years’ experience in blockchain industry.</p>
                         <List
                             grid={{
                                 gutter: 16,
