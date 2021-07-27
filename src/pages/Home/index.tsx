@@ -491,7 +491,7 @@ const Home: React.FC = () =>  {
 Each of them has expertise in their local markets, and with average 3+ years’ experience in blockchain industry.</p>
                         <List
                             grid={{
-                                gutter: 16,
+                                gutter: 30,
                                 xs: 1,
                                 sm: 1,
                                 md: 3,
