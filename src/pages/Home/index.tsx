@@ -207,7 +207,7 @@ const FifthContent = styled.div`
         line-height: 24px;
         color: #79869F;
         display: block;
-        width: 430px;
+        width: 500px;
         @media (max-width: 767px) {
             width: 100%;
         }
