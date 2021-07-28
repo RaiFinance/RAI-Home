@@ -28,12 +28,21 @@ import IDOGIF from '../../assets/images/home/IDO.gif'
 import Alphabit from '../../assets/images/home/Alphabit.png'
 import NGC from '../../assets/images/home/NGC.png'
 import TheLeagueofTraders from '../../assets/images/home/TheLeagueofTraders.png'
+import Avalanche from '../../assets/images/home/AVALANCHE.png'
+import Chainlink from '../../assets/images/home/Chainlink.png'
+import Cobak from '../../assets/images/home/cobak.png'
+import Litentry from '../../assets/images/home/Litentry.png'
+import Launchpsl from '../../assets/images/home/Launchpsl.png'
+import Thegraph from '../../assets/images/home/thegraph.png'
+import KPA from '../../assets/images/home/KPA.png'
+import Bounce from '../../assets/images/home/Bounce.png'
+import Tidal from '../../assets/images/home/TIDAL.png'
+import Darwinia from '../../assets/images/home/DARWINIA.png'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
 import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.svg'
 import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
-import {ReactComponent as WeChatLogo} from '../../assets/images/home/svg/WeChat.svg'
 import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
 import './index.less';
 
@@ -42,9 +51,7 @@ const { Link } = Anchor;
 const HeaderContent = styled.div`
     max-width: 1200px;
     margin: 0 auto;
-    @media (max-width: 1200px) {
-        padding: 0 130px;
-    }
+    padding: 0 50px;
     @media (max-width: 767px) {
         padding: 0 20px;
     }
@@ -58,7 +65,7 @@ const FirstContent = styled.div`
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 260px 0 50px;
+        padding: 260px 50px 50px;
         position: relative;
         overflow: hidden;
         &:before{
@@ -79,7 +86,7 @@ const FirstContent = styled.div`
             }
         }
         @media (max-width: 1200px) {
-            padding: 260px 130px 100px;
+            padding: 260px 50px 100px;
         }
         @media (max-width: 767px) {
             padding: 220px 20px 20px;
@@ -92,7 +99,7 @@ const SecondContent = styled.div`
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 130px;
+        padding: 100px 50px;
         @media (max-width: 767px) {
             padding: 20px;
         }
@@ -109,9 +116,9 @@ const ThirdContent = styled.div`
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 0;
+        padding: 130px 50px;
         @media (max-width: 1200px) {
-            padding: 100px 130px;
+            padding: 100px 50px;
         }
         @media (max-width: 767px) {
             padding: 20px;
@@ -123,6 +130,23 @@ const ThirdContent = styled.div`
         line-height: 40px;
         color: #79869F;
         padding: 0;
+    }
+`
+
+const FourthContent = styled.div`
+    background: #EDFDF7;
+    margin-top: -30px;
+    @media (max-width: 767px) {
+        margin-top: -10px;
+    }
+    &>div{
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 50px;
+        @media (max-width: 767px) {
+            padding: 20px;
+            margin-top: -10px;
+        }
     }
     .product{
         position: relative;
@@ -154,14 +178,23 @@ const ThirdContent = styled.div`
             }
         }
     }
-    .whitepaper{
-        margin-top: 60px;
+`
+const FifthContent = styled.div`
+    &>div{
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 50px;
         @media (max-width: 767px) {
-            margin-top: 20px;
+            padding: 20px;
+        }
+    }
+    .whitepaper{
+        @media (max-width: 767px) {
+            text-align: center;
         }
         .img{
             width: auto;
-            height: 440px;
+            height: 280px;
             @media (max-width: 767px) {
                 width: 100%;
                 height: auto;
@@ -169,20 +202,25 @@ const ThirdContent = styled.div`
         }
     }
     .tokenDes{
+        text-align: left;
         font-size: 14px;
         line-height: 24px;
         color: #79869F;
         display: block;
+        width: 430px;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
     }
 `
-const FourthContent = styled.div`
+const SixthContent = styled.div`
     background: rgba(255, 255, 255, 0.6);
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px 0;
+        padding: 50px;
         @media (max-width: 1200px) {
-            padding: 100px 130px;
+            padding: 100px 50px;
         }
         @media (max-width: 767px) {
             padding: 20px;
@@ -201,15 +239,15 @@ const FourthContent = styled.div`
     }
 `
 
-const FifthContent = styled.div`
+const SeventhContent = styled.div`
     background: radial-gradient(50% 50% at 110% 20%, rgba(60, 23, 184, 0.3) 0%, rgba(170, 94, 255, 0) 100%), radial-gradient(50% 50% at 110% 80%, rgba(60, 23, 184, 0.3) 0%, rgba(170, 94, 255, 0) 100%);
     backdrop-filter: blur(10px);
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px 0;
+        padding: 50px;
         @media (max-width: 1200px) {
-            padding: 100px 130px;
+            padding: 100px 50px;
         }
         @media (max-width: 767px) {
             padding: 20px;
@@ -448,43 +486,47 @@ const Home: React.FC = () =>  {
                                 </div>
                             </Col>
                         </Row>
-                        <h2 id="Product" style={{textAlign: 'center', paddingTop: '120px'}}>RAI Finance Product</h2>
-                        <Row className="product">
-                            <Col md={12} sm={24}>
-                            </Col>
-                            <Col md={12} sm={24}>
-                                <h3>STS</h3>
-                                <p>Social trading system combines both trading and socializing</p>
-                                <h3>DEX</h3>
-                                <p>Trade multi-chain assets in an decentralized way</p>
-                                <h3>SWAP</h3>
-                                <p>The fastest way to swap-and-go your multi-chain assets</p>
-                                <h3>IDO</h3>
-                                <p>Access to high quality early stage projects via Initial DeFi Offering</p>
-                                <h3>Others</h3>
-                                <p> Provide a wider usecase range for web 3.0 finance</p>
-                            </Col>
-                        </Row>
-                        <Row className="whitepaper">
-                            <Col md={10} sm={24}>
-                                <h2 id="Whitepaper" style={{paddingTop: '40px'}}>RAI Finance's Whitepaper</h2>
-                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
-                                <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
-                                <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
-                                <ul className="compenyList">
-                                    <li><img src={Bithumb}/></li>
-                                    <li><img src={HuoBiGlobal}/></li>
-                                    <li><img src={Dodo}/></li>
-                                    <li><img src={PancakeSwap}/></li>
-                                </ul>
-                            </Col>
-                            <Col md={14} sm={24}>
-                                <img className="img" src={Image4} />
-                            </Col>
-                        </Row>
                     </div>
                 </ThirdContent>
                 <FourthContent>
+                    <h2 id="Product" style={{textAlign: 'center', paddingTop: '50px'}}>RAI Finance Product</h2>
+                    <Row className="product">
+                        <Col md={12} sm={24}>
+                        </Col>
+                        <Col md={12} sm={24}>
+                            <h3>STS</h3>
+                            <p>Social trading system combines both trading and socializing</p>
+                            <h3>DEX</h3>
+                            <p>Trade multi-chain assets in an decentralized way</p>
+                            <h3>SWAP</h3>
+                            <p>The fastest way to swap-and-go your multi-chain assets</p>
+                            <h3>IDO</h3>
+                            <p>Access to high quality early stage projects via Initial DeFi Offering</p>
+                            <h3>Others</h3>
+                            <p> Provide a wider usecase range for web 3.0 finance</p>
+                        </Col>
+                    </Row>
+                </FourthContent>
+                <FifthContent>
+                    <Row className="whitepaper">
+                        <Col md={14} sm={24}>
+                            <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
+                            <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
+                            <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
+                            <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
+                            <ul className="compenyList">
+                                <li><img src={Bithumb}/></li>
+                                <li><img src={HuoBiGlobal}/></li>
+                                <li><img src={Dodo}/></li>
+                                <li><img src={PancakeSwap}/></li>
+                            </ul>
+                        </Col>
+                        <Col md={8} offset={2} sm={24}>
+                            <img className="img" src={Image4} />
+                        </Col>
+                    </Row>
+                </FifthContent>
+                <SixthContent>
                     <div>
                         <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
                         <p> The team consists of Korea, China and the western English speaking countries members.
@@ -520,24 +562,61 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             )}
                         />
                     </div>
-                </FourthContent>
-                <FifthContent>
+                </SixthContent>
+                <SeventhContent>
                     <div>
                         <h2 style={{textAlign: 'center'}}>Partners</h2>
-                        <Row
-                            gutter={16}
+                        <div
                             className="parteners"
                         >
-                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                            <div>
                                 <img src={Alphabit}/>
-                            </Col>
-                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                            </div>
+                            <div>
                                 <img src={NGC}/>
-                            </Col>
-                            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+                            </div>
+                            <div>
                                 <img src={TheLeagueofTraders}/>
-                            </Col>
-                        </Row>
+                            </div>
+                        </div>
+                        <div
+                            className="parteners2"
+                        >
+                            <div>
+                                <img src={Avalanche}/>
+                            </div>
+                            <div>
+                                <img src={Chainlink}/>
+                            </div>
+                            <div>
+                                <img src={Cobak}/>
+                            </div>
+                            <div>
+                                <img src={Litentry}/>
+                            </div>
+                            <div>
+                                <img src={Launchpsl}/>
+                            </div>
+                        </div>
+                        <div
+                            className="parteners2"
+                        >
+                            <div>
+                                <img src={Thegraph}/>
+                            </div>
+                            <div>
+                                <img src={KPA}/>
+                            </div>
+                            <div>
+                                <img src={Bounce}/>
+                            </div>
+                            <div>
+                                <img src={Tidal}/>
+                            </div>
+                            <div>
+                                <img src={Darwinia}/>
+                            </div>
+                        </div>
                         <div style={{marginTop: '100px'}}>
                             <StyledLink target='_blank' href="https://github.com/RaiFinance">
                                 <GithubLogo fill="#fff"/>
@@ -562,7 +641,7 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             </Copyright>  
                         </div>
                     </div>
-                </FifthContent>
+                </SeventhContent>
             </Content>     
         </Layout>
     )

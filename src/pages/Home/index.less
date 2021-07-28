@@ -24,7 +24,7 @@
             grid-template-columns: repeat(5, auto);
             align-items: center;
             justify-items: center;
-            margin-right: -50px;
+            margin-right: -20px;
         }
         .Logo {
             float: left;
@@ -119,6 +119,14 @@
     }
     .compenyList{
       list-style: none;
+      padding-left: 0;
+      display: grid;
+      padding-right: 220px;
+      grid-template-columns: repeat(4, auto);
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(2, auto);
+        padding: 0 50px;
+      }
       li{
         display: inline-block;
         height: 18px;
@@ -130,10 +138,28 @@
       }
     }
     .parteners{
-      // margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 30px;
       margin: 50px 100px 0!important;
+      &>div{
+        margin: 0 auto;
+        &:first-of-type{
+          margin-left: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+        &:last-of-type{
+          margin-right: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+      }
       @media (max-width: 767px) {
         margin: 50px 20px 0!important;
+        grid-template-columns: repeat(1, auto);
       }
       .ant-col{
         margin-bottom: 20px;
@@ -142,6 +168,35 @@
         height: 40px;
         display: block;
         margin: 0 auto;
+        width: auto;
+      }
+    }
+    .parteners2{
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      grid-gap: 30px;
+      margin: 50px 100px 0!important;
+      @media (max-width: 767px) {
+        margin: 50px 20px 0!important;
+        grid-template-columns: repeat(2, auto);
+      }
+      &>div{
+        margin: 0 auto;
+        &:first-of-type{
+          margin-left: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+        &:last-of-type{
+          margin-right: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+      }
+      img{
+        height: 40px;
         width: auto;
       }
     }
@@ -223,6 +278,7 @@
     }
     .defiCarousel{
       position: relative;
+      z-index: 100;
       @media (max-width: 767px) {
         margin-top: 50px;
         padding: 0 30px;
