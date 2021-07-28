@@ -358,11 +358,11 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <a href="#Finance">Finance</a>
-                            <a href="#Experience">Experience</a>
+                            <a href="/">Home</a>
+                            <a href="#Experience">Product</a>
                             <a href="#Whitepaper">Whitepaper</a>
-                            <a href="#Product">Product</a>
-                            <a href="#Team">Team</a>
+                            <a href="/">Roadmap</a>
+                            <a href="https://alpha.rai.finance/#/">Beta Product</a>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -379,7 +379,7 @@ const Home: React.FC = () =>  {
                                 <p>
                                 RAI Finance aims to become the epicenter of the Web 3.0 world, through the issuance of digital assets, cross chain trading and its social trading platform.
                                 </p>
-                                <Button type="primary"><a href="https://alpha.rai.finance/#/" target="_blank">Enter</a></Button>
+                                <Button type="primary"><a href="https://alpha.rai.finance/#/" target="_blank">Try Beta</a></Button>
                             </Col>
                             <Col md={12} sm={24}>
                                 <img src={Image1} />
