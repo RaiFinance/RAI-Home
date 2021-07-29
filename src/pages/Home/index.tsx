@@ -38,6 +38,9 @@ import KPA from '../../assets/images/home/KPA.png'
 import Bounce from '../../assets/images/home/Bounce.png'
 import Tidal from '../../assets/images/home/TIDAL.png'
 import Darwinia from '../../assets/images/home/DARWINIA.png'
+import Inverst from '../../assets/images/home/Invest.png'
+import Communicate from '../../assets/images/home/Communicate.png'
+import Analyze from '../../assets/images/home/Analyze.png'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
@@ -470,14 +473,17 @@ const Home: React.FC = () =>  {
                                     <li>Invest with professionals</li>
                                 </ul>
                             </Col> 
-                            <Col md={14} sm={24}>
+                            <Col md={12} offset={2} sm={24}>
                                 <div className="defiCarousel">
                                     <Carousel autoplay dots={false} ref={carouselRef as any}>
                                         <div className="item">
+                                            <img src={Inverst}/>
                                         </div>
                                         <div className="item">
+                                            <img src={Analyze}/>
                                         </div>
                                         <div className="item">
+                                            <img src={Communicate}/>
                                         </div>
                                     </Carousel>
                                     <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
