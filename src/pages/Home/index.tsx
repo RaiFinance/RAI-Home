@@ -475,7 +475,7 @@ const Home: React.FC = () =>  {
                                     <li>Invest with professionals</li>
                                 </ul>
                             </Col> 
-                            <Col md={12} offset={2} sm={24}>
+                            <Col md={{span: 12, offset: 2}} sm={24}>
                                 <div className="defiCarousel">
                                     <Carousel autoplay dots={false} ref={carouselRef as any}>
                                         <div className="item">
@@ -531,7 +531,7 @@ const Home: React.FC = () =>  {
                                 <li><img src={Bitwell}/></li>
                             </ul>
                         </Col>
-                        <Col md={8} offset={2} sm={24}>
+                        <Col md={{span: 8, offset: 2}} sm={24}>
                             <img className="img" src={Image4} />
                         </Col>
                     </Row>
@@ -607,10 +607,6 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             <div>
                                 <img src={Launchpsl}/>
                             </div>
-                        </div>
-                        <div
-                            className="parteners2"
-                        >
                             <div>
                                 <img src={Thegraph}/>
                             </div>

@@ -181,12 +181,30 @@
       grid-gap: 30px;
       margin: 50px 100px 0!important;
       @media (max-width: 767px) {
-        margin: 50px 20px 0!important;
+        margin: 50px 0 0!important;
         grid-template-columns: repeat(2, auto);
       }
       &>div{
         margin: 0 auto;
         &:first-of-type{
+          margin-left: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+        &:nth-of-type(4){
+          margin-right: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+        &:nth-of-type(5){
+          margin-right: 0;
+          @media (max-width: 767px) {
+            margin: 0 auto;
+          }
+        }
+        &:nth-of-type(6){
           margin-left: 0;
           @media (max-width: 767px) {
             margin: 0 auto;
@@ -202,6 +220,7 @@
       img{
         height: 40px;
         width: auto;
+        max-width: calc(50vw - 30px);
       }
     }
     .raiFinance{
@@ -315,6 +334,7 @@
         color: #1B1B1B;
         font-weight: 600;
         border:none;
+        z-index: 100;
         &:hover{
           background: #FCD6EC;
         }
