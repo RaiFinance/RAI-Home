@@ -41,6 +41,8 @@ import Darwinia from '../../assets/images/home/DARWINIA.png'
 import Inverst from '../../assets/images/home/Invest.png'
 import Communicate from '../../assets/images/home/Communicate.png'
 import Analyze from '../../assets/images/home/Analyze.png'
+import Bibox from '../../assets/images/home/Bibox.png'
+import Bitwell from '../../assets/images/home/Bitwell.png'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
@@ -525,6 +527,8 @@ const Home: React.FC = () =>  {
                                 <li><img src={HuoBiGlobal}/></li>
                                 <li><img src={Dodo}/></li>
                                 <li><img src={PancakeSwap}/></li>
+                                <li><img src={Bibox}/></li>
+                                <li><img src={Bitwell}/></li>
                             </ul>
                         </Col>
                         <Col md={8} offset={2} sm={24}>
