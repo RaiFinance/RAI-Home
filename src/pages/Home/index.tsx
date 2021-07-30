@@ -365,9 +365,9 @@ const Home: React.FC = () =>  {
                         <nav className="Nav">
                             <a href="/">Home</a>
                             <a href="#Experience">Product</a>
-                            <a href="#Whitepaper">Whitepaper</a>
+                            <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
-                            <a href="https://alpha.rai.finance/#/">Beta Product</a>
+                            <Button type="primary"><a href="https://alpha.rai.finance/#/">Launch Beta</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
