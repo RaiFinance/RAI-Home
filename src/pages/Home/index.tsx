@@ -367,7 +367,7 @@ const Home: React.FC = () =>  {
                             <a href="#Experience">Product</a>
                             <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
-                            <Button type="primary"><a href="https://alpha.rai.finance/#/">Launch Beta</a></Button>
+                            <Button type="primary"><a href="https://betapro.rai.finance">Launch Beta</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -384,7 +384,7 @@ const Home: React.FC = () =>  {
                                 <p>
                                 RAI Finance aims to become the epicenter of the Web 3.0 world, through the issuance of digital assets, cross chain trading and its social trading platform.
                                 </p>
-                                <Button type="primary"><a href="https://alpha.rai.finance/#/" target="_blank">Try Test Product</a></Button>
+                                <Button type="primary"><a href="https://betapro.rai.finance" target="_blank">Try Test Product</a></Button>
                             </Col>
                             <Col md={12} sm={24}>
                                 <img src={Image1} />
