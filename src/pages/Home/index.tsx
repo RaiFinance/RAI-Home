@@ -292,11 +292,6 @@ const Home: React.FC = () =>  {
           img: Team2,
           des: 'Co-founder & COO at DEXEOS \nCo-founder at League of Traders \nResearcher at Samsung Electronics \nBA at Seoul National University, Industrial Engineering'
         },
-        {
-          title: 'CMO, Sandy Liang',
-          img: Team3,
-          des: 'Operation Director at BitKan \nSenior Operation Manager at Ontology \nMA at Hong Kong Polytechnic University, Bilingual Corporate Communication'
-        },
       ];
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -547,10 +542,10 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                                 gutter: 30,
                                 xs: 1,
                                 sm: 1,
-                                md: 3,
-                                lg: 3,
-                                xl : 3,
-                                xxl: 3
+                                md: 2,
+                                lg: 2,
+                                xl : 2,
+                                xxl: 2
                             }}
                             dataSource={data}
                             renderItem={item => (
