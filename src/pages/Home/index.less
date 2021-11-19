@@ -126,6 +126,7 @@
       list-style: none;
       padding-left: 0;
       display: grid;
+      margin: 10px 0;
       padding-right: 220px;
       grid-template-columns: repeat(3, auto);
       grid-gap: 10px;
@@ -134,12 +135,16 @@
         padding: 0 50px;
       }
       li{
-        display: inline-block;
+        display: flex;
         height: 18px;
         margin-right: 20px;
+        font-size: 14px;
         img{
           width: auto;
           height: 18px;
+        }
+        svg{
+          width: 30px;
         }
       }
     }

@@ -20,6 +20,7 @@ import PancakeSwap from '../../assets/images/home/PancakeSwap.png'
 import CrossChain from '../../assets/images/home/CrossChain.png'
 import SocialTrading from '../../assets/images/home/SocialTrading.png'
 import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
+import {ReactComponent as KLAYswap} from '../../assets/images/home/KLAYswap.svg'
 import IDO from '../../assets/images/home/IDO.png'
 import CrossChainGIF from '../../assets/images/home/Cross-Chain.gif'
 import SocialTradingGIF from '../../assets/images/home/Social-Trading.gif'
@@ -217,6 +218,15 @@ const FifthContent = styled.div`
             width: 100%;
         }
     }
+    p{
+        margin-bottom: 0;
+        &:first-of-type{
+            margin-top: 20px;
+        }
+        a{
+            text-decoration: underline;
+        }
+    }
 `
 const SixthContent = styled.div`
     background: rgba(255, 255, 255, 0.6);
@@ -358,7 +368,7 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <a href="/">Home</a>
+                            <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
                             <a href="#Experience">Product</a>
                             <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
@@ -516,16 +526,18 @@ const Home: React.FC = () =>  {
                         <Col md={14} sm={24}>
                             <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
                             <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
-                            <h3>RAI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
-                            <span className="tokenDes">RAI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
+                            <h3>SOFI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
+                            <span className="tokenDes">SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
                             <ul className="compenyList">
                                 <li><img src={Bithumb}/></li>
                                 <li><img src={HuoBiGlobal}/></li>
                                 <li><img src={Dodo}/></li>
-                                <li><img src={PancakeSwap}/></li>
+                                <li><KLAYswap/>KLAYswap</li>
                                 <li><img src={Bibox}/></li>
-                                <li><img src={Bitwell}/></li>
                             </ul>
+                            <p>SOFI was rebranded from RAI since November 2021. </p>
+                            <p>For more details, please visit <a href="https://medium.com/rai-finance/rai-finances-brand-is-deeply-upgraded-to-socialization-token-ticker-is-changed-to-sofi-210123adf84f">RAI Finance Rebranding</a>
+                            </p>
                         </Col>
                         <Col md={{span: 8, offset: 2}} sm={24} xs={24}>
                             <img className="img" src={Image4} />
