@@ -368,7 +368,7 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
+                            {/* <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button> */}
                             <a href="#Experience">Product</a>
                             <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
@@ -526,7 +526,13 @@ const Home: React.FC = () =>  {
                         <Col md={14} sm={24}>
                             <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
                             <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
-                            <h3>SOFI Token&nbsp;&nbsp;<img style={{width: '32px'}} src={RAIToken} /></h3>
+                            <h3 className="tokenName" >
+                                SOFI Token
+                                &nbsp;&nbsp;
+                                <img style={{width: '32px'}} src={RAIToken} />
+                                &nbsp;&nbsp;
+                                Contract: <a href="https://etherscan.io/token/0xB49fa25978abf9a248b8212Ab4b87277682301c0" >0xB49fa25978abf9a248b8212Ab4b87277682301c0</a>
+                            </h3>
                             <span className="tokenDes">SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
                             <ul className="compenyList">
                                 <li><img src={Bithumb}/></li>
