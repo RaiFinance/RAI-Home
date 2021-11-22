@@ -370,6 +370,7 @@ const Home: React.FC = () =>  {
                         <nav className="Nav">
                             <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
                             <a href="#Experience">Product</a>
+                            <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
                             <Button type="primary"><a target="_blank" href="https://betapro.rai.finance">Launch Beta</a></Button>
