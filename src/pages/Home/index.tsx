@@ -2,8 +2,13 @@ import React, {useEffect, useState, useRef} from 'react'
 import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
+//@ts-ignore
+import FlipCountdown from '@rumess/react-flip-countdown';
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
+import LogoWhite from "../../assets/images/logo-white.png"
+import BannerImg from '../../assets/images/home/Banner.jpg'
+import Img1 from '../../assets/images/home/img1.png'
 import Image1 from '../../assets/images/home/image1.png'
 import Image11 from '../../assets/images/home/image1-1.png'
 import Image2 from '../../assets/images/home/image2.png'
@@ -63,11 +68,54 @@ const HeaderContent = styled.div`
     }
 `
 
+const Banner = styled.div`
+    background: url(${BannerImg}) no-repeat;
+    background-position: center;
+    background-size: 100%;
+    height: 630px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 1200px) {
+        background-size: 100% 100%;
+    }
+    @media (max-width: 992px) {
+        background-size: auto 100%;
+    }
+    @media (max-width: 767px) {
+        background-size: auto 100%;
+    }
+    h1{
+        color: #fff;
+        text-align: center;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 220px;
+            margin-right: 20px;
+        }
+        @media (max-width: 767px) {
+            font-size: 20px;
+            img{
+                width: 110px;
+                margin-right: 20px;
+            }
+        }
+    }
+    p{
+        color: #FFA9EC;
+        text-align: center;
+        margin-top: 20px;
+        letter-spacing: 3.2px;
+    }
+`
+
 const FirstContent = styled.div`
     background: radial-gradient(50% 50% at 0 100%, rgba(60, 23, 184, 0.2) 0%, rgba(60, 23, 184, 0) 100%),
     radial-gradient(50% 50% at 90% 10%, rgba(170, 94, 255, 0.1) 0%, rgba(60, 23, 184, 0) 100%);
     backdrop-filter: blur(10px);
-    margin-top: -100px;
     &>div{
         max-width: 1200px;
         margin: 0 auto;
@@ -305,7 +353,9 @@ const Home: React.FC = () =>  {
       ];
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [isScroll, setIsScroll] = useState(false);
     const carouselRef = useRef<any>()
+
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
         return () => {
@@ -326,11 +376,9 @@ const Home: React.FC = () =>  {
 
         var scrollTop = document.documentElement.scrollTop;
         if (scrollTop >= 60) {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = '#fff';
+            setIsScroll(true)
         } else {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = 'transparent';
+            setIsScroll(false)
         }
     }
   
@@ -358,9 +406,9 @@ const Home: React.FC = () =>  {
 
     return (
         <Layout className="homePage">
-            <Header>
+            <Header className={`${isScroll ? 'light' : 'transparent'}`}>
                 <HeaderContent className="header">
-                    <img className="Logo" src={Logo} alt="logo" />
+                    <img className="Logo" src={isScroll ? Logo : LogoWhite} alt="logo" />
                     <CSSTransition
                         in={!isSmallScreen || isNavVisible}
                         timeout={350}
@@ -382,6 +430,26 @@ const Home: React.FC = () =>  {
                 </HeaderContent>
             </Header>
             <Content>
+                <Banner>
+                    <div>
+                        <h1><img src={Img1}/>Mainnet launching on</h1>
+                        <FlipCountdown
+                            theme='light'
+                            titlePosition='bottom'
+                            hideYear
+                            hideMonth
+                            endAt={new Date(
+                                // Date.now() +
+                                // 1000 /* sec */ *
+                                // 60 /* min */ *
+                                // 60 /* hour */ *
+                                // 24 /* day */
+                                '2021-11-29 20:00'
+                            ).toUTCString()}
+                        />
+                        <p>21:00 UTC +9 29th November,2021</p>
+                    </div>
+                </Banner>
                 <FirstContent>
                     <div>
                         <Row>

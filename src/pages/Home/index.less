@@ -3,18 +3,28 @@
     scroll-behavior: smooth;
     .ant-layout-header{
         position: fixed;
-        z-index: 1;
         width: 100%;
+        z-index: 1;
         background: none;
         height: 100px;
         line-height: 100px;
         padding: 0;
+        &.transparent{
+          background: transparent!important;
+          .Nav a {
+            color: #fff;
+          }
+        }
+        &.light{
+          background: #fff!important;
+          .Nav a {
+            color: #000;
+          }
+        }
     }
     .header{
         background: none;
         width: 100%;
-        
-        
         display: grid;
         grid-template-areas: "logo nav";
                 
@@ -42,7 +52,6 @@
             grid-area: logo;
         }
           .Nav a {
-            color: #000;
             font-size: 20px;
             font-weight: 500;
             transition: 0.5s;
@@ -104,7 +113,7 @@
     }
     @media (max-width: 767px) {
         .header {
-            width: 100vw;
+          width: 100vw;
           grid-template-areas: "logo burger" "nav nav";
         }
         .Nav a {
@@ -421,5 +430,63 @@
   .tokenName {
     display: flex;
     align-items: center;
+    a{
+      word-break: break-all;
+    }
+  }
+  .flip-countdown{
+    .flip-countdown-title{
+      color: #fff;
+      display: none;
+    }
+    .flip-countdown-piece{
+      margin: 0 10px;
+      &:not(:first-of-type,:last-of-type){
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          top: calc(50% - 10px);
+          transform: translateY(-50%);
+          right: -15px;
+          height: 10px;
+          width: 10px;
+          border-radius: 10px;
+          background-color: #fff;
+        }
+        &::after{
+          content: '';
+          position: absolute;
+          top: calc(50% + 10px);
+          transform: translateY(-50%);
+          right: -15px;
+          height: 10px;
+          width: 10px;
+          border-radius: 10px;
+          background-color: #fff;
+        }
+      }
+    }
+    .flip-countdown-card{
+      .flip-countdown-card-sec{
+        @media (max-width: 767px) {
+          font-size: 40px!important;
+        }
+        .card__top{
+          color: #fff!important;
+          background: linear-gradient(180deg, #2C0C66 0%, #410168 100%)!important;
+        }
+        .card__bottom{
+          color: #fff!important;
+          background: linear-gradient(180deg, #2C0C66 0%, #410168 100%)!important;
+        }
+        .card__back{
+          &::before{
+            color: #fff!important;
+            background: linear-gradient(180deg, #2C0C66 0%, #410168 100%)!important;
+          }
+        }
+      }
+    }
   }
 }
