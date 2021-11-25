@@ -119,13 +119,13 @@ const FirstContent = styled.div`
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 260px 50px 50px;
+        padding: 150px 50px 150px;
         position: relative;
         overflow: hidden;
         &:before{
             content: '';
             position: absolute;
-            top: 40px;
+            top: 0px;
             left: 50%;
             width: 100%;
             height: 100%;
@@ -140,10 +140,10 @@ const FirstContent = styled.div`
             }
         }
         @media (max-width: 1200px) {
-            padding: 260px 50px 100px;
+            padding: 150px 50px 100px;
         }
         @media (max-width: 767px) {
-            padding: 220px 20px 20px;
+            padding: 150px 20px 20px;
         }
     }
 `
@@ -438,14 +438,7 @@ const Home: React.FC = () =>  {
                             titlePosition='bottom'
                             hideYear
                             hideMonth
-                            endAt={new Date(
-                                // Date.now() +
-                                // 1000 /* sec */ *
-                                // 60 /* min */ *
-                                // 60 /* hour */ *
-                                // 24 /* day */
-                                '2021-11-29 20:00'
-                            ).toUTCString()}
+                            endAt={new Date('2021-11-29 20:00').toUTCString()}
                         />
                         <p>21:00 UTC +9 29th November,2021</p>
                     </div>
