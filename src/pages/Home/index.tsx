@@ -2,13 +2,8 @@ import React, {useEffect, useState, useRef} from 'react'
 import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
-//@ts-ignore
-import FlipCountdown from '@rumess/react-flip-countdown';
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
-import LogoWhite from "../../assets/images/logo-white.png"
-import BannerImg from '../../assets/images/home/Banner.jpg'
-import Img1 from '../../assets/images/home/img1.png'
 import Image1 from '../../assets/images/home/image1.png'
 import Image11 from '../../assets/images/home/image1-1.png'
 import Image2 from '../../assets/images/home/image2.png'
@@ -49,6 +44,7 @@ import Communicate from '../../assets/images/home/Communicate.png'
 import Analyze from '../../assets/images/home/Analyze.png'
 import Bibox from '../../assets/images/home/Bibox.png'
 import Bitwell from '../../assets/images/home/Bitwell.png'
+import ETH_Ploygon from '../../assets/images/home/eth_polygon.png'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
@@ -68,65 +64,21 @@ const HeaderContent = styled.div`
     }
 `
 
-const Banner = styled.div`
-    background: url(${BannerImg}) no-repeat;
-    background-position: center;
-    background-size: 100%;
-    height: 630px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 1200px) {
-        background-size: 100% 100%;
-    }
-    @media (max-width: 992px) {
-        background-size: auto 100%;
-    }
-    @media (max-width: 767px) {
-        background-size: auto 100%;
-    }
-    h1{
-        color: #fff;
-        text-align: center;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
-            width: 220px;
-            margin-right: 20px;
-        }
-        @media (max-width: 767px) {
-            font-size: 20px;
-            img{
-                width: 110px;
-                margin-right: 20px;
-            }
-        }
-    }
-    p{
-        color: #FFA9EC;
-        text-align: center;
-        margin-top: 20px;
-        letter-spacing: 3.2px;
-        word-break: break-all;
-    }
-`
-
 const FirstContent = styled.div`
     background: radial-gradient(50% 50% at 0 100%, rgba(60, 23, 184, 0.2) 0%, rgba(60, 23, 184, 0) 100%),
     radial-gradient(50% 50% at 90% 10%, rgba(170, 94, 255, 0.1) 0%, rgba(60, 23, 184, 0) 100%);
     backdrop-filter: blur(10px);
+    margin-top: -100px;
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 150px 50px 150px;
+        padding: 260px 50px 50px;
         position: relative;
         overflow: hidden;
         &:before{
             content: '';
             position: absolute;
-            top: 0px;
+            top: 40px;
             left: 50%;
             width: 100%;
             height: 100%;
@@ -141,10 +93,28 @@ const FirstContent = styled.div`
             }
         }
         @media (max-width: 1200px) {
-            padding: 150px 50px 100px;
+            padding: 260px 50px 100px;
         }
         @media (max-width: 767px) {
-            padding: 150px 20px 20px;
+            padding: 220px 20px 20px;
+        }
+    }
+    h1{
+        margin-bottom: 20px;
+    }
+    .launched{
+        margin-bottom: 20px;
+        p{
+            font-size: 16px;
+            color: #000;
+        }
+        img{
+            height: 43px;
+            width: auto;
+            @media (max-width: 767px) {
+                height: auto;
+                width: 180px;
+            }
         }
     }
 `
@@ -317,7 +287,6 @@ const SeventhContent = styled.div`
             padding: 20px;
         }
     }
-
 `
 const StyledLink = styled.a`
     display: inline-block;
@@ -330,7 +299,6 @@ const StyledLink = styled.a`
             .cls-1{fill:#fff;}
             .cls-2{fill:#3C17B8;}
         }
-
     }
 `
 
@@ -354,9 +322,7 @@ const Home: React.FC = () =>  {
       ];
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-    const [isScroll, setIsScroll] = useState(false);
     const carouselRef = useRef<any>()
-
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
         return () => {
@@ -377,9 +343,11 @@ const Home: React.FC = () =>  {
 
         var scrollTop = document.documentElement.scrollTop;
         if (scrollTop >= 60) {
-            setIsScroll(true)
+            //@ts-ignore
+            document.querySelector('.ant-layout-header').style.background = '#fff';
         } else {
-            setIsScroll(false)
+            //@ts-ignore
+            document.querySelector('.ant-layout-header').style.background = 'transparent';
         }
     }
   
@@ -407,9 +375,9 @@ const Home: React.FC = () =>  {
 
     return (
         <Layout className="homePage">
-            <Header className={`${isScroll ? 'light' : 'transparent'}`}>
+            <Header>
                 <HeaderContent className="header">
-                    <img className="Logo" src={isScroll ? Logo : LogoWhite} alt="logo" />
+                    <img className="Logo" src={Logo} alt="logo" />
                     <CSSTransition
                         in={!isSmallScreen || isNavVisible}
                         timeout={350}
@@ -422,28 +390,15 @@ const Home: React.FC = () =>  {
                             <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
-                            <Button type="primary"><a target="_blank" href="https://betapro.rai.finance">Launch Beta</a></Button>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Main Net</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
-                        <MenuOutlined style={{color: `${isScroll ? '#000' : '#fff'}`}}/>
+                        <MenuOutlined />
                     </button>
                 </HeaderContent>
             </Header>
             <Content>
-                <Banner>
-                    <div>
-                        <h1><img src={Img1}/>Mainnet launching on</h1>
-                        <FlipCountdown
-                            theme='light'
-                            titlePosition='bottom'
-                            hideYear
-                            hideMonth
-                            endAt={new Date('2021-11-29 20:00').toUTCString()}
-                        />
-                        <p>21:00 UTC +9 29th November,2021</p>
-                    </div>
-                </Banner>
                 <FirstContent>
                     <div>
                         <Row>
@@ -452,7 +407,11 @@ const Home: React.FC = () =>  {
                                 <p>
                                 RAI Finance aims to become the epicenter of the Web 3.0 world, through the issuance of digital assets, cross chain trading and its social trading platform.
                                 </p>
-                                <Button type="primary"><a href="https://betapro.rai.finance" target="_blank">Try Test Product</a></Button>
+                                <div className="launched">
+                                    <p>RAI Finance product is officially launched on</p>
+                                    <img src={ETH_Ploygon}/>
+                                </div>
+                                <Button type="primary"><a href="https://app.rai.finance" target="_blank">Enter</a></Button>
                             </Col>
                             <Col md={12} sm={24}>
                                 <img src={Image1} />
