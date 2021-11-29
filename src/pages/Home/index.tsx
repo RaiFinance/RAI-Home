@@ -426,7 +426,7 @@ const Home: React.FC = () =>  {
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
-                        <MenuOutlined style={{color: '#fff'}}/>
+                        <MenuOutlined style={{color: `${isScroll ? '#000' : '#fff'}`}}/>
                     </button>
                 </HeaderContent>
             </Header>
