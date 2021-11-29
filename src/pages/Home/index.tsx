@@ -109,6 +109,7 @@ const Banner = styled.div`
         text-align: center;
         margin-top: 20px;
         letter-spacing: 3.2px;
+        word-break: break-all;
     }
 `
 
@@ -425,7 +426,7 @@ const Home: React.FC = () =>  {
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
-                        <MenuOutlined />
+                        <MenuOutlined style={{color: '#fff'}}/>
                     </button>
                 </HeaderContent>
             </Header>
