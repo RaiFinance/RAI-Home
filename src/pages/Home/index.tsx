@@ -57,7 +57,6 @@ const { Header, Sider, Content } = Layout;
 const { Link } = Anchor;
 const HeaderContent = styled.div`
     max-width: 1200px;
-    margin: 0 auto;
     padding: 0 50px;
     @media (max-width: 767px) {
         padding: 0 20px;
@@ -306,6 +305,29 @@ const Copyright = styled.div`
     float: right;
 `
 
+const HeaderNotification = styled.div`
+    width: 100%;
+    padding: 10px 0;
+    background-color: #5542F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+    position: fixed;
+    z-index: 10;
+    a{
+        color: #fff;
+        text-decoration: underline;
+        &:hover{
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+`
+
 const Home: React.FC = () =>  {
 
     const data = [
@@ -375,6 +397,9 @@ const Home: React.FC = () =>  {
 
     return (
         <Layout className="homePage">
+            <HeaderNotification>
+                <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
+            </HeaderNotification>
             <Header>
                 <HeaderContent className="header">
                     <img className="Logo" src={Logo} alt="logo" />
