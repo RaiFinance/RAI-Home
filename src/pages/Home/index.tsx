@@ -398,7 +398,7 @@ const Home: React.FC = () =>  {
     return (
         <Layout className="homePage">
             <HeaderNotification>
-                <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
+                <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance mainnet product and win $50000 USD reward!</a>
             </HeaderNotification>
             <Header>
                 <HeaderContent className="header">
@@ -415,7 +415,7 @@ const Home: React.FC = () =>  {
                             <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
-                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Main Net</a></Button>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Mainnet</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -596,43 +596,6 @@ const Home: React.FC = () =>  {
                         </Col>
                     </Row>
                 </FifthContent>
-                <SixthContent>
-                    <div>
-                        <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
-                        <p> The team consists of Korea, China and the western English speaking countries members.
-Each of them has expertise in their local markets, and with average 3+ years’ experience in blockchain industry.</p>
-                        <List
-                            grid={{
-                                gutter: 30,
-                                xs: 1,
-                                sm: 1,
-                                md: 2,
-                                lg: 2,
-                                xl : 2,
-                                xxl: 2
-                            }}
-                            dataSource={data}
-                            renderItem={item => (
-                            <List.Item>
-                                <Card 
-                                    className="teamCard"
-                                    bordered={false}
-                                    cover={
-                                        <Avatar size={{ xs: 100, sm: 100, md: 100, lg: 180, xl: 180, xxl: 180 }} src={item.img} />
-                                    }
-                                >
-                                    <h2>{item.title}</h2>
-                                    <div className="des">
-                                        <Avatar size={64} src={item.img} />
-                                        <h2 className="name">{item.title}</h2>
-                                        {item.des}
-                                    </div>
-                                </Card>
-                            </List.Item>
-                            )}
-                        />
-                    </div>
-                </SixthContent>
                 <SeventhContent>
                     <div>
                         <h2 style={{textAlign: 'center'}}>Partners</h2>
