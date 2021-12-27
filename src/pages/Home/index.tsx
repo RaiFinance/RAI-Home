@@ -397,9 +397,9 @@ const Home: React.FC = () =>  {
 
     return (
         <Layout className="homePage">
-            <HeaderNotification>
+            {/* <HeaderNotification>
                 <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
-            </HeaderNotification>
+            </HeaderNotification> */}
             <Header>
                 <HeaderContent className="header">
                     <img className="Logo" src={Logo} alt="logo" />
