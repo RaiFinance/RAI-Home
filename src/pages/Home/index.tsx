@@ -51,6 +51,7 @@ import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Teleg
 import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.svg'
 import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
 import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
+import {ReactComponent as SofiToken} from '../../assets/images/home/svg/SOFI.svg'
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
@@ -573,12 +574,14 @@ const Home: React.FC = () =>  {
                             <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
                             <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
                             <h3 className="tokenName" >
-                                SOFI Token
+                                Token
                                 &nbsp;&nbsp;
-                                <img style={{width: '32px'}} src={RAIToken} />
-                                &nbsp;&nbsp;
-                                Contract: <a href="https://etherscan.io/token/0xB49fa25978abf9a248b8212Ab4b87277682301c0" >0xB49fa25978abf9a248b8212Ab4b87277682301c0</a>
+                                <SofiToken />
+                                <br/>
                             </h3>
+                            <h4>
+                            Contract: <a href="https://etherscan.io/token/0xB49fa25978abf9a248b8212Ab4b87277682301c0" >0xB49fa25978abf9a248b8212Ab4b87277682301c0</a>
+                            </h4>
                             <span className="tokenDes">SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
                             <ul className="compenyList">
                                 <li><img src={Bithumb}/></li>
