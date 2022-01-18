@@ -431,9 +431,9 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={12} sm={24}>
-                                <h1>RAI Finance is an <b>application layer project </b>
-                                that provides digital asset users with
-                                <b> social trading systems, aggregated trading </b>
+                                <h1>RAI Finance is an <b>application layer project<br/></b>
+                                that provides digital asset users with<br/>
+                                <b>social trading systems, aggregated trading<br/></b>
                                 and etc. </h1>
                                 <div className="launched">
                                     <p>RAI Finance product is officially launched on</p>
@@ -515,7 +515,7 @@ const Home: React.FC = () =>  {
                             <p>Trade multi-chain assets in an decentralized way</p>
                             <h3>SWAP</h3>
                             <p>The fastest way to swap-and-go your multi-chain assets</p>
-                            <h3>IDO</h3>
+                            <h3>Singularity</h3>
                             <p>Access to high quality early stage projects via Initial DeFi Offering</p>
                             <h3>Others</h3>
                             <p> Provide a wider usecase range for web 3.0 finance</p>
