@@ -529,7 +529,7 @@ const Home: React.FC = () =>  {
                                 <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
                                 <ul>
                                     <li>Share investment set</li>
-                                    <li>Governance with DAO communicate</li>
+                                    <li>Governance with DAO</li>
                                     <li>Analyze investment data</li>
                                     <li>Invest with professionals</li>
                                 </ul>
