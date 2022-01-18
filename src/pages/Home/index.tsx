@@ -101,6 +101,8 @@ const FirstContent = styled.div`
     }
     h1{
         margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: normal;
     }
     .launched{
         margin-bottom: 20px;
@@ -429,10 +431,10 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={12} sm={24}>
-                                <h1>The Epicenter of Web3.0 World</h1>
-                                <p>
-                                RAI Finance aims to become the epicenter of the Web 3.0 world, through the issuance of digital assets, cross chain trading and its social trading platform.
-                                </p>
+                                <h1>RAI Finance is an <b>application layer project </b>
+                                that provides digital asset users with
+                                <b> social trading systems, aggregated trading </b>
+                                and etc. </h1>
                                 <div className="launched">
                                     <p>RAI Finance product is officially launched on</p>
                                     <img src={ETH_Ploygon}/>
@@ -453,7 +455,7 @@ const Home: React.FC = () =>  {
                             gutter={16}
                             className="raiFinance"
                         >
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <img 
                                     id="gif-1" 
                                     src={CrossChain} 
@@ -468,7 +470,7 @@ const Home: React.FC = () =>  {
                                 />
                                 <p>Cross Chain</p>
                             </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <img 
                                     id="gif-2" 
                                     src={SocialTrading} 
@@ -483,22 +485,7 @@ const Home: React.FC = () =>  {
                                 />
                                 <p>Social Trading</p>
                             </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <img 
-                                    id="gif-3" 
-                                    src={UniqueAsset} 
-                                    onMouseOver={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-3').src = UniqueAssetGIF
-                                    }}
-                                    onMouseOut={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-3').src = UniqueAsset
-                                    }}
-                                />
-                                <p>Unique Asset</p>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <img 
                                     id="gif-4" 
                                     src={IDO} 
@@ -511,44 +498,11 @@ const Home: React.FC = () =>  {
                                         document.getElementById('gif-4').src = IDO
                                     }}
                                 />
-                                <p>IDO</p>
+                                <p>Singularity</p>
                             </Col>
                         </Row>
                     </div>
                 </SecondContent> 
-                <ThirdContent>
-                    <div>
-                        <Row>
-                            <Col md={{span: 10}} sm={24} xs={24}>
-                                <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
-                                <ul>
-                                    <li>Share investment set</li>
-                                    <li>Communicate with KOL</li>
-                                    <li>Analyze investment data</li>
-                                    <li>Invest with professionals</li>
-                                </ul>
-                            </Col> 
-                            <Col md={{span: 12, offset: 2}} sm={24} xs={24}>
-                                <div className="defiCarousel">
-                                    <Carousel autoplay dots={false} ref={carouselRef as any}>
-                                        <div className="item">
-                                            <img src={Inverst}/>
-                                        </div>
-                                        <div className="item">
-                                            <img src={Analyze}/>
-                                        </div>
-                                        <div className="item">
-                                            <img src={Communicate}/>
-                                        </div>
-                                    </Carousel>
-                                    <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
-                                    <button className="analyzeBtn" onClick={() => {goTo(1)}}>Analyze</button>
-                                    <button className="communicateBtn" onClick={() => {goTo(2)}}>Communicate</button>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </ThirdContent>
                 <FourthContent>
                     <h2 id="Product" style={{textAlign: 'center', paddingTop: '50px'}}>RAI Finance Product</h2>
                     <Row className="product">
@@ -568,6 +522,39 @@ const Home: React.FC = () =>  {
                         </Col>
                     </Row>
                 </FourthContent>
+                <ThirdContent>
+                    <div>
+                        <Row>
+                            <Col md={{span: 10}} sm={24} xs={24}>
+                                <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
+                                <ul>
+                                    <li>Share investment set</li>
+                                    <li>Governance with DAO communicate</li>
+                                    <li>Analyze investment data</li>
+                                    <li>Invest with professionals</li>
+                                </ul>
+                            </Col> 
+                            <Col md={{span: 12, offset: 2}} sm={24} xs={24}>
+                                <div className="defiCarousel">
+                                    <Carousel autoplay dots={false} ref={carouselRef as any}>
+                                        <div className="item">
+                                            <img src={Inverst}/>
+                                        </div>
+                                        <div className="item">
+                                            <img src={Analyze}/>
+                                        </div>
+                                        <div className="item">
+                                            <img src={Communicate}/>
+                                        </div>
+                                    </Carousel>
+                                    <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
+                                    <button className="analyzeBtn" onClick={() => {goTo(1)}}>Analyze</button>
+                                    <button className="communicateBtn" onClick={() => {goTo(2)}}>DAO</button>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </ThirdContent>
                 <FifthContent>
                     <Row className="whitepaper">
                         <Col md={14} sm={24}>
@@ -599,7 +586,7 @@ const Home: React.FC = () =>  {
                         </Col>
                     </Row>
                 </FifthContent>
-                <SixthContent>
+                {/* <SixthContent>
                     <div>
                         <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
                         <p> The team consists of Korea, China and the western English speaking countries members.
@@ -635,10 +622,10 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             )}
                         />
                     </div>
-                </SixthContent>
+                </SixthContent> */}
                 <SeventhContent>
                     <div>
-                        <h2 style={{textAlign: 'center'}}>Partners</h2>
+                        <h2 style={{textAlign: 'center'}}>Contributer</h2>
                         <div
                             className="parteners"
                         >
