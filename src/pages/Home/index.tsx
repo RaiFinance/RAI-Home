@@ -431,10 +431,10 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={12} sm={24}>
-                                <h1>RAI Finance is an <b>application layer project<br/></b>
-                                that provides digital asset users with<br/>
-                                <b>social trading systems, aggregated trading<br/></b>
-                                and etc. </h1>
+                                <h1>
+                                RAI Finance is a <b>decentralized finance application</b><br/>
+                                that provides digital asset users with <b>social trading system</b>, aggregated swap on <b>heterogeneous blockchains</b>
+                                </h1>
                                 <div className="launched">
                                     <p>RAI Finance product is officially launched on</p>
                                     <img src={ETH_Ploygon}/>
@@ -450,7 +450,7 @@ const Home: React.FC = () =>  {
                 <SecondContent>
                     <div>
                         <h2 id="Finance" style={{textAlign: 'center'}}>What is RAI Finance?</h2>
-                        <p style={{textAlign: 'center'}}>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, cross-chain trading and social function.</p>
+                        <p style={{textAlign: 'center'}}>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross chain technology and various ecosystem, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders</p>
                         <Row
                             gutter={16}
                             className="raiFinance"
@@ -498,7 +498,7 @@ const Home: React.FC = () =>  {
                                         document.getElementById('gif-4').src = IDO
                                     }}
                                 />
-                                <p>Singularity</p>
+                                <p>Raistarter</p>
                             </Col>
                         </Row>
                     </div>
@@ -510,15 +510,13 @@ const Home: React.FC = () =>  {
                         </Col>
                         <Col md={12} sm={24}>
                             <h3>STS</h3>
-                            <p>Social trading system combines both trading and socializing</p>
-                            <h3>DEX</h3>
-                            <p>Trade multi-chain assets in an decentralized way</p>
+                            <p>Social trading system combines both digital asset trading and socializing</p>
                             <h3>SWAP</h3>
-                            <p>The fastest way to swap-and-go your multi-chain assets</p>
-                            <h3>Singularity</h3>
-                            <p>Access to high quality early stage projects via Initial DeFi Offering</p>
-                            <h3>Others</h3>
-                            <p> Provide a wider usecase range for web 3.0 finance</p>
+                            <p>the fastest way to swap and go with your multi-chain assets</p>
+                            <h3>Raistarter</h3>
+                            <p>Access to high quality early stage projects via Raistarter</p>
+                            <h3>Governance</h3>
+                            <p>Decentralized governance for the protocol upgrade</p>
                         </Col>
                     </Row>
                 </FourthContent>
@@ -526,12 +524,11 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={{span: 10}} sm={24} xs={24}>
-                                <h2 id="Experience" className="defiTitle">Socialized Your DeFi Experience</h2>
+                                <h2 id="Experience" className="defiTitle">Socialize your DeFi experience</h2>
                                 <ul>
-                                    <li>Share investment set</li>
-                                    <li>Governance with DAO</li>
-                                    <li>Analyze investment data</li>
-                                    <li>Invest with professionals</li>
+                                    <li>Create and share index tokenset</li>
+                                    <li>Participate in decentralized governance</li>
+                                    <li>Analyze investment data from other portfolio manager</li>
                                 </ul>
                             </Col> 
                             <Col md={{span: 12, offset: 2}} sm={24} xs={24}>
