@@ -498,7 +498,7 @@ const Home: React.FC = () =>  {
                                         document.getElementById('gif-4').src = IDO
                                     }}
                                 />
-                                <p>Raistarter</p>
+                                <p>RaiStarter</p>
                             </Col>
                         </Row>
                     </div>
