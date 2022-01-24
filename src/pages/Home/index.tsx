@@ -432,7 +432,7 @@ const Home: React.FC = () =>  {
                         <Row>
                             <Col md={12} sm={24}>
                                 <h1>
-                                RAI Finance is a decentralized finance application<br/>
+                                RAI Finance is a <b>decentralized finance application</b><br/>
                                 that provides digital asset users with <br/><b>social trading system</b>,<b>aggregated swap</b><br/>on <b>heterogeneous blockchains</b>
                                 </h1>
                                 <div className="launched">
