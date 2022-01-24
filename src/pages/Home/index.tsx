@@ -498,7 +498,7 @@ const Home: React.FC = () =>  {
                                         document.getElementById('gif-4').src = IDO
                                     }}
                                 />
-                                <p>RaiStarter</p>
+                                <p>RAIStarter</p>
                             </Col>
                         </Row>
                     </div>
@@ -513,8 +513,8 @@ const Home: React.FC = () =>  {
                             <p>Social trading system combines both digital asset trading and socializing</p>
                             <h3>SWAP</h3>
                             <p>the fastest way to swap and go with your multi-chain assets</p>
-                            <h3>Raistarter</h3>
-                            <p>Access to high quality early stage projects via Raistarter</p>
+                            <h3>RAIStarter</h3>
+                            <p>Access to high quality early stage projects via RAIStarter</p>
                             <h3>Governance</h3>
                             <p>Decentralized governance for the protocol upgrade</p>
                         </Col>
