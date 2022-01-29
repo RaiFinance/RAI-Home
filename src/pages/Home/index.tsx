@@ -45,6 +45,7 @@ import Analyze from '../../assets/images/home/Analyze.png'
 import Bibox from '../../assets/images/home/Bibox.png'
 import Bitwell from '../../assets/images/home/Bitwell.png'
 import ETH_Ploygon from '../../assets/images/home/eth_polygon.png'
+import GIF from '../../assets/images/home/rai.gif'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
@@ -220,8 +221,8 @@ const FifthContent = styled.div`
             text-align: center;
         }
         .img{
-            width: auto;
-            height: 280px;
+            width: 100%;
+            margin-top: 20px;
             @media (max-width: 767px) {
                 width: 100%;
                 height: auto;
@@ -554,7 +555,7 @@ const Home: React.FC = () =>  {
                 </ThirdContent>
                 <FifthContent>
                     <Row className="whitepaper">
-                        <Col md={14} sm={24}>
+                        <Col md={12} sm={24}>
                             <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
                             <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
                             <h3 className="tokenName" >
@@ -578,8 +579,8 @@ const Home: React.FC = () =>  {
                             <p>For more details, please visit <a href="https://medium.com/rai-finance/rai-finances-brand-is-deeply-upgraded-to-socialization-token-ticker-is-changed-to-sofi-210123adf84f">RAI Finance Rebranding</a>
                             </p>
                         </Col>
-                        <Col md={{span: 8, offset: 2}} sm={24} xs={24}>
-                            <img className="img" src={Image4} />
+                        <Col md={12} sm={24} xs={24}>
+                            <img className="img" src={GIF} />
                         </Col>
                     </Row>
                 </FifthContent>
