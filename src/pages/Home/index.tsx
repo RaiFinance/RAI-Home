@@ -416,7 +416,7 @@ const Home: React.FC = () =>  {
                         <nav className="Nav">
                             <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
                             <a href="#Experience">Product</a>
-                            <a target="_blank" rel="noopener" href="/RAI-Finance.pdf">Whitepaper</a>
+                            <a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
                             <Button type="primary"><a target="_blank" href="https://app.rai.finance">Main Net</a></Button>
@@ -456,7 +456,7 @@ const Home: React.FC = () =>  {
                             gutter={16}
                             className="raiFinance"
                         >
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <img 
                                     id="gif-1" 
                                     src={CrossChain} 
@@ -471,7 +471,7 @@ const Home: React.FC = () =>  {
                                 />
                                 <p>Cross Chain</p>
                             </Col>
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <img 
                                     id="gif-2" 
                                     src={SocialTrading} 
@@ -486,21 +486,6 @@ const Home: React.FC = () =>  {
                                 />
                                 <p>Social Trading</p>
                             </Col>
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
-                                <img 
-                                    id="gif-4" 
-                                    src={IDO} 
-                                    onMouseOver={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-4').src = IDOGIF
-                                    }}
-                                    onMouseOut={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-4').src = IDO
-                                    }}
-                                />
-                                <p>RaiStarter</p>
-                            </Col>
                         </Row>
                     </div>
                 </SecondContent> 
@@ -514,8 +499,6 @@ const Home: React.FC = () =>  {
                             <p>Social trading system combines both digital asset trading and socializing</p>
                             <h3>SWAP</h3>
                             <p>the fastest way to swap and go with your multi-chain assets</p>
-                            <h3>Raistarter</h3>
-                            <p>Access to high quality early stage projects via Raistarter</p>
                             <h3>Governance</h3>
                             <p>Decentralized governance for the protocol upgrade</p>
                         </Col>
@@ -557,7 +540,7 @@ const Home: React.FC = () =>  {
                     <Row className="whitepaper">
                         <Col md={12} sm={24}>
                             <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
-                            <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance.pdf" className="elementor-item">Read More</a></Button>
+                            <Button type="primary"><a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf" className="elementor-item">Read More</a></Button>
                             <h3 className="tokenName" >
                                 Token
                                 &nbsp;&nbsp;
