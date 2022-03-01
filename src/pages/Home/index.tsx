@@ -163,9 +163,9 @@ const ThirdContent = styled.div`
 
 const FourthContent = styled.div`
     background: #EDFDF7;
-    margin-top: -30px;
+    padding-top: 100px;
     @media (max-width: 767px) {
-        margin-top: -10px;
+        padding-top: 80px;
     }
     &>div{
         margin: 0 auto;
@@ -415,7 +415,7 @@ const Home: React.FC = () =>  {
                     >
                         <nav className="Nav">
                             <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
-                            <a href="#Experience">Product</a>
+                            <a href="#Product">Product</a>
                             <a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
@@ -489,8 +489,8 @@ const Home: React.FC = () =>  {
                         </Row>
                     </div>
                 </SecondContent> 
-                <FourthContent>
-                    <h2 id="Product" style={{textAlign: 'center', paddingTop: '50px'}}>RAI Finance Product</h2>
+                <FourthContent id="Product">
+                    <h2 style={{textAlign: 'center'}}>RAI Finance Product</h2>
                     <Row className="product">
                         <Col md={12} sm={24}>
                         </Col>
@@ -508,7 +508,7 @@ const Home: React.FC = () =>  {
                     <div>
                         <Row>
                             <Col md={{span: 10}} sm={24} xs={24}>
-                                <h2 id="Experience" className="defiTitle">Socialize your DeFi experience</h2>
+                                <h2 className="defiTitle">Socialize your DeFi experience</h2>
                                 <ul>
                                     <li>Create and share index tokenset</li>
                                     <li>Participate in decentralized governance</li>
