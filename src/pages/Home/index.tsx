@@ -127,7 +127,7 @@ const SecondContent = styled.div`
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 50px;
+        padding: 100px 200px;
         @media (max-width: 767px) {
             padding: 20px;
         }
