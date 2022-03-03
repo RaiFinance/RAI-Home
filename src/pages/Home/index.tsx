@@ -451,7 +451,7 @@ const Home: React.FC = () =>  {
                 <SecondContent>
                     <div>
                         <h2 id="Finance" style={{textAlign: 'center'}}>What is RAI Finance?</h2>
-                        <p style={{textAlign: 'center'}}>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross chain technology and various ecosystem, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders</p>
+                        <p style={{textAlign: 'center'}}>RAI Finance is a multi-chain decentralized finance protocol that utilizes its social trading functionality to enhance the experience of trading digital assets.</p>
                         <Row
                             gutter={16}
                             className="raiFinance"
