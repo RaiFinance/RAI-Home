@@ -24,13 +24,13 @@ import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
 import {ReactComponent as KLAYswap} from '../../assets/images/home/KLAYswap.svg'
 import IDO from '../../assets/images/home/IDO.png'
 //@ts-ignore
-import STSMp4 from '../../assets/images/home/mp4/STS.mp4'
+import STSMp4 from '../../assets/images/home/mp4/sts.mp4'
 //@ts-ignore
-import AggregatorMp4 from '../../assets/images/home/mp4/Aggregator.mp4'
+import AggregatorMp4 from '../../assets/images/home/mp4/aggregator.mov'
 //@ts-ignore
-import GovernanceMp4 from '../../assets/images/home/mp4/Governance.mp4'
+import GovernanceMp4 from '../../assets/images/home/mp4/governance.mov'
 //@ts-ignore
-import WalletMp4 from '../../assets/images/home/mp4/Wallet.mp4'
+import WalletMp4 from '../../assets/images/home/mp4/my-wallet.mov'
 import SocialTradingGIF from '../../assets/images/home/Social-Trading.gif'
 import UniqueAssetGIF from '../../assets/images/home/Unique-Asset.gif'
 import IDOGIF from '../../assets/images/home/IDO.gif'
@@ -348,7 +348,7 @@ const Home: React.FC = () =>  {
         dotsClass: "slick-dots slick-thumb",
         infinite: true,
         speed: 500,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,
