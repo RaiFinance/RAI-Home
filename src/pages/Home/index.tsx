@@ -24,7 +24,7 @@ import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
 import {ReactComponent as KLAYswap} from '../../assets/images/home/KLAYswap.svg'
 import IDO from '../../assets/images/home/IDO.png'
 //@ts-ignore
-import STSMp4 from '../../assets/images/home/mp4/sts.mp4'
+import STSMp4 from '../../assets/images/home/mp4/sts.mov'
 //@ts-ignore
 import AggregatorMp4 from '../../assets/images/home/mp4/aggregator.mov'
 //@ts-ignore
