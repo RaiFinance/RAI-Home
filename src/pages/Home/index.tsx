@@ -333,13 +333,13 @@ const Home: React.FC = () =>  {
     const getCustomPaging = (i: number) => {
         switch (i) {
             case 1: 
-                return <><h2>STS</h2><p>Social trading system, combine Trading and Social</p></>
+                return <><h2>STS</h2><p>Social Trading System combines both digital asset trading and socializing</p></>
             case 2: 
-                return <><h2>Aggregator</h2><p>Trade multi-chain asset in an decentralized way</p></>
+                return <><h2>Aggregator</h2><p>The fastest way to trade your multi-chain assets</p></>
             case 3: 
-                return <><h2>Governance</h2><p>A quicker way to exchange your multi-chain asset</p></>
+                return <><h2>Governance</h2><p>Decentralized governance to participate in the protocol upgrade</p></>
             case 4: 
-                return <><h2>My Wallet</h2><p>Initial DeFi Offering</p></>
+                return <><h2>My Wallet</h2><p>Check your asset status and rebalance your portfolio</p></>
         }
     }
     const settings = {
@@ -444,7 +444,7 @@ const Home: React.FC = () =>  {
                         The Epicenter of Web 3.0 World
                         </h1>
                         <p>RAI Finance is a decentralized finance application that provides digital asset users with social trading system, aggregated swap on heterogeneous blockchains</p>
-                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">ENTER MAIN NET</a></Button>
+                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">LAUNCH APP</a></Button>
                         <p className='launched'>RAI Finance product is officially launched on</p>
                         <img className='eth_ploygon' src={ETH_Ploygon} alt="" />
                     </div>
@@ -457,7 +457,7 @@ const Home: React.FC = () =>  {
                             gutter={[24, 24]}
                             className="raiFinance"
                         >
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
@@ -465,10 +465,10 @@ const Home: React.FC = () =>  {
                                         />
                                     </div>
                                     <h2>Cross Chain</h2>
-                                    <p>Customize any part of our components to match your design needs.</p>
+                                    <p>Use Social Trading System and Aggregated Swap on heterogeneous blockchain</p>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
@@ -476,10 +476,10 @@ const Home: React.FC = () =>  {
                                         />
                                     </div>
                                     <h2>Social Trading</h2>
-                                    <p>Customize any part of our components to match your design needs.</p>
+                                    <p>Combination of digital asset trading and socializing</p>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
@@ -488,19 +488,8 @@ const Home: React.FC = () =>  {
                                     </div>
                                     <h2>Unique Asset</h2>
                                     <p>
-                                    Customize any part of our components to match your design needs.
+                                    Customize your portfolio with various assets to match your needs.
                                     </p>
-                                </div>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <div className='item'>
-                                    <div className='avator'>
-                                        <img 
-                                            src={IDO} 
-                                        />
-                                    </div>
-                                    <h2>IDO</h2>
-                                    <p>Customize any part of our components to match your design needs.</p>
                                 </div>
                             </Col>
                         </Row>
@@ -531,7 +520,7 @@ const Home: React.FC = () =>  {
                 <FourthContent id="Product">
                     <div>
                         <h2>RAI Finance Product</h2>
-                        <p>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, crosschain trading and social function.</p>
+                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
                         <div className="products">
                             <Slider {...settings}>
                                 <div className="item">
