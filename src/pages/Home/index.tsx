@@ -85,7 +85,7 @@ const FirstContent = styled.div`
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 100px 300px;
+        padding: 150px 300px;
         @media (max-width: 992px) {
             &:before{
                 display: none;
@@ -301,10 +301,7 @@ const SeventhContent = styled.div`
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px;
-        @media (max-width: 1200px) {
-            padding: 100px 50px;
-        }
+        padding: 100px 50px;
         @media (max-width: 767px) {
             padding: 20px;
         }
@@ -358,6 +355,7 @@ const Home: React.FC = () =>  {
       };
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [scrollHeight, setScrollHeight] = useState(128);
     const carouselRef = useRef<any>()
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
@@ -378,13 +376,15 @@ const Home: React.FC = () =>  {
         }
 
         var scrollTop = document.documentElement.scrollTop;
-        if (scrollTop >= 60) {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = '#fff';
+        let height = 128;
+        if (scrollTop < 0) {
+            height = 128
+        } else if (scrollTop < 256) {
+            height = 128 - 0.21875 * scrollTop
         } else {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = 'transparent';
+            height = 72
         }
+        setScrollHeight(height)
     }
   
     useEffect(() => {
@@ -415,7 +415,7 @@ const Home: React.FC = () =>  {
                 <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
             </HeaderNotification> */}
             <Header>
-                <HeaderContent className="header">
+                <HeaderContent className="header" style={{height: `${scrollHeight}px`}}>
                     <img className="Logo" src={Logo} alt="logo" />
                     <CSSTransition
                         in={!isSmallScreen || isNavVisible}
@@ -429,7 +429,7 @@ const Home: React.FC = () =>  {
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
                             <Button type="default"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
-                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Main Net</a></Button>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Lauch App</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -452,7 +452,7 @@ const Home: React.FC = () =>  {
                 <SecondContent>
                     <div>
                         <h2 id="Finance">What is RAI Finance?</h2>
-                        <p>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, crosschain trading and social function.</p>
+                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
                         <Row
                             gutter={[24, 24]}
                             className="raiFinance"
@@ -687,36 +687,38 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                                 <img src={Darwinia}/>
                             </div>
                         </div>
-                        <div className='footer' style={{marginTop: '100px'}}>
-                            <div>
+                    </div>
+                </SeventhContent>
+                <div className='footer'>
+                    <div className='content'>
+                        <div>
                             <Copyright>
                                 <img className="footer_logo" src={Logo} alt="logo" />
                                 Copyrights © 2022 RAI.Finance All rights reserved.
                             </Copyright>  
-                            </div>
-                            <div>
-                                <StyledLink target='_blank' href="https://github.com/RaiFinance">
-                                    <GithubLogo fill="#fff"/>
-                                </StyledLink>
-                                <StyledLink target='_blank' href="https://open.kakao.com/o/gLPmITEc">
-                                    <KakaoLogo fill="#fff"/>
-                                </StyledLink>
-                                <StyledLink target='_blank' href="https://medium.com/rai-finance">
-                                    <MediumLogo fill="#fff"/>
-                                </StyledLink>
-                                <StyledLink target='_blank' href="https://t.me/RaiFinance">
-                                    <TelegramLogo fill="#fff"/>
-                                </StyledLink>
-                                <StyledLink target='_blank' href="https://twitter.com/RaiFinance">
-                                    <TwitterLogo fill="#fff"/>
-                                </StyledLink>
-                                <StyledLink target='_blank' href="https://weibo.com/u/7583482257">
-                                    <WeiboLogo fill="#fff"/>
-                                </StyledLink>
-                            </div>
+                        </div>
+                        <div>
+                            <StyledLink target='_blank' href="https://github.com/RaiFinance">
+                                <GithubLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://open.kakao.com/o/gLPmITEc">
+                                <KakaoLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://medium.com/rai-finance">
+                                <MediumLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://t.me/RaiFinance">
+                                <TelegramLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://twitter.com/RaiFinance">
+                                <TwitterLogo fill="#fff"/>
+                            </StyledLink>
+                            <StyledLink target='_blank' href="https://weibo.com/u/7583482257">
+                                <WeiboLogo fill="#fff"/>
+                            </StyledLink>
                         </div>
                     </div>
-                </SeventhContent>
+                </div>
             </Content>     
         </Layout>
     )
