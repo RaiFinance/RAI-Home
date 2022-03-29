@@ -498,7 +498,7 @@ const Home: React.FC = () =>  {
                 </SecondContent> 
                 <ThirdContent>
                     <div>
-                        <h2 className="defiTitle">Socialize your DeFi experience</h2>
+                        <h2 className="defiTitle">Socialize Your DeFi Experience</h2>
                         <p>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</p>
 
                         <div className="defiCarousel">
