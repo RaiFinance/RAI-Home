@@ -430,7 +430,7 @@ const Home: React.FC = () =>  {
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
                             <Button type="default"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
-                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Lauch App</a></Button>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Launch App</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
