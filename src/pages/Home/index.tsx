@@ -103,6 +103,7 @@ const FirstContent = styled.div`
         }
     }
     h1{
+        font-family: Graphik-Bold;
         margin-bottom: 20px;
         font-size: 64px;
         font-weight: 700;
@@ -502,7 +503,7 @@ const Home: React.FC = () =>  {
 
                         <div className="defiCarousel">
                             <div className="item">
-                                <Button type="link" icon={<InvestIcon/>}>Invest</Button>
+                                <Button type="link" icon={<DaoIcon/>}>Share</Button>
                                 <img src={Inverst}/>
                             </div>
                             <div className="item">
@@ -510,7 +511,7 @@ const Home: React.FC = () =>  {
                                 <img src={Analyze}/>
                             </div>
                             <div className="item">
-                                <Button type="link" icon={<DaoIcon/>}>DAO</Button>
+                                <Button type="link" icon={<InvestIcon/>}>Invest</Button>
                                 <img src={Communicate}/>
                             </div>
                         </div>
