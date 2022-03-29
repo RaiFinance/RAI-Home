@@ -103,7 +103,7 @@ const FirstContent = styled.div`
         }
     }
     h1{
-        font-family: Graphik-Bold;
+        font-family: 'Graphik-Bold';
         margin-bottom: 20px;
         font-size: 64px;
         font-weight: 700;
