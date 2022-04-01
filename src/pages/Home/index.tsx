@@ -520,7 +520,7 @@ const Home: React.FC = () =>  {
                 <FourthContent id="Product">
                     <div>
                         <h2>RAI Finance Product</h2>
-                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
+                        <p>RAI Finance aims to become the epicenter of Web3.0 world. Based on Polkadot technology and ecosystem, RAI Finance is going to create a new decentralized finance(DeFi) service, realizing a polymerized connection of multipul areas like creation of blockchain assets, crosschain trading and social function.</p>
                         <div className="products">
                             <Slider {...settings}>
                                 <div className="item">
