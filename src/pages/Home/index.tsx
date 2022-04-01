@@ -2,10 +2,11 @@ import React, {useEffect, useState, useRef} from 'react'
 import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
+import Slider from "react-slick";
+import ReactPlayer from "react-player";
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
-import Image1 from '../../assets/images/home/image1.png'
-import Image11 from '../../assets/images/home/image1-1.png'
+import Image1 from '../../assets/images/home/image1.jpg'
 import Image2 from '../../assets/images/home/image2.png'
 import Image3 from '../../assets/images/home/image3.png'
 import Image4 from '../../assets/images/home/image4.png'
@@ -22,7 +23,14 @@ import SocialTrading from '../../assets/images/home/SocialTrading.png'
 import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
 import {ReactComponent as KLAYswap} from '../../assets/images/home/KLAYswap.svg'
 import IDO from '../../assets/images/home/IDO.png'
-import CrossChainGIF from '../../assets/images/home/Cross-Chain.gif'
+//@ts-ignore
+import STSMp4 from '../../assets/images/home/mp4/sts.mov'
+//@ts-ignore
+import AggregatorMp4 from '../../assets/images/home/mp4/aggregator.mov'
+//@ts-ignore
+import GovernanceMp4 from '../../assets/images/home/mp4/governance.mov'
+//@ts-ignore
+import WalletMp4 from '../../assets/images/home/mp4/my-wallet.mov'
 import SocialTradingGIF from '../../assets/images/home/Social-Trading.gif'
 import UniqueAssetGIF from '../../assets/images/home/Unique-Asset.gif'
 import IDOGIF from '../../assets/images/home/IDO.gif'
@@ -45,14 +53,17 @@ import Analyze from '../../assets/images/home/Analyze.png'
 import Bibox from '../../assets/images/home/Bibox.png'
 import Bitwell from '../../assets/images/home/Bitwell.png'
 import ETH_Ploygon from '../../assets/images/home/eth_polygon.png'
-import GIF from '../../assets/images/home/rai.gif'
+import whitepaper from '../../assets/images/home/whitepaper.jpg'
+import SofiToken from '../../assets/images/home/sofitoken.png'
+import {ReactComponent as InvestIcon} from '../../assets/images/home/Invest.svg'
+import {ReactComponent as AnalyzeIcon} from '../../assets/images/home/Analyze.svg'
+import {ReactComponent as DaoIcon} from '../../assets/images/home/Dao.svg'
 import {ReactComponent as TwitterLogo} from '../../assets/images/home/svg/Twitter.svg'
 import {ReactComponent as MediumLogo} from '../../assets/images/home/svg/Medium.svg'
 import {ReactComponent as TelegramLogo} from '../../assets/images/home/svg/Telegram.svg'
 import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.svg'
 import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
 import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
-import {ReactComponent as SofiToken} from '../../assets/images/home/svg/SOFI.svg'
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
@@ -66,70 +77,71 @@ const HeaderContent = styled.div`
 `
 
 const FirstContent = styled.div`
-    background: radial-gradient(50% 50% at 0 100%, rgba(60, 23, 184, 0.2) 0%, rgba(60, 23, 184, 0) 100%),
-    radial-gradient(50% 50% at 90% 10%, rgba(170, 94, 255, 0.1) 0%, rgba(60, 23, 184, 0) 100%);
-    backdrop-filter: blur(10px);
-    margin-top: -100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(${Image1}) no-repeat;
+    background-size: cover;
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 260px 50px 50px;
-        position: relative;
-        overflow: hidden;
-        &:before{
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: url(${Image11}) no-repeat;
-            background-size: 60%;
-            background-position: center;
-            transform: translateX(-50%);
-        }
+        padding: 150px 300px;
         @media (max-width: 992px) {
             &:before{
                 display: none;
             }
         }
         @media (max-width: 1200px) {
-            padding: 260px 50px 100px;
+            padding: 100px 50px;
         }
         @media (max-width: 767px) {
-            padding: 220px 20px 20px;
+            padding: 100px 20px;
+        }
+        .ant-btn{
+            display: block;
+            margin: 0 auto;
         }
     }
     h1{
+        font-family: 'Graphik-Bold';
         margin-bottom: 20px;
+        font-size: 64px;
+        font-weight: 700;
+        color: #111827;
+        text-align: center;
+        line-height: 1.2;
+        @media (max-width: 767px) {
+            font-size: 40px;
+        }
+    }
+    p{
         font-size: 24px;
-        font-weight: normal;
+        color: #6B7280;
+        font-weight: 400;
+        text-align: center;
+        line-height: 1.2;
     }
     .launched{
-        margin-bottom: 20px;
-        p{
-            font-size: 16px;
-            color: #000;
-        }
-        img{
-            height: 43px;
-            width: auto;
-            @media (max-width: 767px) {
-                height: auto;
-                width: 180px;
-            }
-        }
+        color: #6B7280;
+        font-size: 12px;
+        margin-top: 100px;
+    }
+    .eth_ploygon{
+        height:25px;
+        margin: 0 auto;
+        display: block;
+        width: auto;
     }
 `
 
 const SecondContent = styled.div`
-    background: rgba(255, 255, 255, 0.6);
+    background: #F3F4F6;
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 100px 200px;
+        padding: 100px 50px;
         @media (max-width: 767px) {
-            padding: 20px;
+            padding: 100px 20px;
         }
         .ant-btn{
             margin: 0 auto;
@@ -139,17 +151,16 @@ const SecondContent = styled.div`
 `
 
 const ThirdContent = styled.div`
-    background: radial-gradient(50% 50% at 0 50%, rgba(158, 234, 233, 0.4) 0%, rgba(158, 234, 233, 0) 100%), radial-gradient(50% 50% at -20% 0, rgba(60, 23, 184, 0.2) 0%, rgba(60, 23, 184, 0) 100%);;
-    backdrop-filter: blur(10px);
+    background: #fff;
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 130px 50px;
+        padding: 100px 50px;
         @media (max-width: 1200px) {
             padding: 100px 50px;
         }
         @media (max-width: 767px) {
-            padding: 20px;
+            padding: 100px 20px;
         }
     }
     ul{
@@ -162,17 +173,14 @@ const ThirdContent = styled.div`
 `
 
 const FourthContent = styled.div`
-    background: #EDFDF7;
-    padding-top: 100px;
-    @media (max-width: 767px) {
-        padding-top: 80px;
-    }
+    background: #F3F4F6;
+    padding: 100px 0;
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px;
+        padding: 0 50px;
         @media (max-width: 767px) {
-            padding: 20px;
+            padding: 0 20px;
             margin-top: -10px;
         }
     }
@@ -208,12 +216,13 @@ const FourthContent = styled.div`
     }
 `
 const FifthContent = styled.div`
+    background: #fff;
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px;
+        padding: 100px 50px;
         @media (max-width: 767px) {
-            padding: 20px;
+            padding: 100px 20px;
         }
     }
     .whitepaper{
@@ -240,14 +249,26 @@ const FifthContent = styled.div`
             width: 100%;
         }
     }
+    h2{
+        font-weight: 700;
+        font-size: 48px;
+        color: #111827;
+        span{
+            color: #5542F6;
+        }
+        @media (max-width: 767px) {
+            font-size: 40px;
+        }
+    }
+    h3{
+        margin-top: 0;
+        font-weight: 700;
+        font-size: 16px;
+        color: #111827;
+    }
     p{
-        margin-bottom: 0;
-        &:first-of-type{
-            margin-top: 20px;
-        }
-        a{
-            text-decoration: underline;
-        }
+        color: #6B7280;
+        font-size: 20px;
     }
 `
 const SixthContent = styled.div`
@@ -277,15 +298,11 @@ const SixthContent = styled.div`
 `
 
 const SeventhContent = styled.div`
-    background: radial-gradient(50% 50% at 110% 20%, rgba(60, 23, 184, 0.3) 0%, rgba(170, 94, 255, 0) 100%), radial-gradient(50% 50% at 110% 80%, rgba(60, 23, 184, 0.3) 0%, rgba(170, 94, 255, 0) 100%);
-    backdrop-filter: blur(10px);
+    background: #fff;
     &>div{
         margin: 0 auto;
         max-width: 1200px;
-        padding: 50px;
-        @media (max-width: 1200px) {
-            padding: 100px 50px;
-        }
+        padding: 100px 50px;
         @media (max-width: 767px) {
             padding: 20px;
         }
@@ -294,60 +311,52 @@ const SeventhContent = styled.div`
 const StyledLink = styled.a`
     display: inline-block;
     margin: 0 10px;
+    border-radius: 8px;
     svg{
         width: 32px;
         .cls-1{fill:#fff;}
-        .cls-2{fill:#d8d8d8;}
+        .cls-2{fill:#6B7280;}
         &:hover{
-            .cls-1{fill:#fff;}
+            .cls-1{fill:#6B7280;}
             .cls-2{fill:#3C17B8;}
         }
     }
 `
 
 const Copyright = styled.div`
-    float: right;
-`
-
-const HeaderNotification = styled.div`
-    width: 100%;
-    padding: 10px 0;
-    background-color: #5542F6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    font-size: 16px;
-    text-align: center;
-    line-height: 16px;
-    position: fixed;
-    z-index: 10;
-    a{
-        color: #fff;
-        text-decoration: underline;
-        &:hover{
-            color: #fff;
-            text-decoration: underline;
-        }
-    }
+    font-size: 12px
 `
 
 const Home: React.FC = () =>  {
-
-    const data = [
-        {
-          title: 'CEO, Kevin Lee',
-          img: Team1,
-          des: 'Research Analyst at Honestfund \nCo-founder of VIU \nBA at Konkuk University, Management Information System'
-        },
-        {
-          title: 'CTO, Minkyu Cho',
-          img: Team2,
-          des: 'Co-founder & COO at DEXEOS \nCo-founder at League of Traders \nResearcher at Samsung Electronics \nBA at Seoul National University, Industrial Engineering'
-        },
-      ];
+    const getCustomPaging = (i: number) => {
+        switch (i) {
+            case 1: 
+                return <><h2>STS</h2><p>Social Trading System combines both digital asset trading and socializing</p></>
+            case 2: 
+                return <><h2>Aggregator</h2><p>The fastest way to trade your multi-chain assets</p></>
+            case 3: 
+                return <><h2>Governance</h2><p>Decentralized governance to participate in the protocol upgrade</p></>
+            case 4: 
+                return <><h2>My Wallet</h2><p>Check your asset status and rebalance your portfolio</p></>
+        }
+    }
+    const settings = {
+        customPaging: function(i: number) { return <a>{getCustomPaging(i+1)}</a> },
+        dots: true,
+        dotsClass: "slick-dots slick-thumb",
+        infinite: true,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 4000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        cssEase: "linear",
+        nextArrow: <></>,
+        prevArrow: <></>,
+      };
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [scrollHeight, setScrollHeight] = useState(128);
     const carouselRef = useRef<any>()
     useEffect(() => {
         window.addEventListener('scroll', scrollHeader, false);
@@ -368,13 +377,15 @@ const Home: React.FC = () =>  {
         }
 
         var scrollTop = document.documentElement.scrollTop;
-        if (scrollTop >= 60) {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = '#fff';
+        let height = 128;
+        if (scrollTop < 0) {
+            height = 128
+        } else if (scrollTop < 256) {
+            height = 128 - 0.21875 * scrollTop
         } else {
-            //@ts-ignore
-            document.querySelector('.ant-layout-header').style.background = 'transparent';
+            height = 72
         }
+        setScrollHeight(height)
     }
   
     useEffect(() => {
@@ -405,7 +416,7 @@ const Home: React.FC = () =>  {
                 <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
             </HeaderNotification> */}
             <Header>
-                <HeaderContent className="header">
+                <HeaderContent className="header" style={{height: `${scrollHeight}px`}}>
                     <img className="Logo" src={Logo} alt="logo" />
                     <CSSTransition
                         in={!isSmallScreen || isNavVisible}
@@ -414,12 +425,12 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <Button type="primary"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
                             <a href="#Product">Product</a>
                             <a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
-                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Main Net</a></Button>
+                            <Button type="default"><a target="_blank" href="https://sofi.rai.finance">RAI - SOFI</a></Button>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Launch App</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -430,142 +441,163 @@ const Home: React.FC = () =>  {
             <Content>
                 <FirstContent>
                     <div>
-                        <Row>
-                            <Col md={12} sm={24}>
-                                <h1>
-                                RAI Finance is a <b>decentralized finance application</b><br/>
-                                that provides digital asset users with <br/><b>social trading system</b>,<b>aggregated swap</b><br/>on <b>heterogeneous blockchains</b>
-                                </h1>
-                                <div className="launched">
-                                    <p>RAI Finance product is officially launched on</p>
-                                    <img src={ETH_Ploygon}/>
-                                </div>
-                                <Button type="primary"><a href="https://app.rai.finance" target="_blank">Enter</a></Button>
-                            </Col>
-                            <Col md={12} sm={24}>
-                                <img src={Image1} />
-                            </Col>
-                        </Row>
+                        <h1>
+                        The Epicenter of Web 3.0 World
+                        </h1>
+                        <p>RAI Finance is a decentralized finance application that provides digital asset users with social trading system, aggregated swap on heterogeneous blockchains</p>
+                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">LAUNCH APP</a></Button>
+                        <p className='launched'>RAI Finance product is officially launched on</p>
+                        <img className='eth_ploygon' src={ETH_Ploygon} alt="" />
                     </div>
                 </FirstContent>
                 <SecondContent>
                     <div>
-                        <h2 id="Finance" style={{textAlign: 'center'}}>What is RAI Finance?</h2>
-                        <p style={{textAlign: 'center'}}>RAI Finance is a multi-chain decentralized finance protocol that utilizes its social trading functionality to enhance the experience of trading digital assets.</p>
+                        <h2 id="Finance">What is RAI Finance?</h2>
+                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
                         <Row
-                            gutter={16}
+                            gutter={[24, 24]}
                             className="raiFinance"
                         >
-                            <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <img 
-                                    id="gif-1" 
-                                    src={CrossChain} 
-                                    onMouseOver={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-1').src = CrossChainGIF
-                                    }}
-                                    onMouseOut={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-1').src = CrossChain
-                                    }}
-                                />
-                                <p>Cross Chain</p>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                                <div className='item'>
+                                    <div className='avator'>
+                                        <img 
+                                            src={CrossChain} 
+                                        />
+                                    </div>
+                                    <h2>Cross Chain</h2>
+                                    <p>Use Social Trading System and Aggregated Swap on heterogeneous blockchain</p>
+                                </div>
                             </Col>
-                            <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <img 
-                                    id="gif-2" 
-                                    src={SocialTrading} 
-                                    onMouseOver={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-2').src = SocialTradingGIF
-                                    }}
-                                    onMouseOut={() => { 
-                                        //@ts-ignore
-                                        document.getElementById('gif-2').src = SocialTrading
-                                    }}
-                                />
-                                <p>Social Trading</p>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                                <div className='item'>
+                                    <div className='avator'>
+                                        <img 
+                                            src={SocialTrading} 
+                                        />
+                                    </div>
+                                    <h2>Social Trading</h2>
+                                    <p>Combination of digital asset trading and socializing</p>
+                                </div>
                             </Col>
-                        </Row>
-                    </div>
-                </SecondContent> 
-                <FourthContent id="Product">
-                    <h2 style={{textAlign: 'center'}}>RAI Finance Product</h2>
-                    <Row className="product">
-                        <Col md={12} sm={24}>
-                        </Col>
-                        <Col md={12} sm={24}>
-                            <h3>STS</h3>
-                            <p>Social trading system combines both digital asset trading and socializing</p>
-                            <h3>SWAP</h3>
-                            <p>the fastest way to swap and go with your multi-chain assets</p>
-                            <h3>Governance</h3>
-                            <p>Decentralized governance for the protocol upgrade</p>
-                        </Col>
-                    </Row>
-                </FourthContent>
-                <ThirdContent>
-                    <div>
-                        <Row>
-                            <Col md={{span: 10}} sm={24} xs={24}>
-                                <h2 className="defiTitle">Socialize your DeFi experience</h2>
-                                <ul>
-                                    <li>Create and share index tokenset</li>
-                                    <li>Participate in decentralized governance</li>
-                                    <li>Analyze investment data from other portfolio manager</li>
-                                </ul>
-                            </Col> 
-                            <Col md={{span: 12, offset: 2}} sm={24} xs={24}>
-                                <div className="defiCarousel">
-                                    <Carousel autoplay dots={false} ref={carouselRef as any}>
-                                        <div className="item">
-                                            <img src={Inverst}/>
-                                        </div>
-                                        <div className="item">
-                                            <img src={Analyze}/>
-                                        </div>
-                                        <div className="item">
-                                            <img src={Communicate}/>
-                                        </div>
-                                    </Carousel>
-                                    <button className="invertBtn" onClick={() => {goTo(0)}}>Invest</button>
-                                    <button className="analyzeBtn" onClick={() => {goTo(1)}}>Analyze</button>
-                                    <button className="communicateBtn" onClick={() => {goTo(2)}}>DAO</button>
+                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                                <div className='item'>
+                                    <div className='avator'>
+                                        <img 
+                                            src={UniqueAsset} 
+                                        />
+                                    </div>
+                                    <h2>Unique Asset</h2>
+                                    <p>
+                                    Customize your portfolio with various assets to match your needs.
+                                    </p>
                                 </div>
                             </Col>
                         </Row>
                     </div>
+                </SecondContent> 
+                <ThirdContent>
+                    <div>
+                        <h2 className="defiTitle">Socialize Your DeFi Experience</h2>
+                        <p>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</p>
+
+                        <div className="defiCarousel">
+                            <div className="item">
+                                <Button type="link" icon={<DaoIcon/>}>Share</Button>
+                                <img src={Inverst}/>
+                            </div>
+                            <div className="item">
+                                <Button type="link" icon={<AnalyzeIcon/>}>Analyze</Button>
+                                <img src={Analyze}/>
+                            </div>
+                            <div className="item">
+                                <Button type="link" icon={<InvestIcon/>}>Invest</Button>
+                                <img src={Communicate}/>
+                            </div>
+                        </div>
+              
+                    </div>
                 </ThirdContent>
+                <FourthContent id="Product">
+                    <div>
+                        <h2>RAI Finance Product</h2>
+                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
+                        <div className="products">
+                            <Slider {...settings}>
+                                <div className="item">
+                                    <ReactPlayer
+                                        url={STSMp4}
+                                        playing={true}
+                                        controls={true}
+                                        loop={true}
+                                        muted={true}
+                                        playsinline={true}
+                                        // onReady={onLoadedData}
+                                    />
+                                </div>
+                                <div className="item">
+                                    <ReactPlayer
+                                        url={AggregatorMp4}
+                                        playing={true}
+                                        controls={true}
+                                        loop={true}
+                                        muted={true}
+                                        playsinline={true}
+                                        // onReady={onLoadedData}
+                                    />
+                                </div>
+                                <div className="item">
+                                    <ReactPlayer
+                                        url={GovernanceMp4}
+                                        playing={true}
+                                        controls={true}
+                                        loop={true}
+                                        muted={true}
+                                        playsinline={true}
+                                        // onReady={onLoadedData}
+                                    />
+                                </div>
+                                <div className="item">
+                                    <ReactPlayer
+                                        url={WalletMp4}
+                                        playing={true}
+                                        controls={true}
+                                        loop={true}
+                                        muted={true}
+                                        playsinline={true}
+                                        // onReady={onLoadedData}
+                                    />
+                                </div>
+                            </Slider>
+                        </div>
+                    </div>
+                </FourthContent>
                 <FifthContent>
-                    <Row className="whitepaper">
-                        <Col md={12} sm={24}>
-                            <h2 id="Whitepaper">RAI Finance's Whitepaper</h2>
-                            <Button type="primary"><a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf" className="elementor-item">Read More</a></Button>
-                            <h3 className="tokenName" >
-                                Token
-                                &nbsp;&nbsp;
-                                <SofiToken />
-                                <br/>
-                            </h3>
-                            <h4>
-                            Contract: <a href="https://etherscan.io/token/0xB49fa25978abf9a248b8212Ab4b87277682301c0" >0xB49fa25978abf9a248b8212Ab4b87277682301c0</a>
-                            </h4>
-                            <span className="tokenDes">SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</span>
-                            <ul className="compenyList">
-                                <li><img src={Bithumb}/></li>
-                                <li><img src={HuoBiGlobal}/></li>
-                                <li><img src={Dodo}/></li>
-                                <li><KLAYswap/>KLAYswap</li>
-                                <li><img src={Bibox}/></li>
-                            </ul>
-                            <p>SOFI was rebranded from RAI since November 2021. </p>
-                            <p>For more details, please visit <a href="https://medium.com/rai-finance/rai-finances-brand-is-deeply-upgraded-to-socialization-token-ticker-is-changed-to-sofi-210123adf84f">RAI Finance Rebranding</a>
-                            </p>
-                        </Col>
-                        <Col md={12} sm={24} xs={24}>
-                            <img className="img" src={GIF} />
-                        </Col>
-                    </Row>
+                    <div>
+                        <Row gutter={[48, 48]}>
+                            <Col md={12} sm={24}>
+                                <h2 id="Whitepaper">RAI Finance's<br/><span>Whitepaper</span></h2>
+                                <p>SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</p>
+                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
+                                <div className='tokenInfo'>
+                                    <h3 className="tokenName" >
+                                        <img src={SofiToken} />
+                                    </h3>
+                                    <p>SOFI was rebranded from RAI since November 2021. For more details, please visit <a href="https://medium.com/rai-finance/rai-finances-brand-is-deeply-upgraded-to-socialization-token-ticker-is-changed-to-sofi-210123adf84f">RAI Finance Rebranding</a>
+                                    </p>
+                                    <ul className="compenyList">
+                                        <li><img src={HuoBiGlobal}/></li>
+                                        <li><img src={PancakeSwap}/></li>
+                                        <li><img src={Dodo}/></li>
+                                        <li><img src={Bithumb}/></li>
+                                    </ul>
+                                </div>
+                            </Col>
+                            <Col md={12} sm={24} xs={24}>
+                                <img className="img" src={whitepaper} />
+                            </Col>
+                        </Row>
+                    </div>
                 </FifthContent>
                 {/* <SixthContent>
                     <div>
@@ -619,13 +651,13 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             <div>
                                 <img src={TheLeagueofTraders}/>
                             </div>
+                            <div>
+                                <img src={Avalanche}/>
+                            </div>
                         </div>
                         <div
                             className="parteners2"
                         >
-                            <div>
-                                <img src={Avalanche}/>
-                            </div>
                             <div>
                                 <img src={Chainlink}/>
                             </div>
@@ -641,6 +673,8 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             <div>
                                 <img src={Thegraph}/>
                             </div>
+                        </div>
+                        <div className="parteners">
                             <div>
                                 <img src={KPA}/>
                             </div>
@@ -654,7 +688,17 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                                 <img src={Darwinia}/>
                             </div>
                         </div>
-                        <div style={{marginTop: '100px'}}>
+                    </div>
+                </SeventhContent>
+                <div className='footer'>
+                    <div className='content'>
+                        <div>
+                            <Copyright>
+                                <img className="footer_logo" src={Logo} alt="logo" />
+                                Copyrights © 2022 RAI.Finance All rights reserved.
+                            </Copyright>  
+                        </div>
+                        <div>
                             <StyledLink target='_blank' href="https://github.com/RaiFinance">
                                 <GithubLogo fill="#fff"/>
                             </StyledLink>
@@ -673,12 +717,9 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                             <StyledLink target='_blank' href="https://weibo.com/u/7583482257">
                                 <WeiboLogo fill="#fff"/>
                             </StyledLink>
-                            <Copyright>
-                            © 2021 RAI.Finance
-                            </Copyright>  
                         </div>
                     </div>
-                </SeventhContent>
+                </div>
             </Content>     
         </Layout>
     )
