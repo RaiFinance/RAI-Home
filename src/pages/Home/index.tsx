@@ -24,13 +24,13 @@ import UniqueAsset from '../../assets/images/home/UniqueAsset.png'
 import {ReactComponent as KLAYswap} from '../../assets/images/home/KLAYswap.svg'
 import IDO from '../../assets/images/home/IDO.png'
 //@ts-ignore
-import STSMp4 from '../../assets/images/home/mp4/sts.mov'
+import STSMp4 from '../../assets/images/home/mp4/sts.gif'
 //@ts-ignore
-import AggregatorMp4 from '../../assets/images/home/mp4/aggregator.mov'
+import AggregatorMp4 from '../../assets/images/home/mp4/aggregator.gif'
 //@ts-ignore
-import GovernanceMp4 from '../../assets/images/home/mp4/governance.mov'
+import GovernanceMp4 from '../../assets/images/home/mp4/governance.gif'
 //@ts-ignore
-import WalletMp4 from '../../assets/images/home/mp4/my-wallet.mov'
+import WalletMp4 from '../../assets/images/home/mp4/my-wallet.gif'
 import SocialTradingGIF from '../../assets/images/home/Social-Trading.gif'
 import UniqueAssetGIF from '../../assets/images/home/Unique-Asset.gif'
 import IDOGIF from '../../assets/images/home/IDO.gif'
@@ -524,7 +524,7 @@ const Home: React.FC = () =>  {
                         <div className="products">
                             <Slider {...settings}>
                                 <div className="item">
-                                    <ReactPlayer
+                                    {/* <ReactPlayer
                                         url={STSMp4}
                                         playing={true}
                                         controls={true}
@@ -532,10 +532,11 @@ const Home: React.FC = () =>  {
                                         muted={true}
                                         playsinline={true}
                                         // onReady={onLoadedData}
-                                    />
+                                    /> */}
+                                    <img src={STSMp4}/>
                                 </div>
                                 <div className="item">
-                                    <ReactPlayer
+                                    {/* <ReactPlayer
                                         url={AggregatorMp4}
                                         playing={true}
                                         controls={true}
@@ -543,10 +544,11 @@ const Home: React.FC = () =>  {
                                         muted={true}
                                         playsinline={true}
                                         // onReady={onLoadedData}
-                                    />
+                                    /> */}
+                                    <img src={AggregatorMp4}/>
                                 </div>
                                 <div className="item">
-                                    <ReactPlayer
+                                    {/* <ReactPlayer
                                         url={GovernanceMp4}
                                         playing={true}
                                         controls={true}
@@ -554,10 +556,11 @@ const Home: React.FC = () =>  {
                                         muted={true}
                                         playsinline={true}
                                         // onReady={onLoadedData}
-                                    />
+                                    /> */}
+                                    <img src={GovernanceMp4}/>
                                 </div>
                                 <div className="item">
-                                    <ReactPlayer
+                                    {/* <ReactPlayer
                                         url={WalletMp4}
                                         playing={true}
                                         controls={true}
@@ -565,7 +568,8 @@ const Home: React.FC = () =>  {
                                         muted={true}
                                         playsinline={true}
                                         // onReady={onLoadedData}
-                                    />
+                                    /> */}
+                                    <img src={WalletMp4}/>
                                 </div>
                             </Slider>
                         </div>
