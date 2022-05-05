@@ -400,7 +400,6 @@ const Home: React.FC = () =>  {
     const handleMediaQueryChange = (mediaQuery: any) => {
       if (mediaQuery.matches) {
         setIsSmallScreen(true);
-        setScrollHeight(72)  
       } else {
         setIsSmallScreen(false);
       }
