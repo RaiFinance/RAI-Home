@@ -108,7 +108,7 @@
   @media (max-width: 767px) {
       .header {
           width: 100vw;
-        grid-template-areas: "logo burger" "nav nav";
+        grid-template-areas: "logo burger";
       }
   }
   .ant-btn-primary{
@@ -204,6 +204,7 @@
       display: block;
       margin: 0 auto;
       width: auto;
+      max-width: 100%;
     }
   }
   .parteners2{
@@ -386,7 +387,8 @@
       border-radius: 12px;
       background: #fff;
       @media (max-width: 767px) {
-        padding-top: 80px;
+        padding-top: 0;
+        margin-top: 0;
       }
     }
     .slick-arrow{
@@ -458,7 +460,7 @@
         }
       }
       @media (max-width: 767px) {
-        display: flex!important;
+        display: none!important;
         justify-content: center;
         margin: 20px 0px 0px;
         a{

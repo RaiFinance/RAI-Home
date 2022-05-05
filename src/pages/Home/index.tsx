@@ -415,7 +415,7 @@ const Home: React.FC = () =>  {
                 <a href="https://medium.com/rai-finance/rai-finance-launches-global-mainnet-event-ac789ea8756d" target="_blank">Try RAI Finance main net product and win $50000 USD reward!</a>
             </HeaderNotification> */}
             <Header>
-                <HeaderContent className="header" style={{height: `${scrollHeight}px`}}>
+                <HeaderContent className="header" style={{height: `${isSmallScreen ? 64 : scrollHeight}px`}}>
                     <img className="Logo" src={Logo} alt="logo" />
                     <CSSTransition
                         in={!isSmallScreen || isNavVisible}
@@ -457,7 +457,7 @@ const Home: React.FC = () =>  {
                             gutter={[24, 24]}
                             className="raiFinance"
                         >
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
@@ -468,7 +468,7 @@ const Home: React.FC = () =>  {
                                     <p>Use Social Trading System and Aggregated Swap on heterogeneous blockchain</p>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
@@ -479,7 +479,7 @@ const Home: React.FC = () =>  {
                                     <p>Combination of digital asset trading and socializing</p>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
                                 <div className='item'>
                                     <div className='avator'>
                                         <img 
