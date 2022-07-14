@@ -641,7 +641,7 @@ Each of them has expertise in their local markets, and with average 3+ years’ 
                 </SixthContent> */}
                 <SeventhContent>
                     <div>
-                        <h2 style={{textAlign: 'center'}}>Contributer</h2>
+                        <h2 style={{textAlign: 'center'}}>Contributors</h2>
                         <div
                             className="parteners"
                         >
