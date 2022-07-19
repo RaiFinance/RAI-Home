@@ -581,7 +581,7 @@ const Home: React.FC = () =>  {
                             <Col md={12} sm={24}>
                                 <h2 id="Whitepaper">RAI Finance's<br/><span>Whitepaper</span></h2>
                                 <p>SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</p>
-                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI Finance WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
+                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
                                 <div className='tokenInfo'>
                                     <h3 className="tokenName" >
                                         <img src={SofiToken} />
