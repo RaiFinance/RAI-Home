@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react'
-import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel } from 'antd';
+import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel, Radio } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
@@ -65,6 +65,24 @@ import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.
 import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
 import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
 import './index.less';
+import DeepFirst from '../../assets/images/home/first.png'
+import DeepSecond from '../../assets/images/home/second.png'
+import DeepThird from '../../assets/images/home/third.png'
+import Sofipk from '../../assets/images/home/box/pk.png'
+import Sofimexc from '../../assets/images/home/box/mexc.png'
+import Sofihb from '../../assets/images/home/box/hb.png'
+import Sofibt from '../../assets/images/home/box/bitumb.png'
+import Sofibb from '../../assets/images/home/box/bibox.png'
+import swapImg from '../../assets/images/home/box/swap.png'
+import SwapSvg from '../../assets/images/home/box/swap.svg'
+import TradingImg from '../../assets/images/home/box/trading.png'
+import TradingSvg from '../../assets/images/home/box/trading.svg'
+import ChartImg from '../../assets/images/home/box/chart.png'
+import ChartSvg from '../../assets/images/home/box/chart.svg'
+import LineImg from '../../assets/images/home/box/line.png'
+import LineSvg from '../../assets/images/home/box/line.svg'
+import RaiImg from '../../assets/images/home/box/rai.png'
+import RaiSvg from '../../assets/images/home/box/rai.svg'
 
 const { Header, Sider, Content } = Layout;
 const { Link } = Anchor;
@@ -85,7 +103,8 @@ const FirstContent = styled.div`
     &>div{
         max-width: 1200px;
         margin: 0 auto;
-        padding: 150px 300px;
+        // padding: 150px 300px;
+        padding: 135px;
         @media (max-width: 992px) {
             &:before{
                 display: none;
@@ -103,7 +122,7 @@ const FirstContent = styled.div`
         }
     }
     h1{
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         font-size: 64px;
         font-weight: 700;
         color: #111827;
@@ -119,6 +138,9 @@ const FirstContent = styled.div`
         font-weight: 400;
         text-align: center;
         line-height: 1.2;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 32px;
     }
     .launched{
         color: #6B7280;
@@ -147,6 +169,192 @@ const SecondContent = styled.div`
             display: block;
         }
     }
+`
+
+const DeepContent = styled.div`
+    background: #F3F4F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 96px 0px;
+    justify-content: center;
+    h2 {
+        font-family: 'Graphik-bold';
+        margin-bottom: 48px;
+        color: #18181B;
+    }
+    .boxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 336px;
+            height: 174px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            margin-right: 24px;
+            padding: 24px 0px;
+            img {
+                margin-bottom: 12px;
+                width: 64px;
+                height: 64px;
+            }
+            .account {
+                margin-bottom: 4px;
+                font-family: 'Graphik-bold';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 26px;
+                text-align: center;
+                color: #18181B;
+            }
+            .type {
+                font-family: 'Graphik';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                text-align: center;
+                color: #18181B;
+            }
+        }
+    }
+`
+
+const FlowContent = styled.div`
+    width: 100%;
+    padding: 96px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    button {
+        font-family: 'Graphik';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width :100%;
+        margin-bottom: 96px;
+        .left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            h2 {
+                font-family: 'Graphik-bold';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 64px;
+                text-align: center;
+                margin-bottom: 24px;
+            }
+        }
+        .right {
+            cursor: pointer;
+            img {
+                width: 420px;
+                height: 360px;
+                background-size: cover;
+            }
+        }
+    }
+`
+
+const SofiContent = styled.div`
+    width: 100%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    padding-top: 96px;
+    height: 1124px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 48px;
+        &>div {
+            font-family: 'Graphik';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 26px;
+            text-align: center;
+            color: #71717A;
+        }
+        h2 {
+            font-family: 'Graphik-bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 64px;
+            text-align: center;
+        }
+    }
+    .swap {
+        margin-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 640px;
+        h2 {
+            font-family: 'Graphik-bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .box {
+            img {
+                width: 640px;
+                height: 248px;
+                background-size: cover;
+            }
+        }
+    }
+    .gover {
+        margin-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 640px;
+        h2 {
+            font-family: 'Graphik-bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .box {
+            width: 100%;
+            height: 132px;
+            margin-bottom: 18px;
+        }
+
+    }
+
+
 `
 
 const ThirdContent = styled.div`
@@ -252,6 +460,7 @@ const FifthContent = styled.div`
         font-weight: 700;
         font-size: 48px;
         color: #111827;
+        font-family: 'Graphik-bold';
         span{
             color: #5542F6;
         }
@@ -269,6 +478,7 @@ const FifthContent = styled.div`
         color: #6B7280;
         font-size: 20px;
     }
+
 `
 const SixthContent = styled.div`
     background: rgba(255, 255, 255, 0.6);
@@ -305,6 +515,9 @@ const SeventhContent = styled.div`
         @media (max-width: 767px) {
             padding: 20px;
         }
+        h2 {
+            font-family: 'Graphik-bold';
+        }
     }
 `
 const StyledLink = styled.a`
@@ -326,7 +539,190 @@ const Copyright = styled.div`
     font-size: 12px
 `
 
+export const GoverIssue = styled.div<{ width?: any, height?: any }>`
+    width: ${({ width }) => width || '320px'};
+    height: ${({ height }) => height || '132px'};
+    border: 1px solid #E4E4E7;
+    border-radius: 12px;
+    padding: 16px;
+    .first {
+        width: 100%;
+        height: 16px;
+        line-height: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: #71717A;
+        margin-bottom: 12px;
+        .link {
+            color: #5542F6;
+            cursor: pointer;
+        }
+      }
+      .second {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 32px;
+        margin-bottom: 20px;
+        .on {
+            color: #71717A;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        .off {
+            font-family: 'Graphik';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: #18181B;
+            margin-bottom: 20px;
+        }
+      }
+      .third {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .tag{
+            padding: 0px 4px;
+            margin-right: 10px;
+            font-weight: 600;
+            font-size: 12px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 4px;
+            color: #fff;
+            &.active{
+                background: #F4F4F5; 
+                color: #18181B;
+            }
+            &.soon{
+                background: #5542F6;
+            }
+            &.closed,&.canceled{
+                background: #A1A1AA;
+            }
+        }
+        .date {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: #71717A;
+          }
+      }
+`
+
+const BtnBox = styled.div`
+    width: 320px;
+    min-height: 200px;
+    border: 1px solid #E4E4E7;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    .radio {
+        width: 288px;
+        height: 48px;
+        background: #FFFFFF;
+        border: 2px solid #E4E4E7;
+        border-radius: 8px;
+        display: flex;
+        padding: 0px 20px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        .inner {
+            display: flex;
+            align-items: center;
+            &>div {
+                margin-right: 8px;
+            }
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: #C4C4C4;
+            opacity: 0.5;
+        }
+    }
+    .color {
+        border: 2px solid #5542F6;
+    }
+
+`
+
+export const proposalStatus = (state: number) => {
+    const STATUS: any = {
+      0: <span>review</span>,
+      1: <span>active</span>,
+      2: <span>canceled</span>,
+      3: <span>failed</span>,
+      4: <span>passed</span>,
+      5: <span>passed</span>,
+      6: <span>failed</span>,
+      7: <span>passed</span>,
+      8: <span>passed</span>
+    }
+    return STATUS[state]
+  }
+
+  export const proposalStateColor: { [state: number]: string } = {
+    0: '#9A9A9A',
+    1: '#018526',
+    2: '#9A9A9A',
+    3: '#9A9A9A',
+    4: '#018526',
+    5: '#018526',
+    6: '#9A9A9A',
+    7: '#018526',
+    8: '#018526'
+  }
+
+  export const formatDollarAmount = (num: any, digits: any) => {
+    const formatter = new Intl.NumberFormat([], {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    })
+    return formatter.format(num)
+  }
+
+
+
 const Home: React.FC = () =>  {
+    const GoverIssueBox: React.FC<any> = (props) => {
+        const { date, voteCounts, state, contract, proposalId, width, height, subTitle } = props;
+        return (
+            <GoverIssue width={width} height={height}>
+                <div className='first'>
+                    <div>SOFIP-022</div>
+                    <div className='link'>on-chain</div>
+                </div>
+                <div className='second'>
+                    <div className='on'>{ subTitle || 'Edit Portfolio List' }</div>
+                    <div className='off'>Delist $LUNA from the portfolio list</div>
+                </div>
+                <div className='third'>
+                    <div className={`tag ${state === 0 ? 'soon' : (state === 1 || state === 4 || state === 5 || state === 7 || state === 8) ? 'active' : 'closed'}`} color={proposalStateColor[state]}>
+                    {proposalStatus(state)}
+                    </div>
+                    <div className='date'>Ended at { date }</div>
+                </div>
+                {/* <div className='result'>
+                        <div className={`tag ${state === 0 ? 'soon' : (state === 1 || state === 4 || state === 5 || state === 7 || state === 8) ? 'active' : 'closed'}`} color={proposalStateColor[state]}>
+                        {proposalStatus(state)}
+                        </div>
+                    <div className='count'>{ 31 } Voted</div>
+                </div>
+                <div className='date'>Ended at { date }</div> */}
+            </GoverIssue>
+        )
+    }
     const getCustomPaging = (i: number) => {
         switch (i) {
             case 1: 
@@ -441,15 +837,22 @@ const Home: React.FC = () =>  {
                 <FirstContent>
                     <div>
                         <h1>
-                        The Epicenter of Web 3.0 World
+                        Join the new era of SocialFi
                         </h1>
-                        <p>RAI Finance is a decentralized finance application that provides digital asset users with social trading system, aggregated swap on heterogeneous blockchains</p>
-                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">LAUNCH APP</a></Button>
+                        <p>
+                            RAI Finance is a decentralized finance and social platform, 
+                            powered by blockchain technology and governed by a community DAO. 
+                            Its main features include Predict, Social trading, Social hub, 
+                            and Aggregator, making it the center hub of DeFi and Social in the Web3 world. 
+                            With its launch in 2020, RAI Finance is now available on multiple blockchain networks, 
+                            providing innovation and accessibility to its users.
+                        </p>
+                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">ENTER MAIN NET</a></Button>
                         <p className='launched'>RAI Finance product is officially launched on</p>
                         <img className='eth_ploygon' src={ETH_Ploygon} alt="" />
                     </div>
                 </FirstContent>
-                <SecondContent>
+                {/* <SecondContent>
                     <div>
                         <h2 id="Finance">What is RAI Finance?</h2>
                         <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
@@ -524,80 +927,168 @@ const Home: React.FC = () =>  {
                         <div className="products">
                             <Slider {...settings}>
                                 <div className="item">
-                                    {/* <ReactPlayer
-                                        url={STSMp4}
-                                        playing={true}
-                                        controls={true}
-                                        loop={true}
-                                        muted={true}
-                                        playsinline={true}
-                                        // onReady={onLoadedData}
-                                    /> */}
+                                    
                                     <img src={STSMp4}/>
                                 </div>
                                 <div className="item">
-                                    {/* <ReactPlayer
-                                        url={AggregatorMp4}
-                                        playing={true}
-                                        controls={true}
-                                        loop={true}
-                                        muted={true}
-                                        playsinline={true}
-                                        // onReady={onLoadedData}
-                                    /> */}
+                                    
                                     <img src={AggregatorMp4}/>
                                 </div>
                                 <div className="item">
-                                    {/* <ReactPlayer
-                                        url={GovernanceMp4}
-                                        playing={true}
-                                        controls={true}
-                                        loop={true}
-                                        muted={true}
-                                        playsinline={true}
-                                        // onReady={onLoadedData}
-                                    /> */}
+                                    
                                     <img src={GovernanceMp4}/>
                                 </div>
                                 <div className="item">
-                                    {/* <ReactPlayer
-                                        url={WalletMp4}
-                                        playing={true}
-                                        controls={true}
-                                        loop={true}
-                                        muted={true}
-                                        playsinline={true}
-                                        // onReady={onLoadedData}
-                                    /> */}
+                                    
                                     <img src={WalletMp4}/>
                                 </div>
                             </Slider>
                         </div>
                     </div>
-                </FourthContent>
+                </FourthContent> */}
+                <FlowContent>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Take Your Choice</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/predict')}>
+                            <img src={ TradingSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Keep Or Sell</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/predict')}>
+                            <img src={ TradingSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Create your Portfolio</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
+                            <img src={ ChartSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Pick Your Token</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
+                            <img src={ ChartSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Manage it Efficiently</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts')}>
+                            <img src={ LineSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Just for you</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts')}>
+                            <img src={ LineSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className='left'>
+                            <h2>Everything in RAI Finance</h2>
+                            <Button type='primary'>SELECT YES OR NO</Button>
+                        </div>
+                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/')}>
+                            <img src={ RaiSvg } alt="" />
+                        </div>
+                    </div>
+                </FlowContent>
+                <SofiContent>
+                    <div className='head'>
+                        <h2>Anything else?</h2>
+                        <div>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</div>
+                    </div>
+                    <div className='swap'>
+                        <h2>swap</h2>
+                        <div className='box'>
+                            <img src={ SwapSvg } alt="" />
+                        </div>
+                    </div>
+                    <div className='gover'>
+                        <h2>Governance</h2>
+                        <div className='box' onClick={() => { window.open('https://app.rai.finance/#/proposals') }}>
+                            <GoverIssueBox subTitle="Edit Portfolio List" height={'100%'} width={'100%'} className='issue' voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                        </div>
+                        <div className='box' onClick={() => { window.open('https://app.rai.finance/#/proposals') }}>
+                            <GoverIssueBox subTitle="Marketing Campaign" height={'100%'} width={'100%'} voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                        </div>
+                    </div>
+                    <Button type="primary" style={{ fontFamily: 'Graphik-bold', width: '320px' }}><a target="_blank" rel="noopener" href="https://app.rai.finance/#/" className="elementor-item">Go To App</a></Button>
+                </SofiContent>
+                <DeepContent>
+                    <h2>Deep Dive in RAI.finance</h2>
+                    <div className='boxes'>
+                        <div className='box'>
+                            <img src={ DeepFirst } alt="" />
+                            <div className='account'>9,870</div>
+                            <div className='type'>Users</div>
+                        </div>
+                        <div className='box'>
+                            <img src={ DeepSecond } alt="" />
+                            <div className='account'>44,434</div>
+                            <div className='type'>Transition</div>
+                        </div>
+                        <div className='box'>
+                            <img src={ DeepThird } alt="" />
+                            <div className='account'>{ formatDollarAmount(2284561, 2) }</div>
+                            <div className='type'>Transaction volume</div>
+                        </div>
+                    </div>
+                </DeepContent>
                 <FifthContent>
                     <div>
                         <Row gutter={[48, 48]}>
                             <Col md={12} sm={24}>
-                                <h2 id="Whitepaper">RAI Finance's<br/><span>Whitepaper</span></h2>
+                                <h2 id="Whitepaper">Explore the SOFI at<br/><span>Rai Finance</span></h2>
                                 <p>SOFI, the native token for RAI Finance is an essential component of the protocol and employs many functions in the ecosystem.</p>
-                                <Button type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
                                 <div className='tokenInfo'>
-                                    <h3 className="tokenName" >
-                                        <img src={SofiToken} />
-                                    </h3>
-                                    <p>SOFI was rebranded from RAI since November 2021. For more details, please visit <a href="https://medium.com/rai-finance/rai-finances-brand-is-deeply-upgraded-to-socialization-token-ticker-is-changed-to-sofi-210123adf84f">RAI Finance Rebranding</a>
-                                    </p>
                                     <ul className="compenyList">
-                                        <li><img src={HuoBiGlobal}/></li>
-                                        <li><img src={PancakeSwap}/></li>
-                                        <li><img src={Dodo}/></li>
                                         <li><img src={Bithumb}/></li>
+                                        <li><img src={HuoBiGlobal}/></li>
+                                        <li><img src={Sofimexc}/></li>
+                                        <li><img src={PancakeSwap}/></li>
+                                        <li><img src={Sofibb}/></li>
                                     </ul>
                                 </div>
+                                <Button type="primary" style={{ fontFamily: 'Graphik-bold' }}><a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
                             </Col>
                             <Col md={12} sm={24} xs={24}>
-                                <img className="img" src={whitepaper} />
+                                <GoverIssueBox voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                                <BtnBox>
+                                    <div className='radio color'>
+                                        <div className='inner'>
+                                            <div className='icon'></div>
+                                            <div className='text'>Approve</div>
+                                        </div>
+                                        <Radio/>
+                                    </div>
+                                    <div className='radio'>
+                                        <div className='inner'>
+                                            <div className='icon'></div>
+                                            <div className='text'>Disapprove</div>
+                                        </div>
+                                        <Radio/>
+                                    </div>
+                                    <Button style={{ width: '100%', fontFamily: 'Graphik-bold' }} type="primary"><a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf" className="elementor-item">Vote Now</a></Button>
+                                </BtnBox>
                             </Col>
                         </Row>
                     </div>
