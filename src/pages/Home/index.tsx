@@ -141,6 +141,9 @@ const FirstContent = styled.div`
         font-style: normal;
         font-size: 24px;
         line-height: 32px;
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
     }
     .launched{
         color: #6B7280;
@@ -182,11 +185,17 @@ const DeepContent = styled.div`
         font-family: 'Graphik-bold';
         margin-bottom: 48px;
         color: #18181B;
+        @media (max-width: 767px) {
+            font-size: 32px;
+        }
     }
     .boxes {
         display: flex;
         justify-content: center;
         align-items: center;
+        @media (max-width: 767px) {
+            flex-direction: column;
+        }
         .box {
             display: flex;
             flex-direction: column;
@@ -198,6 +207,10 @@ const DeepContent = styled.div`
             border-radius: 12px;
             margin-right: 24px;
             padding: 24px 0px;
+            @media (max-width: 767px) {
+                margin-right: 0x;
+                margin-bottom: 24px;
+            }
             img {
                 margin-bottom: 12px;
                 width: 64px;
@@ -248,11 +261,17 @@ const FlowContent = styled.div`
         align-items: center;
         width :100%;
         margin-bottom: 96px;
+        @media (max-width: 767px) {
+            flex-direction: column;
+        }
         .left {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
+            @media (max-width: 767px) {
+                align-items: center;
+            }
             h2 {
                 font-family: 'Graphik-bold';
                 font-style: normal;
@@ -261,6 +280,9 @@ const FlowContent = styled.div`
                 line-height: 64px;
                 text-align: center;
                 margin-bottom: 24px;
+                @media (max-width: 767px) {
+                    font-size: 32px;
+                }
             }
         }
         .right {
@@ -284,12 +306,19 @@ const SofiContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    max-width: 1200px;
+    @media (max-width: 767px) {
+        padding: 0 20px;
+    }
     .head {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 48px;
+        @media (max-width: 767px) {
+            
+        }
         &>div {
             font-family: 'Graphik';
             font-style: normal;
@@ -298,6 +327,9 @@ const SofiContent = styled.div`
             line-height: 26px;
             text-align: center;
             color: #71717A;
+            @media (max-width: 767px) {
+                font-size: 14px;
+            }
         }
         h2 {
             font-family: 'Graphik-bold';
@@ -306,6 +338,9 @@ const SofiContent = styled.div`
             font-size: 48px;
             line-height: 64px;
             text-align: center;
+            @media (max-width: 767px) {
+                font-size: 32px;
+            }
         }
     }
     .swap {
@@ -315,6 +350,10 @@ const SofiContent = styled.div`
         align-items: flex-start;
         justify-content: space-between;
         width: 640px;
+        @media (max-width: 767px) {
+            align-items: flex-start;
+            width: 100%;
+        }
         h2 {
             font-family: 'Graphik-bold';
             font-style: normal;
@@ -322,12 +361,19 @@ const SofiContent = styled.div`
             font-size: 24px;
             line-height: 30px;
             text-align: center;
+            @media (max-width: 767px) {
+                font-size: 20px;
+            }
         }
         .box {
             img {
                 width: 640px;
                 height: 248px;
                 background-size: cover;
+                @media (max-width: 767px) {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
@@ -338,6 +384,9 @@ const SofiContent = styled.div`
         align-items: flex-start;
         justify-content: space-between;
         width: 640px;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
         h2 {
             font-family: 'Graphik-bold';
             font-style: normal;
@@ -345,6 +394,9 @@ const SofiContent = styled.div`
             font-size: 24px;
             line-height: 30px;
             text-align: center;
+            @media (max-width: 767px) {
+                font-size: 20px;
+            }
         }
         .box {
             width: 100%;
