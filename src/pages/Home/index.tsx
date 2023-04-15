@@ -152,7 +152,7 @@ const SecondContent = styled.div`
 const ThirdContent = styled.div`
     background: #fff;
     &>div{
-        margin: 0 auto;
+        margin: 0px auto;
         max-width: 1200px;
         padding: 100px 50px;
         @media (max-width: 1200px) {
