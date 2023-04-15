@@ -838,6 +838,15 @@ const Home: React.FC = () =>  {
         }
         setScrollHeight(height)
     }
+
+    const scrollTo = (element: string) => {
+        const doc: any = document.getElementById(`${element}`);
+        if (doc) {
+            doc.scrollIntoView({
+                behavior: 'smooth'
+            })
+        }
+    }
   
     useEffect(() => {
       const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -876,7 +885,7 @@ const Home: React.FC = () =>  {
                         unmountOnExit
                     >
                         <nav className="Nav">
-                            <a href="#Product">Product</a>
+                            <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('Product');}}>Product</a>
                             <a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf">Whitepaper</a>
                             <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
                             <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
@@ -1002,7 +1011,7 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                 </FourthContent> */}
-                <FlowContent>
+                <FlowContent id='Product'>
                     <div className='item'>
                         <div className='left'>
                             <h2>Take Your Choice</h2>
