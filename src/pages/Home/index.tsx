@@ -84,6 +84,8 @@ import LineSvg from '../../assets/images/home/box/line.svg'
 import RaiImg from '../../assets/images/home/box/rai.png'
 import RaiSvg from '../../assets/images/home/box/rai.svg'
 
+// https://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@github.com/RaiFinance/RAI-Home
+
 const { Header, Sider, Content } = Layout;
 const { Link } = Anchor;
 const HeaderContent = styled.div`
