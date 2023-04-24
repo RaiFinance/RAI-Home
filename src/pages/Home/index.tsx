@@ -1,8 +1,9 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState, useRef, useCallback} from 'react'
 import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel, Radio, Input, Slider as SliderC } from 'antd';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
+import Swiper,{SwipeRef} from 'react-tiga-swiper'
 import ReactPlayer from "react-player";
 import styled from 'styled-components'
 import Logo from '../../assets/images/logo-dark.png'
@@ -249,7 +250,7 @@ const DeepContent = styled.div`
 
 const FlowContent = styled.div`
     width: 100%;
-    padding: 96px 20px;
+    padding: 48px 20px 0px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -902,31 +903,57 @@ const Home: React.FC = () =>  {
     const [scrollHeight, setScrollHeight] = useState(128);
     const [ pageData, setPageData ] = useState<any>({ pageY: 0 });
     const carouselRef = useRef<any>()
+    const productRef = useRef<any>()
     let y = 0
-    useEffect(() => {
-        window.addEventListener('scroll', (e) => {
-            console.log('scr', e);
-        }, false);
-        window.addEventListener('wheel', (e: any) => {
-            // console.log('e', e);
-            // e.preventDefault();
+    const { current } = useRef<any>({
+        isScroll: true,
+        timer: null,
+        delay: 100,
+    });
+    let slideNum = 0;
+    const denounceCB = useCallback((e) => {
+        if (current.isScroll) {
+            current.isScroll = false;
             if (!y) {
                 y = e.deltaY;
             } else {
-                
-                if (e.deltaY > y) { // 下滑
-                    carouselRef && carouselRef.current && carouselRef.current.prev();
+                if (carouselRef && carouselRef.current && slideNum === 6 && e.deltaY) {
+                    slideNum -= 1;
+                    scrollTo('Sofi');
+                    return;
+                }
+                if (carouselRef && carouselRef.current && slideNum === 0 && !e.deltaY) {
+                    scrollTo('Join');
+                    return;
+                }
+                const currentSlide = carouselRef && carouselRef.current && carouselRef.current.innerSlider.state.currentSlide;
+                if (e.deltaY >= 0) { // 下滑
+                    slideNum += 1;
+                    carouselRef && carouselRef.current && carouselRef.current.goTo(slideNum > 6 ? 6 : slideNum);
                 } else { // 上滑
-                    carouselRef && carouselRef.current && carouselRef.current.next();
+                    slideNum -= 1;
+                    carouselRef && carouselRef.current && carouselRef.current.goTo(slideNum < 0 ? 0 : slideNum);
                 }
                 y = e.deltaY;
             }
+        }
+        if (current && current.timer) {
+            clearTimeout(current.timer);
+        }
+        current.timer = setTimeout(() => {
+            current.isScroll = true;
+        }, 100)
+    }, []);
+
+    useEffect(() => {
+        productRef && productRef.current && productRef.current.addEventListener('wheel', (e: any) => {
+            e.preventDefault();
+            return denounceCB(e)
         }, { passive: false })
         return () => {
-            window.removeEventListener('scroll', scrollHeader, false);
-            window.addEventListener('wheel', () => {}, { passive: true })
+            window.addEventListener('wheel', denounceCB, { passive: true })
         }
-    }, [])
+    }, [productRef])
 
     const goTo = (index: number) => {
         if(carouselRef.current){
@@ -994,28 +1021,8 @@ const Home: React.FC = () =>  {
         console.log('end', e)
     }
 
-    const handleWheel = (e: any) => {
-        console.log('e', e.isDefaultPrevented());
-        // if (!pageData.pageY) {
-        //     setPageData({
-        //         pageY: e.pageY
-        //     })
-        // } else {
-        //     if (e.pageY > pageData.pageY) { // 下滑
-        //         carouselRef && carouselRef.current && carouselRef.current.next();
-        //     } else { // 上滑
-        //         carouselRef && carouselRef.current && carouselRef.current.prev();
-        //     }
-        //     setPageData({
-        //         pageY: e.pageY
-        //     })
-        // }
-    }
-
     const handleScroll = (e: any) => {
-        console.log('scroll', e)
     }
-
 
     return (
         <Layout className="homePage">
@@ -1046,7 +1053,7 @@ const Home: React.FC = () =>  {
                 </HeaderContent>
             </Header>
             <Content>
-                <FirstContent>
+                <FirstContent id='Join'>
                     <div>
                         <h1>
                         Join the new era of SocialFi
@@ -1159,8 +1166,8 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                 </FourthContent> */}
-                <FlowContent id='Product' onScrollCapture={handleScroll} onWheel={handleWheel} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-                    <Carousel dotPosition='right' ref={carouselRef} onSwipe={handleScroll}>
+                <FlowContent ref={ productRef } id='Product' onScrollCapture={handleScroll} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                    <Carousel dots={false} dotPosition='right' ref={carouselRef}>
                         <div className='item'>
                             <div className='left'>
                                 <h2>Take Your Choice</h2>
@@ -1383,7 +1390,7 @@ const Home: React.FC = () =>  {
                         </div>
                     </div> */}
                 </FlowContent>
-                <SofiContent>
+                <SofiContent id='Sofi'>
                     <div className='head'>
                         <h2>Anything else?</h2>
                         <div>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</div>
