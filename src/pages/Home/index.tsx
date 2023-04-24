@@ -953,7 +953,7 @@ const Home: React.FC = () =>  {
         }
         current.timer = setTimeout(() => {
             current.isScroll = true;
-        }, 100)
+        }, 70)
     }, []);
 
     useEffect(() => {
