@@ -250,6 +250,7 @@ const DeepContent = styled.div`
 
 const FlowContent = styled.div`
     width: 100%;
+    height: 100vh;
     padding: 48px 20px 0px 20px;
     display: flex;
     flex-direction: column;
@@ -257,6 +258,16 @@ const FlowContent = styled.div`
     justify-content: flex-start;
     max-width: 1200px;
     margin: 0 auto;
+    .ant-carousel {
+        height: 100% !important;
+        .slick-slider {
+            height: 100% !important;
+            .slick-list {
+                height: 100% !important;
+            }
+        }
+    }
+
     button {
         font-family: 'Graphik';
         font-style: normal;
@@ -287,7 +298,7 @@ const FlowContent = styled.div`
                 font-weight: 700;
                 font-size: 48px;
                 line-height: 64px;
-                text-align: center;
+                text-align: left;
                 margin-bottom: 24px;
                 @media (max-width: 767px) {
                     font-size: 32px;
