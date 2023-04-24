@@ -88,6 +88,8 @@ import Graph1 from '../../assets/images/home/box/1.svg'
 import Graph2 from '../../assets/images/home/box/2.svg'
 import Graph3 from '../../assets/images/home/box/3.svg'
 
+import { useScroll } from 'ahooks';
+
 
 // https://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@github.com/RaiFinance/RAI-Home
 
@@ -922,6 +924,8 @@ const Home: React.FC = () =>  {
         delay: 100,
     });
     let slideNum = 0;
+    const scroll = useScroll(productRef);
+
     const denounceCB = useCallback((e) => {
         if (current.isScroll) {
             current.isScroll = false;
@@ -957,13 +961,13 @@ const Home: React.FC = () =>  {
     }, []);
 
     useEffect(() => {
-        productRef && productRef.current && productRef.current.addEventListener('wheel', (e: any) => {
-            e.preventDefault();
-            return denounceCB(e)
-        }, { passive: false })
-        return () => {
-            window.addEventListener('wheel', denounceCB, { passive: true })
-        }
+        // productRef && productRef.current && productRef.current.addEventListener('wheel', (e: any) => {
+        //     e.preventDefault();
+        //     return denounceCB(e)
+        // }, { passive: false })
+        // return () => {
+        //     window.addEventListener('wheel', denounceCB, { passive: true })
+        // }
     }, [productRef])
 
     const goTo = (index: number) => {
@@ -1177,8 +1181,17 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                 </FourthContent> */}
-                <FlowContent ref={ productRef } id='Product' onScrollCapture={handleScroll} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-                    <Carousel dots={false} dotPosition='right' ref={carouselRef}>
+                <FlowContent style={{
+                    overflow: 'scroll',
+                    whiteSpace: 'nowrap',
+                    }} 
+                    ref={ productRef } 
+                    id='Product' 
+                    onScrollCapture={handleScroll} 
+                    onTouchMove={handleTouchMove} 
+                    onTouchStart={handleTouchStart} 
+                    onTouchEnd={handleTouchEnd}>
+                    {/* <Carousel dots={false} dotPosition='right' ref={carouselRef}> */}
                         <div className='item'>
                             <div className='left'>
                                 <h2>Take Your Choice</h2>
@@ -1336,7 +1349,7 @@ const Home: React.FC = () =>  {
                                 <img src={ RaiSvg } alt="" />
                             </div>
                         </div>
-                    </Carousel>
+                    {/* </Carousel> */}
                     {/* <div className='item'>
                         <div className='left'>
                             <h2>Take Your Choice</h2>
