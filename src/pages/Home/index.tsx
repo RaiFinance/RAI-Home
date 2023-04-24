@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
-import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel, Radio } from 'antd';
+import { Anchor, Layout, Menu, Row, Col, Button, List, Card, Avatar, Carousel, Radio, Input, Slider as SliderC } from 'antd';
 import { CSSTransition } from "react-transition-group";
-import { MenuOutlined, UserOutlined } from '@ant-design/icons';
+import { MenuOutlined, UserOutlined, CloseOutlined } from '@ant-design/icons';
 import Slider from "react-slick";
 import ReactPlayer from "react-player";
 import styled from 'styled-components'
@@ -65,9 +65,9 @@ import {ReactComponent as GithubLogo} from '../../assets/images/home/svg/Github.
 import {ReactComponent as KakaoLogo} from '../../assets/images/home/svg/Kakao.svg'
 import {ReactComponent as WeiboLogo} from '../../assets/images/home/svg/Weibo.svg'
 import './index.less';
-import DeepFirst from '../../assets/images/home/first.png'
-import DeepSecond from '../../assets/images/home/second.png'
-import DeepThird from '../../assets/images/home/third.png'
+import DeepFirst from '../../assets/images/home/deepOne.svg'
+import DeepSecond from '../../assets/images/home/deepSecond.svg'
+import DeepThird from '../../assets/images/home/deepThird.svg'
 import Sofipk from '../../assets/images/home/box/pk.png'
 import Sofimexc from '../../assets/images/home/box/mexc.png'
 import Sofihb from '../../assets/images/home/box/hb.png'
@@ -83,6 +83,10 @@ import LineImg from '../../assets/images/home/box/line.png'
 import LineSvg from '../../assets/images/home/box/line.svg'
 import RaiImg from '../../assets/images/home/box/rai.png'
 import RaiSvg from '../../assets/images/home/box/rai.svg'
+import Graph1 from '../../assets/images/home/box/1.svg'
+import Graph2 from '../../assets/images/home/box/2.svg'
+import Graph3 from '../../assets/images/home/box/3.svg'
+
 
 // https://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@github.com/RaiFinance/RAI-Home
 
@@ -137,13 +141,13 @@ const FirstContent = styled.div`
         }
     }
     p{
-        font-size: 24px;
-        color: #6B7280;
+        font-family: 'Graphik';
+        color: #71717A;
         font-weight: 400;
         text-align: center;
-        line-height: 1.2;
         font-style: normal;
-        font-size: 24px;
+        font-size: 20px;
+        padding: 0px 10px;
         line-height: 32px;
         @media (max-width: 767px) {
             font-size: 14px;
@@ -233,7 +237,7 @@ const DeepContent = styled.div`
             .type {
                 font-family: 'Graphik';
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 500;
                 font-size: 16px;
                 line-height: 20px;
                 text-align: center;
@@ -260,10 +264,10 @@ const FlowContent = styled.div`
         line-height: 20px;
     }
     .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width :100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width :100% !important;
         margin-bottom: 96px;
         @media (max-width: 767px) {
             flex-direction: column;
@@ -288,13 +292,32 @@ const FlowContent = styled.div`
                     font-size: 32px;
                 }
             }
+            .btnText {
+                font-family: 'Graphik';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                // text-transform: uppercase;
+                color: #FFFFFF;
+                span {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 20px;
+                    // text-transform: uppercase;
+                    color: #FFFFFF;
+                    font-family: 'Graphik';
+                }
+            }
         }
         .right {
             cursor: pointer;
             img {
-                width: 420px;
-                height: 360px;
-                background-size: cover;
+                // width: 420px;
+                // height: 360px;
+                background-size: 100%;
+                margin-right: -50px;
             }
         }
     }
@@ -708,7 +731,76 @@ const BtnBox = styled.div`
     .color {
         border: 2px solid #5542F6;
     }
+`
 
+export const PortfolioGraph = styled.div`
+    width: 420px;
+    height: 360px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 48px -1px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    .item-1 {
+        padding: 16px;
+        background: #FFFFFF;
+        border: 1px solid #E4E4E7;
+        border-radius: 12px;
+        width: 174px;
+        height: 144px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            width: 100%;
+            .headIn {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                img {
+                    width: 20px;
+                    height: 20px;
+                    background-size: contain;
+                    margin-right: 4px;
+                }
+                span {
+                    color: #18181B;
+                    font-family: 'Graphik-bold';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+            .close {
+
+            }
+        }
+        .body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .foot {
+            width: 100%;
+            .ant-slider-track {
+                background: #5542F6;
+            }
+            .ant-slider-handle {
+                border: solid 2px #5542F6;
+            }
+        }
+    }
 `
 
 export const proposalStatus = (state: number) => {
@@ -808,11 +900,31 @@ const Home: React.FC = () =>  {
     const [isNavVisible, setNavVisibility] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [scrollHeight, setScrollHeight] = useState(128);
+    const [ pageData, setPageData ] = useState<any>({ pageY: 0 });
     const carouselRef = useRef<any>()
+    let y = 0
     useEffect(() => {
-        window.addEventListener('scroll', scrollHeader, false);
+        window.addEventListener('scroll', (e) => {
+            console.log('scr', e);
+        }, false);
+        window.addEventListener('wheel', (e: any) => {
+            // console.log('e', e);
+            // e.preventDefault();
+            if (!y) {
+                y = e.deltaY;
+            } else {
+                
+                if (e.deltaY > y) { // 下滑
+                    carouselRef && carouselRef.current && carouselRef.current.prev();
+                } else { // 上滑
+                    carouselRef && carouselRef.current && carouselRef.current.next();
+                }
+                y = e.deltaY;
+            }
+        }, { passive: false })
         return () => {
             window.removeEventListener('scroll', scrollHeader, false);
+            window.addEventListener('wheel', () => {}, { passive: true })
         }
     }, [])
 
@@ -870,6 +982,41 @@ const Home: React.FC = () =>  {
       setNavVisibility(!isNavVisible);
     };
 
+    const handleTouchMove = (e: any) => {
+        console.log('move', e)
+    }
+
+    const handleTouchStart = (e: any) => {
+        console.log('start', e)
+    }
+
+    const handleTouchEnd = (e: any) => {
+        console.log('end', e)
+    }
+
+    const handleWheel = (e: any) => {
+        console.log('e', e.isDefaultPrevented());
+        // if (!pageData.pageY) {
+        //     setPageData({
+        //         pageY: e.pageY
+        //     })
+        // } else {
+        //     if (e.pageY > pageData.pageY) { // 下滑
+        //         carouselRef && carouselRef.current && carouselRef.current.next();
+        //     } else { // 上滑
+        //         carouselRef && carouselRef.current && carouselRef.current.prev();
+        //     }
+        //     setPageData({
+        //         pageY: e.pageY
+        //     })
+        // }
+    }
+
+    const handleScroll = (e: any) => {
+        console.log('scroll', e)
+    }
+
+
     return (
         <Layout className="homePage">
             {/* <HeaderNotification>
@@ -912,7 +1059,7 @@ const Home: React.FC = () =>  {
                             With its launch in 2020, RAI Finance is now available on multiple blockchain networks, 
                             providing innovation and accessibility to its users.
                         </p>
-                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">ENTER MAIN NET</a></Button>
+                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">ENTER MAINNET</a></Button>
                         <p className='launched'>RAI Finance product is officially launched on</p>
                         <img className='eth_ploygon' src={ETH_Ploygon} alt="" />
                     </div>
@@ -985,6 +1132,7 @@ const Home: React.FC = () =>  {
               
                     </div>
                 </ThirdContent>
+                
                 <FourthContent id="Product">
                     <div>
                         <h2>RAI Finance Product</h2>
@@ -1011,8 +1159,167 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                 </FourthContent> */}
-                <FlowContent id='Product'>
-                    <div className='item'>
+                <FlowContent id='Product' onScrollCapture={handleScroll} onWheel={handleWheel} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                    <Carousel dotPosition='right' ref={carouselRef} onSwipe={handleScroll}>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Take Your Choice</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Select Yes or No</Button>
+                            </div>
+                            <div className='right'>
+                                <img src={ TradingSvg } alt="" />
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Keep Or Sell</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Select Yes or No</Button>
+                            </div>
+                            <div className='right'>
+                                <img src={ TradingSvg } alt="" />
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Create your Portfolio</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create Portfolio</Button>
+                            </div>
+                            {/* <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
+                                <img src={ ChartSvg } alt="" />
+                            </div> */}
+                            <PortfolioGraph>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph1 } alt="" />
+                                            <span>CAPS</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph2 } alt="" />
+                                            <span>PEOPLE</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph3 } alt="" />
+                                            <span>CVX</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                            </PortfolioGraph>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Pick Your Token</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create Portfolio</Button>
+                            </div>
+                            {/* <div className='right'>
+                                <img src={ ChartSvg } alt="" />
+                            </div> */}
+                            <PortfolioGraph>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph1 } alt="" />
+                                            <span>CAPS</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph2 } alt="" />
+                                            <span>PEOPLE</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                                <div className='item-1'>
+                                    <div className='head'>
+                                        <div className='headIn'>
+                                            <img src={ Graph3 } alt="" />
+                                            <span>CVX</span>
+                                        </div>
+                                        <CloseOutlined />
+                                    </div>
+                                    <div className='body'>
+                                        <Input defaultValue={'15%'}/>
+                                    </div>
+                                    <div className='foot'>
+                                        <SliderC defaultValue={30} />
+                                    </div>
+                                </div>
+                            </PortfolioGraph>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Manage it Efficiently</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Show Social Trading</Button>
+                            </div>
+                            <div className='right'>
+                                <img src={ LineSvg } alt="" />
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Just for you</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Show Social Trading</Button>
+                            </div>
+                            <div className='right'>
+                                <img src={ LineSvg } alt="" />
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div className='left'>
+                                <h2>Everything in RAI Finance</h2>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/')}>Go To App</Button>
+                            </div>
+                            <div className='right'>
+                                <img src={ RaiSvg } alt="" />
+                            </div>
+                        </div>
+                    </Carousel>
+                    {/* <div className='item'>
                         <div className='left'>
                             <h2>Take Your Choice</h2>
                             <Button type='primary'>SELECT YES OR NO</Button>
@@ -1074,7 +1381,7 @@ const Home: React.FC = () =>  {
                         <div className='right' onClick={() => window.open('https://app.rai.finance/#/')}>
                             <img src={ RaiSvg } alt="" />
                         </div>
-                    </div>
+                    </div> */}
                 </FlowContent>
                 <SofiContent>
                     <div className='head'>
@@ -1113,7 +1420,7 @@ const Home: React.FC = () =>  {
                         </div>
                         <div className='box'>
                             <img src={ DeepThird } alt="" />
-                            <div className='account'>{ formatDollarAmount(2284561, 2) }</div>
+                            <div className='account'>$2,284,561</div>
                             <div className='type'>Transaction volume</div>
                         </div>
                     </div>
