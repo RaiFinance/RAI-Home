@@ -74,7 +74,7 @@ import Sofimexc from '../../assets/images/home/box/mexc.png'
 import Sofihb from '../../assets/images/home/box/hb.png'
 import Sofibt from '../../assets/images/home/box/bitumb.png'
 import Sofibb from '../../assets/images/home/box/bibox.png'
-import swapImg from '../../assets/images/home/box/swap.png'
+import swapImg from '../../assets/images/home/box/swap.jpg'
 import SwapSvg from '../../assets/images/home/box/swap.svg'
 import TradingImg from '../../assets/images/home/box/trading.png'
 import TradingSvg from '../../assets/images/home/box/trading.svg'
@@ -281,7 +281,7 @@ const FlowContent = styled.div`
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        width :100% !important;
+        width :93% !important;
         margin-bottom: 96px;
         @media (max-width: 767px) {
             flex-direction: column;
@@ -409,7 +409,7 @@ const SofiContent = styled.div`
         .box {
             img {
                 width: 640px;
-                height: 248px;
+                height: auto;
                 background-size: cover;
                 @media (max-width: 767px) {
                     width: 100%;
@@ -425,6 +425,7 @@ const SofiContent = styled.div`
         align-items: flex-start;
         justify-content: space-between;
         width: 640px;
+        padding: 0 20px;
         @media (max-width: 767px) {
             width: 100%;
         }
@@ -1197,7 +1198,8 @@ const Home: React.FC = () =>  {
                     </div>
                 </FourthContent> */}
                 <FlowContent style={{
-                    overflow: 'scroll',
+                    overflowY: 'scroll',
+                    overflowX: 'hidden',
                     whiteSpace: 'nowrap',
                     }} 
                     ref={ productRef } 
@@ -1435,9 +1437,11 @@ const Home: React.FC = () =>  {
                         <div>Participate in DAO's decision-making by holding SOFI token & Execute trades across multiple decentralized exchanges</div>
                     </div>
                     <div className='swap'>
-                        <h2>Swap</h2>
+                        <h2></h2>
                         <div className='box'>
-                            <img src={ SwapSvg } alt="" />
+                            {/* <img src={ SwapSvg } alt="" /> */}
+                        <img src={swapImg} alt="" />
+
                         </div>
                     </div>
                     <div className='gover'>
