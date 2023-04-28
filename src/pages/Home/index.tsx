@@ -690,8 +690,8 @@ export const GoverIssue = styled.div<{ width?: any, height?: any }>`
             border-radius: 4px;
             color: #fff;
             &.active{
-                background: #F4F4F5; 
-                color: #18181B;
+                background: #14b8a6; 
+                color: #fff;
             }
             &.soon{
                 background: #5542F6;
@@ -858,16 +858,16 @@ export const proposalStatus = (state: number) => {
 
 const Home: React.FC = () =>  {
     const GoverIssueBox: React.FC<any> = (props) => {
-        const { date, voteCounts, state, contract, proposalId, width, height, subTitle } = props;
+        const { No, date, voteCounts, state, contract, proposalId, width, height, subTitle, Title } = props;
         return (
             <GoverIssue width={width} height={height}>
                 <div className='first'>
-                    <div>SOFIP-022</div>
+                    <div>SOFIP-{No}</div>
                     <div className='link'>on-chain</div>
                 </div>
                 <div className='second'>
                     <div className='on'>{ subTitle || 'Edit Portfolio List' }</div>
-                    <div className='off'>Delist $LUNA from the portfolio list</div>
+                    <div className='off'>{Title}</div>
                 </div>
                 <div className='third'>
                     <div className={`tag ${state === 0 ? 'soon' : (state === 1 || state === 4 || state === 5 || state === 7 || state === 8) ? 'active' : 'closed'}`} color={proposalStateColor[state]}>
@@ -1039,6 +1039,21 @@ const Home: React.FC = () =>  {
     const handleScroll = (e: any) => {
     }
 
+    const formatDate = (date: Date) => {
+        const y = date.getFullYear()
+        let m:any = date.getMonth() + 1
+        m = m < 10 ? ('0' + m) : m
+        let d:any = date.getDate()
+        d = d < 10 ? ('0' + d) : d
+        let h: any = date.getHours()
+        h = h < 10 ? ('0' + h) : h.toString()
+        let mins: any = date.getMinutes()
+        mins = mins < 10 ? ('0' + mins) : mins.toString()
+        let sec: any = date.getSeconds()
+        sec = sec < 10 ? ('0' + sec) : sec.toString()
+        return y +'-'+ m + '-' + d + ' ' + h +':'+ mins + ':' + sec
+    }
+
     return (
         <Layout className="homePage">
             {/* <HeaderNotification>
@@ -1195,7 +1210,7 @@ const Home: React.FC = () =>  {
                         <div className='item'>
                             <div className='left'>
                                 <h2>Take Your Choice</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Select Yes or No</Button>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Go to Predict</Button>
                             </div>
                             <div className='right'>
                                 <img src={ TradingSvg } alt="" />
@@ -1204,7 +1219,7 @@ const Home: React.FC = () =>  {
                         <div className='item'>
                             <div className='left'>
                                 <h2>Keep Or Sell</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Select Yes or No</Button>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Go to Predict</Button>
                             </div>
                             <div className='right'>
                                 <img src={ TradingSvg } alt="" />
@@ -1213,7 +1228,7 @@ const Home: React.FC = () =>  {
                         <div className='item'>
                             <div className='left'>
                                 <h2>Create your Portfolio</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create Portfolio</Button>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create your own portfolio</Button>
                             </div>
                             {/* <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
                                 <img src={ ChartSvg } alt="" />
@@ -1269,7 +1284,7 @@ const Home: React.FC = () =>  {
                         <div className='item'>
                             <div className='left'>
                                 <h2>Pick Your Token</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create Portfolio</Button>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Check popular portfolio</Button>
                             </div>
                             {/* <div className='right'>
                                 <img src={ ChartSvg } alt="" />
@@ -1325,13 +1340,13 @@ const Home: React.FC = () =>  {
                         <div className='item'>
                             <div className='left'>
                                 <h2>Manage it Efficiently</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Show Social Trading</Button>
+                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Go to my dashboard</Button>
                             </div>
                             <div className='right'>
                                 <img src={ LineSvg } alt="" />
                             </div>
                         </div>
-                        <div className='item'>
+                        {/* <div className='item'>
                             <div className='left'>
                                 <h2>Just for you</h2>
                                 <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Show Social Trading</Button>
@@ -1339,8 +1354,8 @@ const Home: React.FC = () =>  {
                             <div className='right'>
                                 <img src={ LineSvg } alt="" />
                             </div>
-                        </div>
-                        <div className='item'>
+                        </div> */}
+                        {/* <div className='item'>
                             <div className='left'>
                                 <h2>Everything in RAI Finance</h2>
                                 <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/')}>Go To App</Button>
@@ -1348,7 +1363,7 @@ const Home: React.FC = () =>  {
                             <div className='right'>
                                 <img src={ RaiSvg } alt="" />
                             </div>
-                        </div>
+                        </div> */}
                     {/* </Carousel> */}
                     {/* <div className='item'>
                         <div className='left'>
@@ -1417,10 +1432,10 @@ const Home: React.FC = () =>  {
                 <SofiContent id='Sofi'>
                     <div className='head'>
                         <h2>Anything else?</h2>
-                        <div>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</div>
+                        <div>Participate in DAO's decision-making by holding SOFI token & Execute trades across multiple decentralized exchanges</div>
                     </div>
                     <div className='swap'>
-                        <h2>swap</h2>
+                        <h2>Swap</h2>
                         <div className='box'>
                             <img src={ SwapSvg } alt="" />
                         </div>
@@ -1428,13 +1443,15 @@ const Home: React.FC = () =>  {
                     <div className='gover'>
                         <h2>Governance</h2>
                         <div className='box' onClick={() => { window.open('https://app.rai.finance/#/proposals') }}>
-                            <GoverIssueBox subTitle="Edit Portfolio List" height={'100%'} width={'100%'} className='issue' voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                            <GoverIssueBox No='038' Title="Revise the UI & UX of RAI Finance app" subTitle="Marketing Campaign" height={'100%'} width={'100%'} className='issue' voteCounts={ 31 }  date={ formatDate(new Date(1681272081000)) } state={ 4 } />
                         </div>
                         <div className='box' onClick={() => { window.open('https://app.rai.finance/#/proposals') }}>
-                            <GoverIssueBox subTitle="Marketing Campaign" height={'100%'} width={'100%'} voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                            <GoverIssueBox No='037' Title="Integrate Layer 2 scaling solutions to RAI Finance" subTitle="Marketing Campaign" height={'100%'} width={'100%'} voteCounts={ 31 }  date={ formatDate(new Date(1679815844000)) } state={ 4 } />
                         </div>
                     </div>
-                    <Button type="primary" style={{ fontFamily: 'Graphik-bold', width: '320px' }}><a target="_blank" rel="noopener" href="https://app.rai.finance/#/" className="elementor-item">Go To App</a></Button>
+                    <Button type="primary" style={{ fontFamily: 'Graphik-bold', width: '320px' }}>
+                        <a target="_blank" rel="noopener" href="https://app.rai.finance/#/" className="elementor-item">Go To App</a>
+                    </Button>
                 </SofiContent>
                 <DeepContent>
                     <h2>Deep Dive in RAI.finance</h2>
@@ -1447,7 +1464,7 @@ const Home: React.FC = () =>  {
                         <div className='box'>
                             <img src={ DeepSecond } alt="" />
                             <div className='account'>44,434</div>
-                            <div className='type'>Transition</div>
+                            <div className='type'>Transaction</div>
                         </div>
                         <div className='box'>
                             <img src={ DeepThird } alt="" />
@@ -1474,7 +1491,7 @@ const Home: React.FC = () =>  {
                                 <Button type="primary" style={{ fontFamily: 'Graphik-bold' }}><a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf" className="elementor-item">View the White Paper</a></Button>
                             </Col>
                             <Col md={12} sm={24} xs={24}>
-                                <GoverIssueBox voteCounts={ 31 }  date={ Date.now() } state={ 1 } />
+                                <GoverIssueBox No='022' Title='Delist$LUNA from the portfolio' voteCounts={ 31 }  date={ formatDate(new Date(1679815844000)) } state={ 4 } />
                                 <BtnBox>
                                     <div className='radio color'>
                                         <div className='inner'>
