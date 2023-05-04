@@ -76,17 +76,16 @@ import Sofibt from '../../assets/images/home/box/bitumb.png'
 import Sofibb from '../../assets/images/home/box/bibox.png'
 import swapImg from '../../assets/images/home/box/swap.jpg'
 import SwapSvg from '../../assets/images/home/box/swap.svg'
-import TradingImg from '../../assets/images/home/box/trading.png'
 import TradingSvg from '../../assets/images/home/box/trading.svg'
-import ChartImg from '../../assets/images/home/box/chart.png'
 import ChartSvg from '../../assets/images/home/box/chart.svg'
-import LineImg from '../../assets/images/home/box/line.png'
 import LineSvg from '../../assets/images/home/box/line.svg'
-import RaiImg from '../../assets/images/home/box/rai.png'
 import RaiSvg from '../../assets/images/home/box/rai.svg'
 import Graph1 from '../../assets/images/home/box/1.svg'
 import Graph2 from '../../assets/images/home/box/2.svg'
 import Graph3 from '../../assets/images/home/box/3.svg'
+import { WithScrollFreezing } from "./withScrollFreezingProps"
+import MainBlock from "./MainBlock"
+import Slide from './Slide'
 
 import { useScroll } from 'ahooks';
 
@@ -252,7 +251,7 @@ const DeepContent = styled.div`
 
 const FlowContent = styled.div`
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     padding: 48px 20px 0px 20px;
     display: flex;
     flex-direction: column;
@@ -282,6 +281,7 @@ const FlowContent = styled.div`
         justify-content: space-between !important;
         align-items: center !important;
         width :93% !important;
+        height: 100vh;
         margin-bottom: 96px;
         @media (max-width: 767px) {
             flex-direction: column;
@@ -1055,6 +1055,119 @@ const Home: React.FC = () =>  {
         return y +'-'+ m + '-' + d + ' ' + h +':'+ mins + ':' + sec
     }
 
+    const slideArray = [
+        {
+            href: "https://app.rai.finance/#/predict",
+            title: "Take Your Choice",
+            description: "",
+            buttonTitle: "Go to Predict",
+            backgroundFill: "#fff",
+            colorText: "#000000D9",
+            fill: "white",
+            list: [],
+            imgUrl: "./Screenshots/trading.png",
+            id: 0,
+            translate: `20px, -12px`,
+            minHeight: "100vh",
+            mobileMinHeight: "49vh",
+            widthImg: "57vw",
+            mobile: {
+                translate: `0px, 10px`,
+                widthImg: "100%",
+                minHeight: "43vh",
+            },
+            desktopWidth: "68vw",
+        },
+        {
+            href: "https://app.rai.finance/#/predict",
+            title: "Keep Or Sell",
+            description: "",
+            buttonTitle: "Go to Predict",
+            backgroundFill: "#fff",
+            colorText: "#000000D9",
+            fill: "white",
+            list: [],
+            imgUrl: "./Screenshots/trading.png",
+            id: 1,
+            translate: `20px, -12px`,
+            minHeight: "100vh",
+            mobileMinHeight: "49vh",
+            widthImg: "57vw",
+            mobile: {
+                translate: `0px, 10px`,
+                widthImg: "100%",
+                minHeight: "43vh",
+            },
+            desktopWidth: "68vw",
+        },
+        {
+            href: "https://app.rai.finance/#/sts/create",
+            title: "Create your Portfolio",
+            description: "",
+            buttonTitle: "Create your own portfolio",
+            backgroundFill: "#fff",
+            colorText: "#000000D9",
+            fill: "white",
+            list: [],
+            imgUrl: "",
+            id: 2,
+            translate: `20px, -12px`,
+            minHeight: "100vh",
+            mobileMinHeight: "49vh",
+            widthImg: "57vw",
+            mobile: {
+                translate: `0px, 10px`,
+                widthImg: "100%",
+                minHeight: "43vh",
+            },
+            desktopWidth: "68vw",
+        },
+        {
+            href: "https://app.rai.finance/#/sts/create",
+            title: "Pick Your Token",
+            description: "",
+            buttonTitle: "Check popular portfolio",
+            backgroundFill: "#fff",
+            colorText: "#000000D9",
+            fill: "white",
+            list: [],
+            imgUrl: "",
+            id: 3,
+            translate: `20px, -12px`,
+            minHeight: "100vh",
+            mobileMinHeight: "49vh",
+            widthImg: "57vw",
+            mobile: {
+                translate: `0px, 10px`,
+                widthImg: "100%",
+                minHeight: "43vh",
+            },
+            desktopWidth: "68vw",
+        },
+        {
+            href: "https://app.rai.finance/#/sts",
+            title: "Manage it Efficiently",
+            description: "",
+            buttonTitle: "Go to my dashboard",
+            backgroundFill: "#fff",
+            colorText: "#000000D9",
+            fill: "white",
+            list: [],
+            imgUrl: "./Screenshots/line.png",
+            id: 4,
+            translate: `20px, -12px`,
+            minHeight: "100vh",
+            mobileMinHeight: "49vh",
+            widthImg: "57vw",
+            mobile: {
+                translate: `0px, 10px`,
+                widthImg: "100%",
+                minHeight: "43vh",
+            },
+            desktopWidth: "68vw",
+        }
+    ]
+
     return (
         <Layout className="homePage">
             {/* <HeaderNotification>
@@ -1072,10 +1185,10 @@ const Home: React.FC = () =>  {
                         <nav className="Nav">
                             <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('Product');}}>Product</a>
                             <a target="_blank" rel="noopener" href="/RAI-Finance-WhitePaper.pdf">Whitepaper</a>
-                            <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838">Roadmap</a>
-                            <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/">Wiki</a>
-                            <a target="_blank" href="https://www.certik.com/projects/rai-finance">Audit</a>
-                            <Button type="primary"><a target="_blank" href="https://app.rai.finance">Launch App</a></Button>
+                            <a target="_blank" href="https://rai-finance.notion.site/62225248bc054e1eb7ff14f8def9b17e?v=3ea69551a4a943169d4d04a8bcc8f838" rel="noreferrer">Roadmap</a>
+                            <a target="_blank" href="https://rai-finance.gitbook.io/rai-finance/" rel="noreferrer">Wiki</a>
+                            <a target="_blank" href="https://www.certik.com/projects/rai-finance" rel="noreferrer">Audit</a>
+                            <Button type="primary"><a target="_blank" href="https://app.rai.finance" rel="noreferrer">Launch App</a></Button>
                         </nav>
                     </CSSTransition>
                     <button onClick={toggleNav} className="Burger">
@@ -1097,7 +1210,7 @@ const Home: React.FC = () =>  {
                             With its launch in 2020, RAI Finance is now available on multiple blockchain networks, 
                             providing innovation and accessibility to its users.
                         </p>
-                        <Button type="primary"><a href="https://app.rai.finance" target="_blank">ENTER MAINNET</a></Button>
+                        <Button type="primary"><a href="https://app.rai.finance" target="_blank" rel="noreferrer">ENTER MAINNET</a></Button>
                         <p className='launched'>RAI Finance product is officially launched on</p>
                         <img className='eth_ploygon' src={ETH_Ploygon} alt="" />
                     </div>
@@ -1197,240 +1310,12 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                 </FourthContent> */}
-                <FlowContent style={{
-                    overflowY: 'scroll',
-                    overflowX: 'hidden',
-                    whiteSpace: 'nowrap',
-                    }} 
-                    ref={ productRef } 
-                    id='Product' 
-                    onScrollCapture={handleScroll} 
-                    onTouchMove={handleTouchMove} 
-                    onTouchStart={handleTouchStart} 
-                    onTouchEnd={handleTouchEnd}>
-                    {/* <Carousel dots={false} dotPosition='right' ref={carouselRef}> */}
-                        <div className='item'>
-                            <div className='left'>
-                                <h2>Take Your Choice</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Go to Predict</Button>
-                            </div>
-                            <div className='right'>
-                                <img src={ TradingSvg } alt="" />
-                            </div>
-                        </div>
-                        <div className='item'>
-                            <div className='left'>
-                                <h2>Keep Or Sell</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/predict')}>Go to Predict</Button>
-                            </div>
-                            <div className='right'>
-                                <img src={ TradingSvg } alt="" />
-                            </div>
-                        </div>
-                        <div className='item'>
-                            <div className='left'>
-                                <h2>Create your Portfolio</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Create your own portfolio</Button>
-                            </div>
-                            {/* <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
-                                <img src={ ChartSvg } alt="" />
-                            </div> */}
-                            <PortfolioGraph>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph1 } alt="" />
-                                            <span>CAPS</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph2 } alt="" />
-                                            <span>PEOPLE</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph3 } alt="" />
-                                            <span>CVX</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                            </PortfolioGraph>
-                        </div>
-                        <div className='item'>
-                            <div className='left'>
-                                <h2>Pick Your Token</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>Check popular portfolio</Button>
-                            </div>
-                            {/* <div className='right'>
-                                <img src={ ChartSvg } alt="" />
-                            </div> */}
-                            <PortfolioGraph>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph1 } alt="" />
-                                            <span>CAPS</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph2 } alt="" />
-                                            <span>PEOPLE</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                                <div className='item-1'>
-                                    <div className='head'>
-                                        <div className='headIn'>
-                                            <img src={ Graph3 } alt="" />
-                                            <span>CVX</span>
-                                        </div>
-                                        <CloseOutlined />
-                                    </div>
-                                    <div className='body'>
-                                        <Input defaultValue={'15%'}/>
-                                    </div>
-                                    <div className='foot'>
-                                        <SliderC defaultValue={30} />
-                                    </div>
-                                </div>
-                            </PortfolioGraph>
-                        </div>
-                        <div className='item'>
-                            <div className='left'>
-                                <h2>Manage it Efficiently</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Go to my dashboard</Button>
-                            </div>
-                            <div className='right'>
-                                <img src={ LineSvg } alt="" />
-                            </div>
-                        </div>
-                        {/* <div className='item'>
-                            <div className='left'>
-                                <h2>Just for you</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/sts')}>Show Social Trading</Button>
-                            </div>
-                            <div className='right'>
-                                <img src={ LineSvg } alt="" />
-                            </div>
-                        </div> */}
-                        {/* <div className='item'>
-                            <div className='left'>
-                                <h2>Everything in RAI Finance</h2>
-                                <Button type='primary' className='btnText' onClick={() => window.open('https://app.rai.finance/#/')}>Go To App</Button>
-                            </div>
-                            <div className='right'>
-                                <img src={ RaiSvg } alt="" />
-                            </div>
-                        </div> */}
-                    {/* </Carousel> */}
-                    {/* <div className='item'>
-                        <div className='left'>
-                            <h2>Take Your Choice</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/predict')}>
-                            <img src={ TradingSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Keep Or Sell</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/predict')}>
-                            <img src={ TradingSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Create your Portfolio</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
-                            <img src={ ChartSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Pick Your Token</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts/create')}>
-                            <img src={ ChartSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Manage it Efficiently</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts')}>
-                            <img src={ LineSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Just for you</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/sts')}>
-                            <img src={ LineSvg } alt="" />
-                        </div>
-                    </div>
-                    <div className='item'>
-                        <div className='left'>
-                            <h2>Everything in RAI Finance</h2>
-                            <Button type='primary'>SELECT YES OR NO</Button>
-                        </div>
-                        <div className='right' onClick={() => window.open('https://app.rai.finance/#/')}>
-                            <img src={ RaiSvg } alt="" />
-                        </div>
-                    </div> */}
-                </FlowContent>
+                <WithScrollFreezing isChainBlock={true}>
+                <Header />
+                </WithScrollFreezing>
+                {slideArray.map((slide) => {
+                return <Slide key={slide.id} slide={slide} />;
+                })}
                 <SofiContent id='Sofi'>
                     <div className='head'>
                         <h2>Anything else?</h2>
@@ -1454,7 +1339,7 @@ const Home: React.FC = () =>  {
                         </div>
                     </div>
                     <Button type="primary" style={{ fontFamily: 'Graphik-bold', width: '320px' }}>
-                        <a target="_blank" rel="noopener" href="https://app.rai.finance/#/" className="elementor-item">Go To App</a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://app.rai.finance/#/" className="elementor-item">Go To App</a>
                     </Button>
                 </SofiContent>
                 <DeepContent>
