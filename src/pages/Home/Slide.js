@@ -139,7 +139,7 @@ const Img = styled.img`
   }
 
   @media (min-width: 1400px) and (max-width: 2500px) {
-    width: 70vw;
+    width: 46vw;
     object-fit: contain;
   }
 `;
@@ -160,6 +160,10 @@ export const PortfolioGraph = styled.div`
     gap: 24px;
     padding: 24px;
     margin: 280px 40px 0 0;
+    @media (min-width: 992px) and (max-width: 2500px) {
+      width: 36vw;
+      margin-right: 120px;
+    }
     .item-1 {
         padding: 16px;
         background: #FFFFFF;
@@ -171,6 +175,11 @@ export const PortfolioGraph = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        @media (min-width: 992px) and (max-width: 2500px) {
+          width: 100%;
+          height: 200px;
+          object-fit: contain;
+        }
         .head {
             display: flex;
             align-items: center;
@@ -217,6 +226,8 @@ export const PortfolioGraph = styled.div`
             }
         }
     }
+    
+    
 `
 
 const Slide = ({ slide }) => {
@@ -302,6 +313,7 @@ const Slide = ({ slide }) => {
           )}
         </Wrapper>
         {/* {slide.id === 7 && <Footer />} */}
+        
       </WithScrollFreezing>
     </>
   );
