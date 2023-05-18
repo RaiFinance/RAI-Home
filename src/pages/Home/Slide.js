@@ -3,21 +3,20 @@ import styled from "styled-components";
 // import ListFeature from "../../shared/ListFeature/ListFeature";
 import { WithScrollFreezing } from "./withScrollFreezingProps";
 // import Footer from "../../Footer/Footer";
-import FadeInUp from "../../utils/fade-in-up";
+import { FadeInUp } from "../../utils/fade-in-up";
 import { useRef, useState } from "react";
 import useIntersectionObserver from "./useIntersectionObserver";
-import Graph1 from '../../assets/images/home/box/1.svg'
-import Graph2 from '../../assets/images/home/box/2.svg'
-import Graph3 from '../../assets/images/home/box/3.svg'
-import { CloseOutlined } from '@ant-design/icons';
-import { Input, Slider as SliderC } from 'antd';
-
+import Graph1 from "../../assets/images/home/box/1.svg";
+import Graph2 from "../../assets/images/home/box/2.svg";
+import Graph3 from "../../assets/images/home/box/3.svg";
+import { CloseOutlined } from "@ant-design/icons";
+import { Input, Slider as SliderC } from "antd";
 
 const Wrapper = styled.div`
   display: flex;
   height: ${(props) => props?.minHeight && props?.minHeight};
   background: ${(props) => props?.background && props?.background};
-  // border-radius: 30px 30px 0 0;
+  //border-radius: 30px 30px 0 0;
   position: relative;
   justify-content: space-between;
   overflow: hidden;
@@ -37,7 +36,7 @@ const Content = styled.div`
   align-items: center;
   @media (min-width: 360px) and (max-width: 992px) {
     width: 100%;
-    padding: 44px 16px 0 16px;
+    padding: 200px 16px 0 16px;
   }
 `;
 
@@ -45,6 +44,12 @@ const InfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+  top: -150px;
+  @media (min-width: 360px) and (max-width: 992px) {
+    position: relative;
+    top: -90px;
+  }
 `;
 
 const Title = styled.h1`
@@ -112,6 +117,8 @@ const ImgContainer = styled.div`
     width: 100%;
     padding-top: 72px;
     height: ${(props) => props?.mobileMinHeight && props?.mobileMinHeight};
+    position: relative;
+    top: -50px;
   }
 `;
 
@@ -135,11 +142,12 @@ const Img = styled.img`
   object-fit: contain;
 
   @media (min-width: 300px) and (max-width: 1020px) {
+    width: 100vw;
     transform: translate(0px, 12px);
   }
 
   @media (min-width: 1400px) and (max-width: 2500px) {
-    width: 46vw;
+    width: 36vw;
     object-fit: contain;
   }
 `;
@@ -149,86 +157,94 @@ const Link = styled.a`
 `;
 
 export const PortfolioGraph = styled.div`
-    width: 40vw;
-    height: fit-content;
-    background: #FFFFFF;
-    box-shadow: 0px 8px 48px -1px rgba(0, 0, 0, 0.05);
-    border-radius: 24px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 24px;
-    padding: 24px;
-    margin: 280px 40px 0 0;
+  width: 40vw;
+  height: fit-content;
+  background: #ffffff;
+  box-shadow: 0px 8px 48px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  margin: 280px 40px 0 0;
+  @media (min-width: 992px) and (max-width: 2500px) {
+    width: 36vw;
+    margin-right: 120px;
+  }
+  @media (max-width: 767px) {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    position: relative;
+    top: -55px;
+    & > .item-1 {
+      width: 100% !important;
+    }
+  }
+  .item-1 {
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 12px;
+    width: 174px;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     @media (min-width: 992px) and (max-width: 2500px) {
-      width: 36vw;
-      margin-right: 120px;
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
     }
-    .item-1 {
-        padding: 16px;
-        background: #FFFFFF;
-        border: 1px solid #E4E4E7;
-        border-radius: 12px;
-        width: 174px;
-        height: 144px;
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      width: 100%;
+      .headIn {
+        width: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        @media (min-width: 992px) and (max-width: 2500px) {
-          width: 100%;
-          height: 200px;
-          object-fit: contain;
+        justify-content: flex-start;
+        img {
+          width: 20px;
+          height: 20px;
+          background-size: contain;
+          margin-right: 4px;
         }
-        .head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            width: 100%;
-            .headIn {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                img {
-                    width: 20px;
-                    height: 20px;
-                    background-size: contain;
-                    margin-right: 4px;
-                }
-                span {
-                    color: #18181B;
-                    font-family: 'Graphik-bold';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 14px;
-                    line-height: 18px;
-                }
-            }
-            .close {
-
-            }
+        span {
+          color: #18181b;
+          font-family: "Graphik-bold";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
         }
-        .body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-        .foot {
-            width: 100%;
-            .ant-slider-track {
-                background: #5542F6;
-            }
-            .ant-slider-handle {
-                border: solid 2px #5542F6;
-            }
-        }
+      }
+      .close {
+      }
     }
-    
-    
-`
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .foot {
+      width: 100%;
+      .ant-slider-track {
+        background: #5542f6;
+      }
+      .ant-slider-handle {
+        border: solid 2px #5542f6;
+      }
+    }
+  }
+`;
 
 const Slide = ({ slide }) => {
   const ref = useRef(null);
@@ -238,14 +254,26 @@ const Slide = ({ slide }) => {
   return (
     <>
       <WithScrollFreezing>
-        <Wrapper mobileMinHeight={slide.mobileMinHeight} background={slide.backgroundFill} minHeight={slide.minHeight} ref={ref}>
+        <Wrapper
+          mobileMinHeight={slide.mobileMinHeight}
+          background={slide.backgroundFill}
+          minHeight={slide.minHeight}
+          ref={ref}
+        >
           <Content>
             <InfoBlock>
               <Title color={slide.colorText}>{slide.title}</Title>
-              <Description color={slide.colorText}>{slide.description}</Description>
+              <Description color={slide.colorText}>
+                {slide.description}
+              </Description>
               {/* {slide.list && <ListFeature listFeature={slide.list} fill={slide.fill} />} */}
               <Link href={slide.href}>
-                <Button border={'#5542F6'} background={'#5542F6'} marginTop={slide.marginTopButton} color={'#fff'}>
+                <Button
+                  border={"#5542F6"}
+                  background={"#5542F6"}
+                  marginTop={slide.marginTopButton}
+                  color={"#fff"}
+                >
                   {slide.buttonTitle}
                 </Button>
               </Link>
@@ -256,64 +284,70 @@ const Slide = ({ slide }) => {
           ) : slide.imgUrl ? (
             <ImgContainer mobileMinHeight={slide.mobileMinHeight}>
               <FadeInUp active={isVisible}>
-                <Img src={slide.imgUrl} width={slide.widthImg} translate={slide.translate} mobileWidth={slide.mobile.widthImg} mobileMinHeight={slide.mobile.minHeight} mobileTranslate={slide.mobile.translate} desktopWidth={slide.desktopWidth} />
+                <Img
+                  src={slide.imgUrl}
+                  width={slide.widthImg}
+                  translate={slide.translate}
+                  mobileWidth={slide.mobile.widthImg}
+                  mobileMinHeight={slide.mobile.minHeight}
+                  mobileTranslate={slide.mobile.translate}
+                  desktopWidth={slide.desktopWidth}
+                />
               </FadeInUp>
             </ImgContainer>
           ) : (
-              <FadeInUp active={isVisible}>
-
-            <PortfolioGraph>
-              <div className='item-1'>
-                  <div className='head'>
-                      <div className='headIn'>
-                          <img src={ Graph1 } alt="" />
-                          <span>CAPS</span>
-                      </div>
-                      <CloseOutlined />
+            <FadeInUp active={isVisible}>
+              <PortfolioGraph>
+                <div className="item-1">
+                  <div className="head">
+                    <div className="headIn">
+                      <img src={Graph1} alt="" />
+                      <span>CAPS</span>
+                    </div>
+                    <CloseOutlined />
                   </div>
-                  <div className='body'>
-                      <Input defaultValue={'15%'}/>
+                  <div className="body">
+                    <Input defaultValue={"15%"} />
                   </div>
-                  <div className='foot'>
-                      <SliderC defaultValue={30} />
+                  <div className="foot">
+                    <SliderC defaultValue={30} />
                   </div>
-              </div>
-              <div className='item-1'>
-                  <div className='head'>
-                      <div className='headIn'>
-                          <img src={ Graph2 } alt="" />
-                          <span>PEOPLE</span>
-                      </div>
-                      <CloseOutlined />
+                </div>
+                <div className="item-1">
+                  <div className="head">
+                    <div className="headIn">
+                      <img src={Graph2} alt="" />
+                      <span>PEOPLE</span>
+                    </div>
+                    <CloseOutlined />
                   </div>
-                  <div className='body'>
-                      <Input defaultValue={'15%'}/>
+                  <div className="body">
+                    <Input defaultValue={"15%"} />
                   </div>
-                  <div className='foot'>
-                      <SliderC defaultValue={30} />
+                  <div className="foot">
+                    <SliderC defaultValue={30} />
                   </div>
-              </div>
-              <div className='item-1'>
-                  <div className='head'>
-                      <div className='headIn'>
-                          <img src={ Graph3 } alt="" />
-                          <span>CVX</span>
-                      </div>
-                      <CloseOutlined />
+                </div>
+                <div className="item-1">
+                  <div className="head">
+                    <div className="headIn">
+                      <img src={Graph3} alt="" />
+                      <span>CVX</span>
+                    </div>
+                    <CloseOutlined />
                   </div>
-                  <div className='body'>
-                      <Input defaultValue={'15%'}/>
+                  <div className="body">
+                    <Input defaultValue={"15%"} />
                   </div>
-                  <div className='foot'>
-                      <SliderC defaultValue={30} />
+                  <div className="foot">
+                    <SliderC defaultValue={30} />
                   </div>
-              </div>
-          </PortfolioGraph>
-              </FadeInUp>
+                </div>
+              </PortfolioGraph>
+            </FadeInUp>
           )}
         </Wrapper>
         {/* {slide.id === 7 && <Footer />} */}
-        
       </WithScrollFreezing>
     </>
   );

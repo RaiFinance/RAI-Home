@@ -1,9 +1,15 @@
-import React from 'react';
-import { CSSTransition, transit } from 'react-css-transition';
+import React from "react";
+import { CSSTransition, transit } from "react-css-transition";
 
-const easeOutQuart = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
+const easeOutQuart = "cubic-bezier(0.165, 0.84, 0.8, 1)";
 
-function FadeInUp({ distance = '700px', duration = 5000, children, active, ...props }) {
+export function FadeInUp({
+  distance = "700px",
+  duration = 1500,
+  children,
+  active,
+  ...props
+}) {
   const transitionStyles = {
     defaultStyle: {
       opacity: 0,
@@ -11,7 +17,7 @@ function FadeInUp({ distance = '700px', duration = 5000, children, active, ...pr
     },
     enterStyle: {
       opacity: transit(1, duration, easeOutQuart),
-      transform: transit('translate(0, 0)', duration, easeOutQuart),
+      transform: transit("translate(0, 0)", duration, easeOutQuart),
     },
     leaveStyle: {
       opacity: transit(0, duration, easeOutQuart),
@@ -19,7 +25,7 @@ function FadeInUp({ distance = '700px', duration = 5000, children, active, ...pr
     },
     activeStyle: {
       opacity: 1,
-      transform: 'translate(0, 0)',
+      transform: "translate(0, 0)",
     },
     active: active,
     transitionAppear: true,
@@ -30,5 +36,3 @@ function FadeInUp({ distance = '700px', duration = 5000, children, active, ...pr
     </CSSTransition>
   );
 }
-
-export default FadeInUp
