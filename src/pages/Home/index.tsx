@@ -358,6 +358,7 @@ const SofiContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   // max-width: 1200px;
   @media (max-width: 767px) {
     padding: 0 20px;
@@ -1132,7 +1133,7 @@ const Home: React.FC = () => {
       title: "Take Your Choice",
       description: "",
       buttonTitle: "Go to Predict",
-      backgroundFill: "#F7F7F7",
+      backgroundFill: "#fff",
       colorText: "#010101d9",
       fill: "white",
       list: [],
@@ -1154,7 +1155,7 @@ const Home: React.FC = () => {
       title: "Keep Or Sell",
       description: "",
       buttonTitle: "Go to Predict",
-      backgroundFill: "#EAEAEA",
+      backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
       list: [],
@@ -1176,7 +1177,7 @@ const Home: React.FC = () => {
       title: "Create your Portfolio",
       description: "",
       buttonTitle: "Create your own portfolio",
-      backgroundFill: "#DADADA",
+      backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
       list: [],
@@ -1198,7 +1199,7 @@ const Home: React.FC = () => {
       title: "Pick Your Token",
       description: "",
       buttonTitle: "Check popular portfolio",
-      backgroundFill: "#C9C9C9",
+      backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
       list: [],
@@ -1220,7 +1221,7 @@ const Home: React.FC = () => {
       title: "Manage it Efficiently",
       description: "",
       buttonTitle: "Go to my dashboard",
-      backgroundFill: "#B8B8B8",
+      backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
       list: [],

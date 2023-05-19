@@ -12,8 +12,9 @@ import Graph3 from "../../assets/images/home/box/3.svg";
 import { CloseOutlined } from "@ant-design/icons";
 import { Input, Slider as SliderC } from "antd";
 
-const Wrapper = styled.div`
+const Wrapper = styled("div")`
   display: flex;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   height: ${(props) => props?.minHeight && props?.minHeight};
   background: ${(props) => props?.background && props?.background};
   //border-radius: 30px 30px 0 0;
