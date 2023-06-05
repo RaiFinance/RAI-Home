@@ -36,9 +36,8 @@ const Wrapper = styled("div")`
   @media (max-width: 992px) {
     flex-direction: column;
     height: max-content;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-top: 140px;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 `;
 

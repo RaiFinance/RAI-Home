@@ -99,7 +99,6 @@ import Bitcoins from "../../assets/images/home/bitcoins.png";
 import { WithScrollFreezing } from "./withScrollFreezingProps";
 import MainBlock from "./MainBlock";
 import Slide from "./Slide";
-import Bitcoins from "../../assets/images/home/bitcoins.png";
 import { useScroll } from "ahooks";
 // import '../../statics/fullpage.extensions.min.js'
 // import '../../statics/fullpage.scrollOverflowReset.limited.min.js'
