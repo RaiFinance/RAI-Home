@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-// import ListFeature from "../../shared/ListFeature/ListFeature";
+import {Card} from 'antd'
 import { WithScrollFreezing } from "./withScrollFreezingProps";
 // import Footer from "../../Footer/Footer";
 import { FadeInUp } from "../../utils/fade-in-up";
@@ -11,34 +10,45 @@ import Graph2 from "../../assets/images/home/box/2.svg";
 import Graph3 from "../../assets/images/home/box/3.svg";
 import { CloseOutlined } from "@ant-design/icons";
 import { Input, Slider as SliderC } from "antd";
+import './Slide.less';
+
+const { Meta } = Card;
+
+
+const Contrainer = styled("div")`
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+`
 
 const Wrapper = styled("div")`
   display: flex;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  height: ${(props) => props?.minHeight && props?.minHeight};
-  background: ${(props) => props?.background && props?.background};
+  height: 100%;
+  min-height: 100vh;
   //border-radius: 30px 30px 0 0;
   position: relative;
   justify-content: space-between;
   overflow: hidden;
-
-  @media (min-width: 360px) and (max-width: 992px) {
+  max-width: 1200px;
+  padding: 0 50px;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  @media (max-width: 992px) {
     flex-direction: column;
     height: max-content;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 140px;
   }
 `;
 
 const Content = styled.div`
-  padding-left: 80px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   width: 50%;
   align-items: center;
-  @media (min-width: 360px) and (max-width: 992px) {
-    width: 100%;
-    padding: 200px 16px 0 16px;
-  }
 `;
 
 const InfoBlock = styled.div`
@@ -46,13 +56,7 @@ const InfoBlock = styled.div`
   flex-direction: column;
   width: 100%;
   position: relative;
-  top: -150px;
-  @media (min-width: 360px) and (max-width: 992px) {
-    position: relative;
-    top: -90px;
-  }
 `;
-
 const Title = styled.h1`
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -108,12 +112,15 @@ const Button = styled.button`
 `;
 
 const ImgContainer = styled.div`
-  padding-top: 220px;
   width: 50%;
   height: 100%;
   position: relative;
   object-fit: cover;
-
+  padding: 24px;
+  border: 24px;
+  width: 420px;
+  display: flex;
+  align-items: center;
   @media (min-width: 360px) and (max-width: 992px) {
     width: 100%;
     padding-top: 72px;
@@ -137,20 +144,8 @@ const ImgContainerSvg = styled.div`
 `;
 
 const Img = styled.img`
-  position: absolute;
-  transform: translate(${(props) => props?.translate && props?.translate});
-  width: 514px;
+  width: 100%;
   object-fit: contain;
-
-  @media (min-width: 300px) and (max-width: 1020px) {
-    width: 100vw;
-    transform: translate(0px, 12px);
-  }
-
-  @media (min-width: 1400px) and (max-width: 2500px) {
-    width: 36vw;
-    object-fit: contain;
-  }
 `;
 
 const Link = styled.a`
@@ -168,10 +163,8 @@ export const PortfolioGraph = styled.div`
   grid-template-rows: 1fr 1fr;
   gap: 24px;
   padding: 24px;
-  margin: 280px 40px 0 0;
   @media (min-width: 992px) and (max-width: 2500px) {
     width: 36vw;
-    margin-right: 120px;
   }
   @media (max-width: 767px) {
     width: 90vw;
@@ -253,8 +246,7 @@ const Slide = ({ slide }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <>
-      <WithScrollFreezing>
+      <div className="section">
         <Wrapper
           mobileMinHeight={slide.mobileMinHeight}
           background={slide.backgroundFill}
@@ -263,7 +255,7 @@ const Slide = ({ slide }) => {
         >
           <Content>
             <InfoBlock>
-              <Title color={slide.colorText}>{slide.title}</Title>
+            <Title color={slide.colorText}>{slide.title}</Title>
               <Description color={slide.colorText}>
                 {slide.description}
               </Description>
@@ -282,20 +274,40 @@ const Slide = ({ slide }) => {
           </Content>
           {slide.imgSvg ? (
             <ImgContainerSvg>{slide.imgSvg}</ImgContainerSvg>
-          ) : slide.imgUrl ? (
-            <ImgContainer mobileMinHeight={slide.mobileMinHeight}>
-              <FadeInUp active={isVisible}>
-                <Img
-                  src={slide.imgUrl}
-                  width={slide.widthImg}
-                  translate={slide.translate}
-                  mobileWidth={slide.mobile.widthImg}
-                  mobileMinHeight={slide.mobile.minHeight}
-                  mobileTranslate={slide.mobile.translate}
-                  desktopWidth={slide.desktopWidth}
-                />
-              </FadeInUp>
-            </ImgContainer>
+            ) : slide.imgUrl ? (
+              <ImgContainer mobileMinHeight={slide.mobileMinHeight}>
+                <FadeInUp active={isVisible}>
+                  <Img
+                    src={slide.imgUrl}
+                    width={slide.widthImg}
+                    translate={slide.translate}
+                    mobileWidth={slide.mobile.widthImg}
+                    mobileMinHeight={slide.mobile.minHeight}
+                    mobileTranslate={slide.mobile.translate}
+                    desktopWidth={slide.desktopWidth}
+                  />
+                </FadeInUp>
+              </ImgContainer>  
+          ) : slide.predictImgUrl ? (
+            <FadeInUp active={isVisible}>
+            <Card
+              hoverable
+              style={{ width: 420, padding:'24px', borderRadius: '24px' }}
+              cover={<img alt="example" src={slide.predictImgUrl}></img>}
+              className="predict-card"
+            >
+              <Meta title="BTC price as of May 9 will be $30000?"/>
+              <div className='precent' style={{gridTemplateColumns: `50% 50%`}}>
+                  <div className='yes'></div>
+                  <div className='no'></div>
+                  <div className='text'>
+                      <div>YES $0.38</div>
+                      <div>NO $0.59</div>
+                  </div>
+              </div>
+              <span>Ended at 06:33 Jun 28 2022</span>
+            </Card>
+            </FadeInUp>
           ) : (
             <FadeInUp active={isVisible}>
               <PortfolioGraph>
@@ -349,8 +361,7 @@ const Slide = ({ slide }) => {
           )}
         </Wrapper>
         {/* {slide.id === 7 && <Footer />} */}
-      </WithScrollFreezing>
-    </>
+      </div>
   );
 };
 
