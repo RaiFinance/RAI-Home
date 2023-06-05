@@ -255,21 +255,6 @@ const Slide = ({ slide }) => {
         >
           <Content>
             <InfoBlock>
-            <Title color={slide.colorText}>{slide.title}</Title>
-              <Description color={slide.colorText}>
-                {slide.description}
-              </Description>
-              {/* {slide.list && <ListFeature listFeature={slide.list} fill={slide.fill} />} */}
-              <Link href={slide.href}>
-                <Button
-                  border={"#5542F6"}
-                  background={"#5542F6"}
-                  marginTop={slide.marginTopButton}
-                  color={"#fff"}
-                >
-                  {slide.buttonTitle}
-                </Button>
-              </Link>
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (
@@ -287,7 +272,7 @@ const Slide = ({ slide }) => {
                     desktopWidth={slide.desktopWidth}
                   />
                 </FadeInUp>
-              </ImgContainer>  
+              </ImgContainer>
           ) : slide.predictImgUrl ? (
             <FadeInUp active={isVisible}>
             <Card
