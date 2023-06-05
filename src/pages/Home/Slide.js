@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {Card} from 'antd'
-import { WithScrollFreezing } from "./withScrollFreezingProps";
 // import Footer from "../../Footer/Footer";
 import { FadeInUp } from "../../utils/fade-in-up";
 import { useRef, useState } from "react";
@@ -246,7 +245,7 @@ const Slide = ({ slide }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-      <div className="section">
+      <div className="section" onClick={() => {window.open(slide.href)}}>
         <Wrapper
           mobileMinHeight={slide.mobileMinHeight}
           background={slide.backgroundFill}
@@ -255,21 +254,6 @@ const Slide = ({ slide }) => {
         >
           <Content>
             <InfoBlock>
-            <Title color={slide.colorText}>{slide.title}</Title>
-              <Description color={slide.colorText}>
-                {slide.description}
-              </Description>
-              {/* {slide.list && <ListFeature listFeature={slide.list} fill={slide.fill} />} */}
-              <Link href={slide.href}>
-                <Button
-                  border={"#5542F6"}
-                  background={"#5542F6"}
-                  marginTop={slide.marginTopButton}
-                  color={"#fff"}
-                >
-                  {slide.buttonTitle}
-                </Button>
-              </Link>
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (
@@ -287,7 +271,7 @@ const Slide = ({ slide }) => {
                     desktopWidth={slide.desktopWidth}
                   />
                 </FadeInUp>
-              </ImgContainer>  
+              </ImgContainer>
           ) : slide.predictImgUrl ? (
             <FadeInUp active={isVisible}>
             <Card

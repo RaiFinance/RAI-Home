@@ -6,7 +6,6 @@ import {
   Row,
   Col,
   Button,
-  List,
   Card,
   Avatar,
   Carousel,
@@ -16,9 +15,8 @@ import {
 } from "antd";
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
-import Slider from "react-slick";
-import Swiper, { SwipeRef } from "react-tiga-swiper";
-import ReactPlayer from "react-player";
+//@ts-ignore
+import ReactPageScroller, {SectionContainer} from 'react-page-scroller';
 import styled from "styled-components";
 import Logo from "../../assets/images/logo-dark.png";
 import Image1 from "../../assets/images/home/image1.jpg";
@@ -97,13 +95,19 @@ import RaiSvg from "../../assets/images/home/box/rai.svg";
 import Graph1 from "../../assets/images/home/box/1.svg";
 import Graph2 from "../../assets/images/home/box/2.svg";
 import Graph3 from "../../assets/images/home/box/3.svg";
+import Bitcoins from "../../assets/images/home/bitcoins.png";
 import { WithScrollFreezing } from "./withScrollFreezingProps";
 import MainBlock from "./MainBlock";
 import Slide from "./Slide";
 import Bitcoins from "../../assets/images/home/bitcoins.png";
 import { useScroll } from "ahooks";
+// import '../../statics/fullpage.extensions.min.js'
+// import '../../statics/fullpage.scrollOverflowReset.limited.min.js'
 
-// https://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@github.com/RaiFinance/RAI-Home
+// NOTE: if using fullpage extensions/plugins put them here and pass it as props
+const pluginWrapper = () => {
+  require('../../statics/fullpage.scrollOverflowReset.limited.min.js');
+};
 
 const { Header, Sider, Content } = Layout;
 const { Link } = Anchor;
@@ -179,21 +183,6 @@ const FirstContent = styled.div`
   }
 `;
 
-const SecondContent = styled.div`
-  background: #f3f4f6;
-  & > div {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 100px 50px;
-    @media (max-width: 767px) {
-      padding: 100px 20px;
-    }
-    .ant-btn {
-      margin: 0 auto;
-      display: block;
-    }
-  }
-`;
 
 const DeepContent = styled.div`
   background: #f3f4f6;
@@ -255,94 +244,6 @@ const DeepContent = styled.div`
         line-height: 20px;
         text-align: center;
         color: #18181b;
-      }
-    }
-  }
-`;
-
-const FlowContent = styled.div`
-  width: 100%;
-  // height: 100vh;
-  padding: 48px 20px 0px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  .ant-carousel {
-    height: 100% !important;
-    .slick-slider {
-      height: 100% !important;
-      .slick-list {
-        height: 100% !important;
-      }
-    }
-  }
-
-  button {
-    font-family: "Graphik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-  }
-  .item {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 93% !important;
-    height: 100vh;
-    margin-bottom: 96px;
-    @media (max-width: 767px) {
-      flex-direction: column;
-    }
-    .left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      @media (max-width: 767px) {
-        align-items: center;
-      }
-      h2 {
-        font-family: "Graphik-bold";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 64px;
-        text-align: left;
-        margin-bottom: 24px;
-        @media (max-width: 767px) {
-          font-size: 32px;
-        }
-      }
-      .btnText {
-        font-family: "Graphik";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
-        // text-transform: uppercase;
-        color: #ffffff;
-        span {
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 20px;
-          // text-transform: uppercase;
-          color: #ffffff;
-          font-family: "Graphik";
-        }
-      }
-    }
-    .right {
-      cursor: pointer;
-      img {
-        // width: 420px;
-        // height: 360px;
-        background-size: 100%;
-        margin-right: -50px;
       }
     }
   }
@@ -459,71 +360,6 @@ const SofiContent = styled.div`
   }
 `;
 
-const ThirdContent = styled.div`
-  background: #fff;
-  & > div {
-    margin: 0px auto;
-    max-width: 1200px;
-    padding: 100px 50px;
-    @media (max-width: 1200px) {
-      padding: 100px 50px;
-    }
-    @media (max-width: 767px) {
-      padding: 100px 20px;
-    }
-  }
-  ul {
-    list-style: none;
-    font-size: 16px;
-    line-height: 40px;
-    color: #79869f;
-    padding: 0;
-  }
-`;
-
-const FourthContent = styled.div`
-  background: #f3f4f6;
-  padding: 100px 0;
-  & > div {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 0 50px;
-    @media (max-width: 767px) {
-      padding: 0 20px;
-      margin-top: -10px;
-    }
-  }
-  .product {
-    position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -25%;
-      width: 100%;
-      height: 100%;
-      background: url(${Image3}) no-repeat;
-      background-size: 65%;
-      background-position: center;
-    }
-    @media (max-width: 767px) {
-      &:before {
-        display: none;
-      }
-    }
-    h3 {
-      margin-top: 0;
-      font-weight: 700;
-      font-size: 24px;
-    }
-    .img {
-      display: none;
-      @media (max-width: 767px) {
-        display: block;
-      }
-    }
-  }
-`;
 const FifthContent = styled.div`
   background: #fff;
   & > div {
@@ -833,6 +669,71 @@ export const PortfolioGraph = styled.div`
   }
 `;
 
+const LeftContent = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  background: transparent;;
+  z-index: 10;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  @media (max-width: 992px) {
+    align-items: flex-start;
+    top: 180px;
+  }
+`
+
+
+const InfoBlock = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 50px;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: ${(props) => props?.color && props?.color};
+  max-width: 50%;
+  padding-bottom: 40px;
+  @media (max-width: 992px) {
+    font-size: 28px;
+    padding-bottom: 20px;
+    max-width: 100%;
+  }
+`;
+
+const SlideLink = styled.a`
+  border-radius: 8px;
+  padding: 14px 20px;
+  width: auto;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  background:  #5542F6;
+  border: #5542F6;
+  color: #fff;
+  a{
+    margin: 0;
+  }
+  @media (max-width: 992px) {
+    max-width: 100%;
+    padding: 10px;
+  }
+`;
+
 export const proposalStatus = (state: number) => {
   const STATUS: any = {
     0: <span>review</span>,
@@ -979,7 +880,8 @@ const Home: React.FC = () => {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [scrollHeight, setScrollHeight] = useState(128);
-  const [pageData, setPageData] = useState<any>({ pageY: 0 });
+  const [showLeftContent, setShowLeftContent] = useState<boolean>(false);
+  const [scrollNum, setScrollNum] = useState<number>(0);
   const carouselRef = useRef<any>();
   const productRef = useRef<any>();
   let y = 0;
@@ -991,71 +893,13 @@ const Home: React.FC = () => {
   let slideNum = 0;
   const scroll = useScroll(productRef);
 
-  const denounceCB = useCallback((e) => {
-    if (current.isScroll) {
-      current.isScroll = false;
-      if (!y) {
-        y = e.deltaY;
-      } else {
-        if (carouselRef && carouselRef.current && slideNum === 6 && e.deltaY) {
-          slideNum -= 1;
-          scrollTo("Sofi");
-          return;
-        }
-        if (carouselRef && carouselRef.current && slideNum === 0 && !e.deltaY) {
-          scrollTo("Join");
-          return;
-        }
-        const currentSlide =
-          carouselRef &&
-          carouselRef.current &&
-          carouselRef.current.innerSlider.state.currentSlide;
-        if (e.deltaY >= 0) {
-          // 下滑
-          slideNum += 1;
-          carouselRef &&
-            carouselRef.current &&
-            carouselRef.current.goTo(slideNum > 6 ? 6 : slideNum);
-        } else {
-          // 上滑
-          slideNum -= 1;
-          carouselRef &&
-            carouselRef.current &&
-            carouselRef.current.goTo(slideNum < 0 ? 0 : slideNum);
-        }
-        y = e.deltaY;
-      }
-    }
-    if (current && current.timer) {
-      clearTimeout(current.timer);
-    }
-    current.timer = setTimeout(() => {
-      current.isScroll = true;
-    }, 70);
-  }, []);
-
-  useEffect(() => {
-    // productRef && productRef.current && productRef.current.addEventListener('wheel', (e: any) => {
-    //     e.preventDefault();
-    //     return denounceCB(e)
-    // }, { passive: false })
-    // return () => {
-    //     window.addEventListener('wheel', denounceCB, { passive: true })
-    // }
-  }, [productRef]);
-
-  const goTo = (index: number) => {
-    if (carouselRef.current) {
-      carouselRef.current.goTo(index);
-    }
-  };
-
   const scrollHeader = () => {
     if (!document.querySelector(".ant-layout-header")) {
       return;
     }
 
     var scrollTop = document.documentElement.scrollTop;
+    console.log('scrolltop:', scrollTop)
     let height = 128;
     if (scrollTop < 0) {
       height = 128;
@@ -1080,7 +924,7 @@ const Home: React.FC = () => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
-
+    scrollHeader();
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
@@ -1098,20 +942,6 @@ const Home: React.FC = () => {
     setNavVisibility(!isNavVisible);
   };
 
-  const handleTouchMove = (e: any) => {
-    console.log("move", e);
-  };
-
-  const handleTouchStart = (e: any) => {
-    console.log("start", e);
-  };
-
-  const handleTouchEnd = (e: any) => {
-    console.log("end", e);
-  };
-
-  const handleScroll = (e: any) => {};
-
   const formatDate = (date: Date) => {
     const y = date.getFullYear();
     let m: any = date.getMonth() + 1;
@@ -1125,6 +955,17 @@ const Home: React.FC = () => {
     let sec: any = date.getSeconds();
     sec = sec < 10 ? "0" + sec : sec.toString();
     return y + "-" + m + "-" + d + " " + h + ":" + mins + ":" + sec;
+  };
+
+  const handlePageChange = (num: any) => {
+    // this.setState({ currentPage: number });
+    console.log('num:',num)
+    if(num >= 1 && num <= 7){
+      setShowLeftContent(true);
+    }else{
+      setShowLeftContent(false);
+    }
+    setScrollNum(num)
   };
 
   const slideArray = [
@@ -1264,6 +1105,7 @@ const Home: React.FC = () => {
     },
   ];
 
+
   return (
     <Layout className="homePage">
       {/* <HeaderNotification>
@@ -1272,7 +1114,7 @@ const Home: React.FC = () => {
       <Header>
         <HeaderContent
           className="header"
-          style={{ height: `${isSmallScreen ? 64 : scrollHeight}px` }}
+          style={{ height: `64px` }}
         >
           <img className="Logo" src={Logo} alt="logo" />
           <CSSTransition
@@ -1336,6 +1178,9 @@ const Home: React.FC = () => {
         </HeaderContent>
       </Header>
       <Content>
+      <ReactPageScroller
+        pageOnChange={handlePageChange}
+       >
         <FirstContent id="Join">
           <div>
             <h1>Join the new era of SocialFi</h1>
@@ -1363,175 +1208,79 @@ const Home: React.FC = () => {
             <img className="eth_ploygon" src={ETH_Ploygon} alt="" />
           </div>
         </FirstContent>
-        {/* <SecondContent>
-                    <div>
-                        <h2 id="Finance">What is RAI Finance?</h2>
-                        <p>RAI Finance aims to become the epicenter of Web 3.0 decentralized finance. Based on cross-chain technology and various ecosystems, RAI Finance is creating a new decentralized finance service with realizing a polymerized connection of generating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
-                        <Row
-                            gutter={[24, 24]}
-                            className="raiFinance"
-                        >
-                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-                                <div className='item'>
-                                    <div className='avator'>
-                                        <img 
-                                            src={CrossChain} 
-                                        />
-                                    </div>
-                                    <h2>Cross Chain</h2>
-                                    <p>Use Social Trading System and Aggregated Swap on heterogeneous blockchain</p>
-                                </div>
-                            </Col>
-                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-                                <div className='item'>
-                                    <div className='avator'>
-                                        <img 
-                                            src={SocialTrading} 
-                                        />
-                                    </div>
-                                    <h2>Social Trading</h2>
-                                    <p>Combination of digital asset trading and socializing</p>
-                                </div>
-                            </Col>
-                            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-                                <div className='item'>
-                                    <div className='avator'>
-                                        <img 
-                                            src={UniqueAsset} 
-                                        />
-                                    </div>
-                                    <h2>Unique Asset</h2>
-                                    <p>
-                                    Customize your portfolio with various assets to match your needs.
-                                    </p>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </SecondContent> 
-                <ThirdContent>
-                    <div>
-                        <h2 className="defiTitle">Socialize Your DeFi Experience</h2>
-                        <p>Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals</p>
-
-                        <div className="defiCarousel">
-                            <div className="item">
-                                <Button type="link" icon={<DaoIcon/>}>Share</Button>
-                                <img src={Inverst}/>
-                            </div>
-                            <div className="item">
-                                <Button type="link" icon={<AnalyzeIcon/>}>Analyze</Button>
-                                <img src={Analyze}/>
-                            </div>
-                            <div className="item">
-                                <Button type="link" icon={<InvestIcon/>}>Invest</Button>
-                                <img src={Communicate}/>
-                            </div>
-                        </div>
-              
-                    </div>
-                </ThirdContent>
-                
-                <FourthContent id="Product">
-                    <div>
-                        <h2>RAI Finance Product</h2>
-                        <p>With our cross-chain technology and various ecosystems, users of RAI Finance can explore features such as creating index tokens, cross-chain trading and socialization with the other digital asset traders.</p>
-                        <div className="products">
-                            <Slider {...settings}>
-                                <div className="item">
-                                    
-                                    <img src={STSMp4}/>
-                                </div>
-                                <div className="item">
-                                    
-                                    <img src={AggregatorMp4}/>
-                                </div>
-                                <div className="item">
-                                    
-                                    <img src={GovernanceMp4}/>
-                                </div>
-                                <div className="item">
-                                    
-                                    <img src={WalletMp4}/>
-                                </div>
-                            </Slider>
-                        </div>
-                    </div>
-                </FourthContent> */}
-        <WithScrollFreezing isChainBlock={true}>
-          {/* <Header /> */}
-        </WithScrollFreezing>
         {slideArray.map((slide) => {
           return <Slide key={slide.id} slide={slide} />;
         })}
-        <WithScrollFreezing isChainBlock={true}>
-          <SofiContent id="Sofi">
-            <div className="head">
-              <h2>Anything else?</h2>
-              <div>
-                Participate in DAO's decision-making by holding SOFI token &
-                Execute trades across multiple decentralized exchanges
-              </div>
+        <SofiContent id="Sofi">
+          <div className="head">
+            <h2>Anything else?</h2>
+            <div>
+              Participate in DAO's decision-making by holding SOFI token &
+              Execute trades across multiple decentralized exchanges
             </div>
-            <div className="swap">
-              <h2></h2>
-              <div className="box">
-                {/* <img src={ SwapSvg } alt="" /> */}
-                <img src={swapImg} alt="" />
-              </div>
+          </div>
+          <div className="swap">
+            <h2></h2>
+            <div className="box">
+              {/* <img src={ SwapSvg } alt="" /> */}
+              <img src={swapImg} alt="" />
             </div>
-            <div className="gover">
-              <h2>Governance</h2>
-              <div
-                className="box"
-                onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
-                }}
-              >
-                <GoverIssueBox
-                  No="038"
-                  Title="Revise the UI & UX of RAI Finance app"
-                  subTitle="Marketing Campaign"
-                  height={"100%"}
-                  width={"100%"}
-                  className="issue"
-                  voteCounts={31}
-                  date={formatDate(new Date(1681272081000))}
-                  state={4}
-                />
-              </div>
-              <div
-                className="box"
-                onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
-                }}
-              >
-                <GoverIssueBox
-                  No="037"
-                  Title="Integrate Layer 2 scaling solutions to RAI Finance"
-                  subTitle="Marketing Campaign"
-                  height={"100%"}
-                  width={"100%"}
-                  voteCounts={31}
-                  date={formatDate(new Date(1679815844000))}
-                  state={4}
-                />
-              </div>
-            </div>
-            <Button
-              type="primary"
-              style={{ fontFamily: "Graphik-bold", width: "320px" }}
+          </div>
+        </SofiContent>
+        <SofiContent>  
+          <div className="gover">
+            <h2>Governance</h2>
+            <div
+              className="box"
+              onClick={() => {
+                window.open("https://app.rai.finance/#/proposals");
+              }}
             >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.rai.finance/#/"
-                className="elementor-item"
-              >
-                Go To App
-              </a>
-            </Button>
-          </SofiContent>
+              <GoverIssueBox
+                No="038"
+                Title="Revise the UI & UX of RAI Finance app"
+                subTitle="Marketing Campaign"
+                height={"100%"}
+                width={"100%"}
+                className="issue"
+                voteCounts={31}
+                date={formatDate(new Date(1681272081000))}
+                state={4}
+              />
+            </div>
+            <div
+              className="box"
+              onClick={() => {
+                window.open("https://app.rai.finance/#/proposals");
+              }}
+            >
+              <GoverIssueBox
+                No="037"
+                Title="Integrate Layer 2 scaling solutions to RAI Finance"
+                subTitle="Marketing Campaign"
+                height={"100%"}
+                width={"100%"}
+                voteCounts={31}
+                date={formatDate(new Date(1679815844000))}
+                state={4}
+              />
+            </div>
+          </div>
+          <Button
+            type="primary"
+            style={{ fontFamily: "Graphik-bold", width: "320px" }}
+          >
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://app.rai.finance/#/"
+              className="elementor-item"
+            >
+              Go To App
+            </a>
+          </Button>
+        </SofiContent>
+        <SectionContainer height={130}>        
           <DeepContent>
             <h2>Deep Dive in RAI.finance</h2>
             <div className="boxes">
@@ -1637,6 +1386,8 @@ const Home: React.FC = () => {
               </Row>
             </div>
           </FifthContent>
+        </SectionContainer>
+        <SectionContainer height={90}>
           <SeventhContent>
             <div>
               <h2 style={{ textAlign: "center" }}>Contributors</h2>
@@ -1732,46 +1483,17 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
-        </WithScrollFreezing>
-
-        {/* <SixthContent>
-                    <div>
-                        <h2 id="Team" style={{textAlign: 'center'}}>Team</h2>  
-                        <p> The team consists of Korea, China and the western English speaking countries members.
-Each of them has expertise in their local markets, and with average 3+ years’ experience in blockchain industry.</p>
-                        <List
-                            grid={{
-                                gutter: 30,
-                                xs: 1,
-                                sm: 1,
-                                md: 2,
-                                lg: 2,
-                                xl : 2,
-                                xxl: 2
-                            }}
-                            dataSource={data}
-                            renderItem={item => (
-                            <List.Item>
-                                <Card 
-                                    className="teamCard"
-                                    bordered={false}
-                                    cover={
-                                        <Avatar size={{ xs: 100, sm: 100, md: 100, lg: 180, xl: 180, xxl: 180 }} src={item.img} />
-                                    }
-                                >
-                                    <h2>{item.title}</h2>
-                                    <div className="des">
-                                        <Avatar size={64} src={item.img} />
-                                        <h2 className="name">{item.title}</h2>
-                                        {item.des}
-                                    </div>
-                                </Card>
-                            </List.Item>
-                            )}
-                        />
-                    </div>
-                </SixthContent> */}
+        </SectionContainer>
+      </ReactPageScroller>
       </Content>
+      {showLeftContent && slideArray[scrollNum-1] && <LeftContent>
+          <InfoBlock>
+              <Title color={slideArray[scrollNum-1].colorText}>{slideArray[scrollNum-1].title}</Title>
+                <SlideLink href={slideArray[scrollNum-1].href}>
+                  {slideArray[scrollNum-1].buttonTitle}
+                </SlideLink>
+            </InfoBlock>
+          </LeftContent>}
     </Layout>
   );
 };

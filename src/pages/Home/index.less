@@ -3,12 +3,12 @@
   width: 100%;
   scroll-behavior: smooth;
   .ant-layout-header{
-      // position: fixed;
-      z-index: 1;
+      position: fixed;
+      z-index: 1000;
       width: 100%;
       background: #fff;
-      // height: 72px;
-      height: 128px;
+      height: 64px;
+      // height: 128px;
       padding: 0;
       line-height: 1;
       @media (max-width: 767px) {
@@ -111,6 +111,12 @@
           width: 100vw;
         grid-template-areas: "logo burger";
       }
+  }
+  .ant-layout-content{
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 100;
   }
   .ant-btn-primary{
       background: #5542F6;
