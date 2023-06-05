@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {Card} from 'antd'
-import { WithScrollFreezing } from "./withScrollFreezingProps";
 // import Footer from "../../Footer/Footer";
 import { FadeInUp } from "../../utils/fade-in-up";
 import { useRef, useState } from "react";
@@ -246,7 +245,7 @@ const Slide = ({ slide }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-      <div className="section">
+      <div className="section" onClick={() => {window.open(slide.href)}}>
         <Wrapper
           mobileMinHeight={slide.mobileMinHeight}
           background={slide.backgroundFill}

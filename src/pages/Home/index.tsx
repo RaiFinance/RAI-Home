@@ -676,7 +676,7 @@ const LeftContent = styled.div`
   left: 0;
   width: 100%;
   background: transparent;;
-  z-index: 100;
+  z-index: 10;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -703,9 +703,10 @@ const Title = styled.h1`
   line-height: 120%;
   color: ${(props) => props?.color && props?.color};
   max-width: 50%;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   @media (max-width: 992px) {
     font-size: 28px;
+    padding-bottom: 20px;
     max-width: 100%;
   }
 `;
@@ -1279,7 +1280,7 @@ const Home: React.FC = () => {
             </a>
           </Button>
         </SofiContent>
-        <SectionContainer height={100}>        
+        <SectionContainer height={130}>        
           <DeepContent>
             <h2>Deep Dive in RAI.finance</h2>
             <div className="boxes">
@@ -1386,102 +1387,102 @@ const Home: React.FC = () => {
             </div>
           </FifthContent>
         </SectionContainer>
-        <SectionContainer height={100}>
-        <SeventhContent>
-          <div>
-            <h2 style={{ textAlign: "center" }}>Contributors</h2>
-            <div className="parteners">
-              <div>
-                <img src={Alphabit} alt="" />
+        <SectionContainer height={90}>
+          <SeventhContent>
+            <div>
+              <h2 style={{ textAlign: "center" }}>Contributors</h2>
+              <div className="parteners">
+                <div>
+                  <img src={Alphabit} alt="" />
+                </div>
+                <div>
+                  <img src={NGC} alt="" />
+                </div>
+                <div>
+                  <img src={TheLeagueofTraders} alt="" />
+                </div>
+                <div>
+                  <img src={Avalanche} alt="" />
+                </div>
               </div>
-              <div>
-                <img src={NGC} alt="" />
+              <div className="parteners2">
+                <div>
+                  <img src={Chainlink} alt="" />
+                </div>
+                <div>
+                  <img src={Cobak} alt="" />
+                </div>
+                <div>
+                  <img src={Litentry} alt="" />
+                </div>
+                <div>
+                  <img src={Launchpsl} alt="" />
+                </div>
+                <div>
+                  <img src={Thegraph} alt="" />
+                </div>
               </div>
-              <div>
-                <img src={TheLeagueofTraders} alt="" />
-              </div>
-              <div>
-                <img src={Avalanche} alt="" />
+              <div className="parteners">
+                <div>
+                  <img src={KPA} alt="" />
+                </div>
+                <div>
+                  <img src={Bounce} alt="" />
+                </div>
+                <div>
+                  <img src={Tidal} alt="" />
+                </div>
+                <div>
+                  <img src={Darwinia} alt="" />
+                </div>
               </div>
             </div>
-            <div className="parteners2">
+          </SeventhContent>
+          <div className="footer">
+            <div className="content">
               <div>
-                <img src={Chainlink} alt="" />
+                <Copyright>
+                  <img className="footer_logo" src={Logo} alt="logo" />
+                  Copyrights © 2022 RAI.Finance All rights reserved.
+                </Copyright>
               </div>
               <div>
-                <img src={Cobak} alt="" />
-              </div>
-              <div>
-                <img src={Litentry} alt="" />
-              </div>
-              <div>
-                <img src={Launchpsl} alt="" />
-              </div>
-              <div>
-                <img src={Thegraph} alt="" />
-              </div>
-            </div>
-            <div className="parteners">
-              <div>
-                <img src={KPA} alt="" />
-              </div>
-              <div>
-                <img src={Bounce} alt="" />
-              </div>
-              <div>
-                <img src={Tidal} alt="" />
-              </div>
-              <div>
-                <img src={Darwinia} alt="" />
+                <StyledLink
+                  target="_blank"
+                  href="https://github.com/RaiFinance"
+                >
+                  <GithubLogo fill="#fff" />
+                </StyledLink>
+                <StyledLink
+                  target="_blank"
+                  href="https://open.kakao.com/o/gLPmITEc"
+                >
+                  <KakaoLogo fill="#fff" />
+                </StyledLink>
+                <StyledLink
+                  target="_blank"
+                  href="https://medium.com/rai-finance"
+                >
+                  <MediumLogo fill="#fff" />
+                </StyledLink>
+                <StyledLink target="_blank" href="https://t.me/RaiFinance">
+                  <TelegramLogo fill="#fff" />
+                </StyledLink>
+                <StyledLink
+                  target="_blank"
+                  href="https://twitter.com/RaiFinance"
+                >
+                  <TwitterLogo fill="#fff" />
+                </StyledLink>
+                <StyledLink
+                  target="_blank"
+                  href="https://weibo.com/u/7583482257"
+                >
+                  <WeiboLogo fill="#fff" />
+                </StyledLink>
               </div>
             </div>
           </div>
-        </SeventhContent>
-        <div className="footer">
-          <div className="content">
-            <div>
-              <Copyright>
-                <img className="footer_logo" src={Logo} alt="logo" />
-                Copyrights © 2022 RAI.Finance All rights reserved.
-              </Copyright>
-            </div>
-            <div>
-              <StyledLink
-                target="_blank"
-                href="https://github.com/RaiFinance"
-              >
-                <GithubLogo fill="#fff" />
-              </StyledLink>
-              <StyledLink
-                target="_blank"
-                href="https://open.kakao.com/o/gLPmITEc"
-              >
-                <KakaoLogo fill="#fff" />
-              </StyledLink>
-              <StyledLink
-                target="_blank"
-                href="https://medium.com/rai-finance"
-              >
-                <MediumLogo fill="#fff" />
-              </StyledLink>
-              <StyledLink target="_blank" href="https://t.me/RaiFinance">
-                <TelegramLogo fill="#fff" />
-              </StyledLink>
-              <StyledLink
-                target="_blank"
-                href="https://twitter.com/RaiFinance"
-              >
-                <TwitterLogo fill="#fff" />
-              </StyledLink>
-              <StyledLink
-                target="_blank"
-                href="https://weibo.com/u/7583482257"
-              >
-                <WeiboLogo fill="#fff" />
-              </StyledLink>
-            </div>
-          </div>
-        </div>
         </SectionContainer>
       </ReactPageScroller>
       </Content>
