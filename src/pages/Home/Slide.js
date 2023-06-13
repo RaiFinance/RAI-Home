@@ -63,7 +63,7 @@ const Title = styled.h1`
   font-size: 48px!important;
   line-height: 1.1;
   color: ${(props) => props?.color && props?.color};
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   @media (max-width: 992px) {
     font-size: 28px!important;
     margin-bottom: 20px;
