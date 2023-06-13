@@ -631,3 +631,54 @@
     }
   }
 }
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+main {
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+main > section {
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  width: min(var(--slide-width), 100%);
+  margin-inline: auto;
+  padding-block: 2rem;
+  overflow: hidden;
+}
+
+
+:root {
+  --c-fg: black;
+  --c-bg: snow;
+  --c-primary: royalblue;
+  --c-neutral: lavender;
+  --c-notice: orange;
+  --c-lines: var(--c-primary);
+  --c-shadows: var(--c-neutral);
+  --slide-width: 65ch;
+  --slide-motion: 500ms ease;
+
+  font-family: sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+}
+
+::selection {
+  background-color: var(--c-primary);
+  color: var(--c-bg);
+}
+
