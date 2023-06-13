@@ -34,10 +34,11 @@ const Wrapper = styled("div")`
   margin: 0 auto;
   align-items: center;
   @media (max-width: 992px) {
+    padding: 0 20px;
     flex-direction: column;
     height: max-content;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: flex-start;
+    justify-content: space-around;
   }
 `;
 
@@ -45,28 +46,65 @@ const Content = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  width: 50%;
   align-items: center;
 `;
 
+
 const InfoBlock = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
   width: 100%;
-  position: relative;
 `;
+
 const Title = styled.h1`
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 48px !important;
-  line-height: 120%;
+  font-size: 48px!important;
+  line-height: 1.1;
   color: ${(props) => props?.color && props?.color};
-  padding-bottom: 20px;
+  margin-bottom: 10px;
+  @media (max-width: 992px) {
+    font-size: 28px!important;
+    margin-bottom: 20px;
+  }
+`;
 
-  @media (min-width: 360px) and (max-width: 992px) {
-    font-size: 28px;
+const SubTitle = styled.h2`
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px!important;
+  line-height: 1.1;
+  color: ${(props) => props?.color && props?.color};
+  margin-bottom: 40px;
+  @media (max-width: 992px) {
+    font-size: 28px!important;
+    margin-bottom: 20px;
+  }
+`;
+
+const SlideLink = styled.a`
+  border-radius: 8px;
+  padding: 14px 20px;
+  width: auto;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  background:  #5542F6;
+  border: #5542F6;
+  color: #fff;
+  a{
+    margin: 0;
+  }
+  @media (max-width: 992px) {
+    max-width: 100%;
+    padding: 10px;
   }
 `;
 
@@ -120,11 +158,12 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   @media (min-width: 360px) and (max-width: 992px) {
+    padding: 0;
+
     width: 100%;
-    padding-top: 72px;
-    height: ${(props) => props?.mobileMinHeight && props?.mobileMinHeight};
+    height: auto;
     position: relative;
-    top: -50px;
+    top: 0;
   }
 `;
 
@@ -154,7 +193,7 @@ export const PortfolioGraph = styled.div`
   width: 40vw;
   height: fit-content;
   background: #ffffff;
-  box-shadow: 0px 8px 48px -1px rgba(0, 0, 0, 0.05);
+  // box-shadow: 0px 8px 48px -1px rgba(0, 0, 0, 0.05);
   border-radius: 24px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -165,23 +204,25 @@ export const PortfolioGraph = styled.div`
     width: 36vw;
   }
   @media (max-width: 767px) {
-    width: 90vw;
+    width: 100%;
+    padding: 16px;
+    gap: 12px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     position: relative;
-    top: -55px;
+    top: 0;
     & > .item-1 {
       width: 100% !important;
     }
   }
   .item-1 {
-    padding: 16px;
+    padding: 10px;
     background: #ffffff;
     border: 1px solid #e4e4e7;
     border-radius: 12px;
     width: 174px;
-    height: 144px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,7 +285,7 @@ const Slide = ({ slide }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-      <div className="section" onClick={() => {window.open(slide.href)}}>
+      <div className="section">
         <Wrapper
           mobileMinHeight={slide.mobileMinHeight}
           background={slide.backgroundFill}
@@ -253,6 +294,11 @@ const Slide = ({ slide }) => {
         >
           <Content>
             <InfoBlock>
+              <Title color={slide.colorText}>{slide.title}</Title>
+              <SubTitle color={slide.colorText}>{slide.description}</SubTitle>
+                <SlideLink href={slide.href} target="_blank">
+                  {slide.buttonTitle}
+                </SlideLink>
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (
@@ -275,7 +321,6 @@ const Slide = ({ slide }) => {
             <FadeInUp active={isVisible}>
             <Card
               hoverable
-              style={{ width: 420, padding:'24px', borderRadius: '24px' }}
               cover={<img alt="example" src={slide.predictImgUrl}></img>}
               className="predict-card"
             >

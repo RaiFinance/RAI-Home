@@ -15,8 +15,6 @@ import {
 } from "antd";
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
-//@ts-ignore
-import ReactPageScroller, {SectionContainer} from 'react-page-scroller';
 import styled from "styled-components";
 import Logo from "../../assets/images/logo-dark.png";
 import Image1 from "../../assets/images/home/image1.jpg";
@@ -190,6 +188,9 @@ const DeepContent = styled.div`
   align-items: center;
   padding: 96px 0px;
   justify-content: center;
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
   h2 {
     font-family: "Graphik-bold";
     margin-bottom: 48px;
@@ -204,6 +205,7 @@ const DeepContent = styled.div`
     align-items: center;
     @media (max-width: 767px) {
       flex-direction: column;
+      width: 100%;
     }
     .box {
       display: flex;
@@ -217,8 +219,10 @@ const DeepContent = styled.div`
       margin-right: 24px;
       padding: 24px 0px;
       @media (max-width: 767px) {
-        margin-right: 0x;
-        margin-bottom: 24px;
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
       }
       img {
         margin-bottom: 12px;
@@ -252,8 +256,7 @@ const SofiContent = styled.div`
   width: 100%;
   background: #ffffff;
   margin: 0 auto;
-  padding-top: 96px;
-  height: 1124px;
+  padding: 96px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -268,7 +271,6 @@ const SofiContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 48px;
     @media (max-width: 767px) {
     }
     & > div {
@@ -296,7 +298,7 @@ const SofiContent = styled.div`
     }
   }
   .swap {
-    margin-bottom: 48px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -489,6 +491,7 @@ export const GoverIssue = styled.div<{ width?: any; height?: any }>`
   border: 1px solid #e4e4e7;
   border-radius: 12px;
   padding: 16px;
+  margin: 0 auto;
   .first {
     width: 100%;
     height: 16px;
@@ -568,7 +571,7 @@ const BtnBox = styled.div`
   border: 1px solid #e4e4e7;
   border-radius: 12px;
   padding: 16px;
-  margin-top: 24px;
+  margin: 24px auto;
   .radio {
     width: 288px;
     height: 48px;
@@ -881,6 +884,7 @@ const Home: React.FC = () => {
   const [scrollHeight, setScrollHeight] = useState(128);
   const [showLeftContent, setShowLeftContent] = useState<boolean>(false);
   const [scrollNum, setScrollNum] = useState<number>(0);
+  const [blockScroll, setBlockScroll] = useState<boolean>(false)
   const carouselRef = useRef<any>();
   const productRef = useRef<any>();
   let y = 0;
@@ -957,8 +961,10 @@ const Home: React.FC = () => {
   };
 
   const handlePageChange = (num: any) => {
-    // this.setState({ currentPage: number });
-    console.log('num:',num)
+    const timeout = setTimeout(() => {
+      setBlockScroll(false)
+      clearTimeout(timeout)
+    }, 1000)
     if(num >= 1 && num <= 7){
       setShowLeftContent(true);
     }else{
@@ -971,7 +977,7 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/predict",
       title: "Take Your Choice",
-      description: "",
+      description: "Keep Or Sell",
       buttonTitle: "SELECT YES OR NO",
       backgroundFill: "#fff",
       colorText: "#010101d9",
@@ -981,21 +987,9 @@ const Home: React.FC = () => {
       id: 0,
     },
     {
-      href: "https://app.rai.finance/#/predict",
-      title: "Keep Or Sell",
-      description: "",
-      buttonTitle: "SELECT YES OR NO",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      predictImgUrl: Bitcoins,
-      id: 1,
-    },
-    {
       href: "https://app.rai.finance/#/sts/create",
       title: "Create your Portfolio",
-      description: "",
+      description: "Pick Your Token",
       buttonTitle: "SELECT YES OR NO",
       backgroundFill: "#fff",
       colorText: "#000000D9",
@@ -1015,53 +1009,9 @@ const Home: React.FC = () => {
       desktopWidth: "68vw",
     },
     {
-      href: "https://app.rai.finance/#/sts/create",
-      title: "Pick Your Token",
-      description: "",
-      buttonTitle: "SELECT YES OR NO",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      imgUrl: "",
-      id: 3,
-      translate: `20px, -12px`,
-      minHeight: "100vh",
-      mobileMinHeight: "60vh",
-      widthImg: "57vw",
-      mobile: {
-        translate: `0px, 10px`,
-        widthImg: "100%",
-        minHeight: "43vh",
-      },
-      desktopWidth: "68vw",
-    },
-    {
       href: "https://app.rai.finance/#/sts",
       title: "Manage it Efficiently",
-      description: "",
-      buttonTitle: "SELECT YES OR NO",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      imgUrl: "./Screenshots/line.png",
-      id: 4,
-      translate: `20px, -12px`,
-      minHeight: "100vh",
-      mobileMinHeight: "70vh",
-      widthImg: "57vw",
-      mobile: {
-        translate: `0px, 10px`,
-        widthImg: "100%",
-        minHeight: "43vh",
-      },
-      desktopWidth: "68vw",
-    },
-    {
-      href: "https://app.rai.finance/#/sts",
-      title: "Just for you",
-      description: "",
+      description: "Just for you",
       buttonTitle: "SELECT YES OR NO",
       backgroundFill: "#fff",
       colorText: "#000000D9",
@@ -1177,9 +1127,14 @@ const Home: React.FC = () => {
         </HeaderContent>
       </Header>
       <Content>
-      <ReactPageScroller
+      {/* <ReactPageScroller
         pageOnChange={handlePageChange}
-       >
+        blockScrollUp={blockScroll}
+        blockScrollDown={blockScroll}
+        onBeforePageScroll={() => setBlockScroll(true)}
+       > */}
+       <main>
+      <section style={{height: 'auto'}}>
         <FirstContent id="Join">
           <div>
             <h1>Join the new era of SocialFi</h1>
@@ -1207,292 +1162,285 @@ const Home: React.FC = () => {
             <img className="eth_ploygon" src={ETH_Ploygon} alt="" />
           </div>
         </FirstContent>
+        </section>
         {slideArray.map((slide) => {
-          return <Slide key={slide.id} slide={slide} />;
+          return <section><Slide key={slide.id} slide={slide} /></section>;
         })}
-        <SofiContent id="Sofi">
-          <div className="head">
-            <h2>Anything else?</h2>
-            <div>
-              Participate in DAO's decision-making by holding SOFI token &
-              Execute trades across multiple decentralized exchanges
-            </div>
-          </div>
-          <div className="swap">
-            <h2></h2>
-            <div className="box">
-              {/* <img src={ SwapSvg } alt="" /> */}
-              <img src={swapImg} alt="" />
-            </div>
-          </div>
-        </SofiContent>
-        <SofiContent>  
-          <div className="gover">
-            <h2>Governance</h2>
-            <div
-              className="box"
-              onClick={() => {
-                window.open("https://app.rai.finance/#/proposals");
-              }}
-            >
-              <GoverIssueBox
-                No="038"
-                Title="Revise the UI & UX of RAI Finance app"
-                subTitle="Marketing Campaign"
-                height={"100%"}
-                width={"100%"}
-                className="issue"
-                voteCounts={31}
-                date={formatDate(new Date(1681272081000))}
-                state={4}
-              />
-            </div>
-            <div
-              className="box"
-              onClick={() => {
-                window.open("https://app.rai.finance/#/proposals");
-              }}
-            >
-              <GoverIssueBox
-                No="037"
-                Title="Integrate Layer 2 scaling solutions to RAI Finance"
-                subTitle="Marketing Campaign"
-                height={"100%"}
-                width={"100%"}
-                voteCounts={31}
-                date={formatDate(new Date(1679815844000))}
-                state={4}
-              />
-            </div>
-          </div>
-          <Button
-            type="primary"
-            style={{ fontFamily: "Graphik-bold", width: "320px" }}
-          >
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://app.rai.finance/#/"
-              className="elementor-item"
-            >
-              Go To App
-            </a>
-          </Button>
-        </SofiContent>
-        <SectionContainer height={130}>        
-          <DeepContent>
-            <h2>Deep Dive in RAI.finance</h2>
-            <div className="boxes">
-              <div className="box">
-                <img src={DeepFirst} alt="" />
-                <div className="account">9,870</div>
-                <div className="type">Users</div>
-              </div>
-              <div className="box">
-                <img src={DeepSecond} alt="" />
-                <div className="account">44,434</div>
-                <div className="type">Transaction</div>
-              </div>
-              <div className="box">
-                <img src={DeepThird} alt="" />
-                <div className="account">$2,284,561</div>
-                <div className="type">Transaction volume</div>
+        <section style={{height: 'auto'}}>
+          <SofiContent id="Sofi">
+            <div className="head">
+              <h2>Anything else?</h2>
+              <div>
+              Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals
               </div>
             </div>
-          </DeepContent>
-          <FifthContent>
-            <div>
-              <Row gutter={[48, 48]}>
-                <Col md={12} sm={24}>
-                  <h2 id="Whitepaper">
-                    Explore the SOFI at
-                    <br />
-                    <span>Rai Finance</span>
-                  </h2>
-                  <p>
-                    SOFI, the native token for RAI Finance is an essential
-                    component of the protocol and employs many functions in the
-                    ecosystem.
-                  </p>
-                  <div className="tokenInfo">
-                    <ul className="compenyList">
-                      <li>
-                        <img src={Bithumb} />
-                      </li>
-                      <li>
-                        <img src={HuoBiGlobal} />
-                      </li>
-                      <li>
-                        <img src={Sofimexc} />
-                      </li>
-                      <li>
-                        <img src={PancakeSwap} />
-                      </li>
-                      <li>
-                        <img src={Sofibb} />
-                      </li>
-                    </ul>
-                  </div>
-                  <Button type="primary" style={{ fontFamily: "Graphik-bold" }}>
-                    <a
-                      target="_blank"
-                      rel="noopener"
-                      href="/RAI-Finance-WhitePaper.pdf"
-                      className="elementor-item"
-                    >
-                      View the White Paper
-                    </a>
-                  </Button>
-                </Col>
-                <Col md={12} sm={24} xs={24}>
-                  <GoverIssueBox
-                    No="022"
-                    Title="Delist$LUNA from the portfolio"
-                    voteCounts={31}
-                    date={formatDate(new Date(1679815844000))}
-                    state={4}
-                  />
-                  <BtnBox>
-                    <div className="radio color">
-                      <div className="inner">
-                        <div className="icon"></div>
-                        <div className="text">Approve</div>
-                      </div>
-                      <Radio />
+            <div className="swap">
+              <h2></h2>
+              <div className="box">
+                {/* <img src={ SwapSvg } alt="" /> */}
+                <img src={swapImg} alt="" />
+              </div>
+            </div>
+            <div className="gover">
+              <h2>Governance</h2>
+              <div
+                className="box"
+                onClick={() => {
+                  window.open("https://app.rai.finance/#/proposals");
+                }}
+              >
+                <GoverIssueBox
+                  No="038"
+                  Title="Delist $LUNA from the portfolio list"
+                  subTitle="Edit Portfolio List"
+                  height={"100%"}
+                  width={"100%"}
+                  className="issue"
+                  voteCounts={31}
+                  date={formatDate(new Date(1681272081000))}
+                  state={4}
+                />
+              </div>
+              <div
+                className="box"
+                onClick={() => {
+                  window.open("https://app.rai.finance/#/proposals");
+                }}
+              >
+                <GoverIssueBox
+                  No="037"
+                  Title="Delist $LUNA from the portfolio list"
+                  subTitle="Marketing Campaign"
+                  height={"100%"}
+                  width={"100%"}
+                  voteCounts={31}
+                  date={formatDate(new Date(1679815844000))}
+                  state={4}
+                />
+              </div>
+            </div>
+            <Button
+              type="primary"
+              style={{ fontFamily: "Graphik-bold", width: "320px" }}
+            >
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://app.rai.finance/#/"
+                className="elementor-item"
+              >
+                Go To App
+              </a>
+            </Button>
+          </SofiContent>
+        </section>
+        <section style={{height: 'auto'}}>
+            <DeepContent>
+              <h2>Deep Dive in RAI.finance</h2>
+              <div className="boxes">
+                <div className="box">
+                  <img src={DeepFirst} alt="" />
+                  <div className="account">9,870</div>
+                  <div className="type">Users</div>
+                </div>
+                <div className="box">
+                  <img src={DeepSecond} alt="" />
+                  <div className="account">44,434</div>
+                  <div className="type">Transaction</div>
+                </div>
+                <div className="box">
+                  <img src={DeepThird} alt="" />
+                  <div className="account">$2,284,561</div>
+                  <div className="type">Transaction volume</div>
+                </div>
+              </div>
+            </DeepContent>
+            <FifthContent>
+              <div>
+                <Row gutter={[48, 48]}>
+                  <Col md={12} sm={24}>
+                    <h2 id="Whitepaper">
+                      Explore the SOFI at
+                      <br />
+                      <span>Rai Finance</span>
+                    </h2>
+                    <p>
+                      SOFI, the native token for RAI Finance is an essential
+                      component of the protocol and employs many functions in the
+                      ecosystem.
+                    </p>
+                    <div className="tokenInfo">
+                      <ul className="compenyList">
+                        <li>
+                          <img src={Bithumb} />
+                        </li>
+                        <li>
+                          <img src={HuoBiGlobal} />
+                        </li>
+                        <li>
+                          <img src={Sofimexc} />
+                        </li>
+                        <li>
+                          <img src={PancakeSwap} />
+                        </li>
+                        <li>
+                          <img src={Sofibb} />
+                        </li>
+                      </ul>
                     </div>
-                    <div className="radio">
-                      <div className="inner">
-                        <div className="icon"></div>
-                        <div className="text">Disapprove</div>
-                      </div>
-                      <Radio />
-                    </div>
-                    <Button
-                      style={{ width: "100%", fontFamily: "Graphik-bold" }}
-                      type="primary"
-                    >
+                    <Button type="primary" style={{ fontFamily: "Graphik-bold" }}>
                       <a
                         target="_blank"
                         rel="noopener"
                         href="/RAI-Finance-WhitePaper.pdf"
                         className="elementor-item"
                       >
-                        Vote Now
+                        View the White Paper
                       </a>
                     </Button>
-                  </BtnBox>
-                </Col>
-              </Row>
-            </div>
-          </FifthContent>
-        </SectionContainer>
-        <SectionContainer height={90}>
-          <SeventhContent>
-            <div>
-              <h2 style={{ textAlign: "center" }}>Contributors</h2>
-              <div className="parteners">
-                <div>
-                  <img src={Alphabit} alt="" />
-                </div>
-                <div>
-                  <img src={NGC} alt="" />
-                </div>
-                <div>
-                  <img src={TheLeagueofTraders} alt="" />
-                </div>
-                <div>
-                  <img src={Avalanche} alt="" />
-                </div>
+                  </Col>
+                  <Col md={12} sm={24} xs={24}>
+                    <GoverIssueBox
+                      No="022"
+                      Title="Delist$LUNA from the portfolio"
+                      voteCounts={31}
+                      date={formatDate(new Date(1679815844000))}
+                      state={4}
+                    />
+                    <BtnBox>
+                      <div className="radio color">
+                        <div className="inner">
+                          <div className="icon"></div>
+                          <div className="text">Approve</div>
+                        </div>
+                        <Radio />
+                      </div>
+                      <div className="radio">
+                        <div className="inner">
+                          <div className="icon"></div>
+                          <div className="text">Disapprove</div>
+                        </div>
+                        <Radio />
+                      </div>
+                      <Button
+                        style={{ width: "100%", fontFamily: "Graphik-bold" }}
+                        type="primary"
+                      >
+                        <a
+                          target="_blank"
+                          rel="noopener"
+                          href="/RAI-Finance-WhitePaper.pdf"
+                          className="elementor-item"
+                        >
+                          Vote Now
+                        </a>
+                      </Button>
+                    </BtnBox>
+                  </Col>
+                </Row>
               </div>
-              <div className="parteners2">
-                <div>
-                  <img src={Chainlink} alt="" />
-                </div>
-                <div>
-                  <img src={Cobak} alt="" />
-                </div>
-                <div>
-                  <img src={Litentry} alt="" />
-                </div>
-                <div>
-                  <img src={Launchpsl} alt="" />
-                </div>
-                <div>
-                  <img src={Thegraph} alt="" />
-                </div>
-              </div>
-              <div className="parteners">
-                <div>
-                  <img src={KPA} alt="" />
-                </div>
-                <div>
-                  <img src={Bounce} alt="" />
-                </div>
-                <div>
-                  <img src={Tidal} alt="" />
-                </div>
-                <div>
-                  <img src={Darwinia} alt="" />
-                </div>
-              </div>
-            </div>
-          </SeventhContent>
-          <div className="footer">
-            <div className="content">
+            </FifthContent>
+          </section>
+          <section style={{height: 'auto'}}>
+            <SeventhContent>
               <div>
-                <Copyright>
-                  <img className="footer_logo" src={Logo} alt="logo" />
-                  Copyrights © 2022 RAI.Finance All rights reserved.
-                </Copyright>
+                <h2 style={{ textAlign: "center" }}>Contributors</h2>
+                <div className="parteners">
+                  <div>
+                    <img src={Alphabit} alt="" />
+                  </div>
+                  <div>
+                    <img src={NGC} alt="" />
+                  </div>
+                  <div>
+                    <img src={TheLeagueofTraders} alt="" />
+                  </div>
+                  <div>
+                    <img src={Avalanche} alt="" />
+                  </div>
+                </div>
+                <div className="parteners2">
+                  <div>
+                    <img src={Chainlink} alt="" />
+                  </div>
+                  <div>
+                    <img src={Cobak} alt="" />
+                  </div>
+                  <div>
+                    <img src={Litentry} alt="" />
+                  </div>
+                  <div>
+                    <img src={Launchpsl} alt="" />
+                  </div>
+                  <div>
+                    <img src={Thegraph} alt="" />
+                  </div>
+                </div>
+                <div className="parteners">
+                  <div>
+                    <img src={KPA} alt="" />
+                  </div>
+                  <div>
+                    <img src={Bounce} alt="" />
+                  </div>
+                  <div>
+                    <img src={Tidal} alt="" />
+                  </div>
+                  <div>
+                    <img src={Darwinia} alt="" />
+                  </div>
+                </div>
               </div>
-              <div>
-                <StyledLink
-                  target="_blank"
-                  href="https://github.com/RaiFinance"
-                >
-                  <GithubLogo fill="#fff" />
-                </StyledLink>
-                <StyledLink
-                  target="_blank"
-                  href="https://open.kakao.com/o/gLPmITEc"
-                >
-                  <KakaoLogo fill="#fff" />
-                </StyledLink>
-                <StyledLink
-                  target="_blank"
-                  href="https://medium.com/rai-finance"
-                >
-                  <MediumLogo fill="#fff" />
-                </StyledLink>
-                <StyledLink target="_blank" href="https://t.me/RaiFinance">
-                  <TelegramLogo fill="#fff" />
-                </StyledLink>
-                <StyledLink
-                  target="_blank"
-                  href="https://twitter.com/RaiFinance"
-                >
-                  <TwitterLogo fill="#fff" />
-                </StyledLink>
-                <StyledLink
-                  target="_blank"
-                  href="https://weibo.com/u/7583482257"
-                >
-                  <WeiboLogo fill="#fff" />
-                </StyledLink>
+            </SeventhContent>
+            <div className="footer">
+              <div className="content">
+                <div>
+                  <Copyright>
+                    <img className="footer_logo" src={Logo} alt="logo" />
+                    Copyrights © 2022 RAI.Finance All rights reserved.
+                  </Copyright>
+                </div>
+                <div>
+                  <StyledLink
+                    target="_blank"
+                    href="https://github.com/RaiFinance"
+                  >
+                    <GithubLogo fill="#fff" />
+                  </StyledLink>
+                  <StyledLink
+                    target="_blank"
+                    href="https://open.kakao.com/o/gLPmITEc"
+                  >
+                    <KakaoLogo fill="#fff" />
+                  </StyledLink>
+                  <StyledLink
+                    target="_blank"
+                    href="https://medium.com/rai-finance"
+                  >
+                    <MediumLogo fill="#fff" />
+                  </StyledLink>
+                  <StyledLink target="_blank" href="https://t.me/RaiFinance">
+                    <TelegramLogo fill="#fff" />
+                  </StyledLink>
+                  <StyledLink
+                    target="_blank"
+                    href="https://twitter.com/RaiFinance"
+                  >
+                    <TwitterLogo fill="#fff" />
+                  </StyledLink>
+                  <StyledLink
+                    target="_blank"
+                    href="https://weibo.com/u/7583482257"
+                  >
+                    <WeiboLogo fill="#fff" />
+                  </StyledLink>
+                </div>
               </div>
             </div>
-          </div>
-        </SectionContainer>
-      </ReactPageScroller>
+          </section>
+      {/* </ReactPageScroller> */}
+      </main>
       </Content>
-      {showLeftContent && slideArray[scrollNum-1] && <LeftContent>
-          <InfoBlock>
-              <Title color={slideArray[scrollNum-1].colorText}>{slideArray[scrollNum-1].title}</Title>
-                <SlideLink href={slideArray[scrollNum-1].href}>
-                  {slideArray[scrollNum-1].buttonTitle}
-                </SlideLink>
-            </InfoBlock>
-          </LeftContent>}
     </Layout>
   );
 };
