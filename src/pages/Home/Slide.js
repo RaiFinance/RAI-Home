@@ -295,10 +295,9 @@ const Slide = ({ slide }) => {
           <Content>
             <InfoBlock>
               <Title color={slide.colorText}>{slide.title}</Title>
-              <SubTitle color={slide.colorText}>{slide.description}</SubTitle>
-                <SlideLink href={slide.href} target="_blank">
-                  {slide.buttonTitle}
-                </SlideLink>
+              <SlideLink href={slide.href} target="_blank">
+                {slide.buttonTitle}
+              </SlideLink>
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (

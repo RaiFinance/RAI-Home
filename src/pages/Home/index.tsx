@@ -977,8 +977,8 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/predict",
       title: "Take Your Choice",
-      description: "Keep Or Sell",
-      buttonTitle: "SELECT YES OR NO",
+      description: "",
+      buttonTitle: "Keep Or Sell",
       backgroundFill: "#fff",
       colorText: "#010101d9",
       fill: "white",
@@ -989,8 +989,8 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/sts/create",
       title: "Create your Portfolio",
-      description: "Pick Your Token",
-      buttonTitle: "SELECT YES OR NO",
+      description: "",
+      buttonTitle: "Pick Your Token",
       backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
@@ -1011,8 +1011,8 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/sts",
       title: "Manage it Efficiently",
-      description: "Just for you",
-      buttonTitle: "SELECT YES OR NO",
+      description: "",
+      buttonTitle: "Just for you",
       backgroundFill: "#fff",
       colorText: "#000000D9",
       fill: "white",
