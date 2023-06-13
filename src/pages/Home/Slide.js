@@ -285,7 +285,7 @@ const Slide = ({ slide }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-      <div className="section" onClick={() => {window.open(slide.href)}}>
+      <div className="section">
         <Wrapper
           mobileMinHeight={slide.mobileMinHeight}
           background={slide.backgroundFill}
@@ -296,7 +296,7 @@ const Slide = ({ slide }) => {
             <InfoBlock>
               <Title color={slide.colorText}>{slide.title}</Title>
               <SubTitle color={slide.colorText}>{slide.description}</SubTitle>
-                <SlideLink href={slide.href}>
+                <SlideLink href={slide.href} target="_blank">
                   {slide.buttonTitle}
                 </SlideLink>
             </InfoBlock>
