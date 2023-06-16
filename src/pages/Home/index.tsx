@@ -338,7 +338,6 @@ const SofiContent = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     width: 640px;
-    padding: 0 20px;
     @media (max-width: 767px) {
       width: 100%;
     }
