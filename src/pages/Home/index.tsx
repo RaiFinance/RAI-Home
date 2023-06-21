@@ -975,8 +975,8 @@ const Home: React.FC = () => {
   const slideArray = [
     {
       href: "https://app.rai.finance/#/predict",
-      title: "Take Your Choice",
-      description: "",
+      title: "Discover the power of Prediction Trade with Predict",
+      description: "Step into the Future of trading and predictions with the most advanced Web3 prediction market platform, Empowering You to harness the collective intelligence of the world!",
       buttonTitle: "Keep Or Sell",
       backgroundFill: "#fff",
       colorText: "#010101d9",
@@ -987,8 +987,8 @@ const Home: React.FC = () => {
     },
     {
       href: "https://app.rai.finance/#/sts/create",
-      title: "Create your Portfolio",
-      description: "",
+      title: "Your Portfolio, Your Way: Create Your Own Portfolio",
+      description: "Take Control of Your Investments, unleash Your trading potential: The Web3 Social Trading Platform for personalized portfolios",
       buttonTitle: "Pick Your Token",
       backgroundFill: "#fff",
       colorText: "#000000D9",
@@ -1009,8 +1009,8 @@ const Home: React.FC = () => {
     },
     {
       href: "https://app.rai.finance/#/sts",
-      title: "Manage it Efficiently",
-      description: "",
+      title: "Step into the World of Social Trading",
+      description: "Access Intelligent Management tools and Endless Opportunities \n In the New Age of Social + DeFi - SocialFi",
       buttonTitle: "Just for you",
       backgroundFill: "#fff",
       colorText: "#000000D9",

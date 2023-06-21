@@ -33,6 +33,7 @@ const Wrapper = styled("div")`
   width: 100%;
   margin: 0 auto;
   align-items: center;
+  gap: 20px;
   @media (max-width: 992px) {
     padding: 0 20px;
     flex-direction: column;
@@ -53,6 +54,9 @@ const Content = styled.div`
 const InfoBlock = styled.div`
   margin: 0 auto;
   width: 100%;
+  p{
+    font-size: 20px;
+  }
 `;
 
 const Title = styled.h1`
@@ -60,7 +64,7 @@ const Title = styled.h1`
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 48px!important;
+  font-size: 36px!important;
   line-height: 1.1;
   color: ${(props) => props?.color && props?.color};
   margin-bottom: 30px;
@@ -295,9 +299,10 @@ const Slide = ({ slide }) => {
           <Content>
             <InfoBlock>
               <Title color={slide.colorText}>{slide.title}</Title>
-              <SlideLink href={slide.href} target="_blank">
+              <p>{slide.description}</p>
+              {/* <SlideLink href={slide.href} target="_blank">
                 {slide.buttonTitle}
-              </SlideLink>
+              </SlideLink> */}
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (
