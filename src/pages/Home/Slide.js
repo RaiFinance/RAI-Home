@@ -35,8 +35,9 @@ const Wrapper = styled("div")`
   align-items: center;
   gap: 20px;
   &>div{
-    width: 50%;
+    width: 60%;
     &:last-of-type{
+      width: 40%;
       text-align: right;
     }
   }
@@ -47,7 +48,7 @@ const Wrapper = styled("div")`
     align-items: flex-start;
     justify-content: space-around;
     &>div{
-      width: 100%;
+      width: 100%!important;
     }
   }
 `;
@@ -65,6 +66,7 @@ const InfoBlock = styled.div`
   width: 100%;
   p{
     font-size: 20px;
+    margin-bottom: 0;
   }
 `;
 
@@ -213,9 +215,7 @@ export const PortfolioGraph = styled.div`
   grid-template-rows: 1fr 1fr;
   gap: 24px;
   padding: 24px;
-  @media (min-width: 992px) and (max-width: 2500px) {
-    width: 36vw;
-  }
+  width: 100%;
   @media (max-width: 767px) {
     width: 100%;
     padding: 16px;
