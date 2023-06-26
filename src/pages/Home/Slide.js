@@ -72,7 +72,7 @@ const Title = styled.h1`
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-style: normal;
-  font-weight: 800;
+  font-weight: bolder!important;
   font-size: 36px!important;
   line-height: 1.1;
   color: ${(props) => props?.color && props?.color};
