@@ -34,12 +34,21 @@ const Wrapper = styled("div")`
   margin: 0 auto;
   align-items: center;
   gap: 20px;
+  &>div{
+    width: 50%;
+    &:last-of-type{
+      text-align: right;
+    }
+  }
   @media (max-width: 992px) {
     padding: 0 20px;
     flex-direction: column;
     height: max-content;
     align-items: flex-start;
     justify-content: space-around;
+    &>div{
+      width: 100%;
+    }
   }
 `;
 
@@ -63,7 +72,7 @@ const Title = styled.h1`
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 36px!important;
   line-height: 1.1;
   color: ${(props) => props?.color && props?.color};
