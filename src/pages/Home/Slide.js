@@ -48,7 +48,7 @@ const Wrapper = styled("div")`
     align-items: flex-start;
     justify-content: space-around;
     &>div{
-      width: 100%;
+      width: 100%!important;
     }
   }
 `;
