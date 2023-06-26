@@ -485,7 +485,7 @@ const Copyright = styled.div`
 `;
 
 export const GoverIssue = styled.div<{ width?: any; height?: any }>`
-  width: ${({ width }) => width || "320px"};
+  width: ${({ width }) => width || "350px"};
   height: ${({ height }) => height || "132px"};
   border: 1px solid #e4e4e7;
   border-radius: 12px;
@@ -565,7 +565,7 @@ export const GoverIssue = styled.div<{ width?: any; height?: any }>`
 `;
 
 const BtnBox = styled.div`
-  width: 320px;
+  width: 350px;
   min-height: 200px;
   border: 1px solid #e4e4e7;
   border-radius: 12px;
@@ -1190,8 +1190,8 @@ const Home: React.FC = () => {
               >
                 <GoverIssueBox
                   No="038"
-                  Title="Delist $LUNA from the portfolio list"
-                  subTitle="Edit Portfolio List"
+                  Title="Revise the UI & UX of RAI Finance app"
+                  subTitle="Marketing Campaign"
                   height={"100%"}
                   width={"100%"}
                   className="issue"
@@ -1207,9 +1207,9 @@ const Home: React.FC = () => {
                 }}
               >
                 <GoverIssueBox
-                  No="037"
-                  Title="Delist $LUNA from the portfolio list"
-                  subTitle="Marketing Campaign"
+                  No="032"
+                  Title="Add $LDO to Portfolio List"
+                  subTitle="Edit Portfolio List"
                   height={"100%"}
                   width={"100%"}
                   voteCounts={31}
@@ -1300,8 +1300,8 @@ const Home: React.FC = () => {
                   </Col>
                   <Col md={12} sm={24} xs={24}>
                     <GoverIssueBox
-                      No="022"
-                      Title="Delist$LUNA from the portfolio"
+                      No="038"
+                      Title="Revise the UI & UX of RAI Finance app"
                       voteCounts={31}
                       date={formatDate(new Date(1679815844000))}
                       state={4}
