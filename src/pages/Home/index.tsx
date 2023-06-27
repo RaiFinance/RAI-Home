@@ -572,7 +572,6 @@ const BtnBox = styled.div`
   padding: 16px;
   margin: 24px auto;
   .radio {
-    width: 288px;
     height: 48px;
     background: #ffffff;
     border: 2px solid #e4e4e7;
@@ -987,8 +986,8 @@ const Home: React.FC = () => {
     },
     {
       href: "https://app.rai.finance/#/sts/create",
-      title: "Your Portfolio, Your Way: Create Your Own Portfolio",
-      description: <><p>Take Control of Your Investments, unleash Your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios"</>,
+      title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
+      description: <><p>Take Control of Your Investments, unleash Your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
       buttonTitle: "Pick Your Token",
       backgroundFill: "#fff",
       colorText: "#000000D9",
@@ -1249,8 +1248,8 @@ const Home: React.FC = () => {
                 </div>
                 <div className="box">
                   <img src={DeepThird} alt="" />
-                  <div className="account">$2,284,561</div>
-                  <div className="type">Transaction volume</div>
+                  <div className="account">111</div>
+                  <div className="type">Tokens supported in Social Trading</div>
                 </div>
               </div>
             </DeepContent>
@@ -1328,7 +1327,7 @@ const Home: React.FC = () => {
                         <a
                           target="_blank"
                           rel="noopener"
-                          href="/RAI-Finance-WhitePaper.pdf"
+                          href="https://app.rai.finance/#/proposals"
                           className="elementor-item"
                         >
                           Vote Now
