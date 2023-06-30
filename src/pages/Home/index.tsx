@@ -975,7 +975,7 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/predict",
       title: "Discover the power of Prediction Trade with Predict",
-      description: <><p>Step into the Future of trading and predictions with</p><p>the most advanced Web3 prediction market platform, <p>Empowering You to harness the collective intelligence of the world!</p></p></>,
+      description: <><p>Step into the future of trading and predictions with</p><p>the most advanced Web3 prediction market platform, <p>Empowering you to harness the collective intelligence of the world!</p></p></>,
       buttonTitle: "Keep Or Sell",
       backgroundFill: "#fff",
       colorText: "#010101d9",
@@ -987,7 +987,7 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/sts/create",
       title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
-      description: <><p>Take Control of Your Investments, unleash Your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
+      description: <><p>Take control of your investments, unleash your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
       buttonTitle: "Pick Your Token",
       backgroundFill: "#fff",
       colorText: "#000000D9",
@@ -1009,7 +1009,7 @@ const Home: React.FC = () => {
     {
       href: "https://app.rai.finance/#/sts",
       title: "Step into the World of Social Trading",
-      description: <><p>Access Intelligent Management tools and Endless Opportunities</p> In the New Age of Social + DeFi - SocialFi</>,
+      description: <><p>Access intelligent management tools and endless opportunities</p> In the new age of Social + DeFi - SocialFi</>,
       buttonTitle: "Just for you",
       backgroundFill: "#fff",
       colorText: "#000000D9",
