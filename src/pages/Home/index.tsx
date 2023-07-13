@@ -16,35 +16,13 @@ import {
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import axios from "axios";
 import Logo from "../../assets/images/logo-dark.png";
 import Image1 from "../../assets/images/home/image1.jpg";
-import Image2 from "../../assets/images/home/image2.png";
-import Image3 from "../../assets/images/home/image3.png";
-import Image4 from "../../assets/images/home/image4.png";
-import Team1 from "../../assets/images/home/team04-01.png";
-import Team2 from "../../assets/images/home/team05-01.png";
-import Team3 from "../../assets/images/home/team06-01.png";
-import RAIToken from "../../assets/images/home/RAIToken.png";
 import Bithumb from "../../assets/images/home/Bithumb.png";
 import HuoBiGlobal from "../../assets/images/home/HuoBiGlobal.png";
 import Dodo from "../../assets/images/home/Dodo.png";
 import PancakeSwap from "../../assets/images/home/PancakeSwap.png";
-import CrossChain from "../../assets/images/home/CrossChain.png";
-import SocialTrading from "../../assets/images/home/SocialTrading.png";
-import UniqueAsset from "../../assets/images/home/UniqueAsset.png";
-import { ReactComponent as KLAYswap } from "../../assets/images/home/KLAYswap.svg";
-import IDO from "../../assets/images/home/IDO.png";
-//@ts-ignore
-import STSMp4 from "../../assets/images/home/mp4/sts.gif";
-//@ts-ignore
-import AggregatorMp4 from "../../assets/images/home/mp4/aggregator.gif";
-//@ts-ignore
-import GovernanceMp4 from "../../assets/images/home/mp4/governance.gif";
-//@ts-ignore
-import WalletMp4 from "../../assets/images/home/mp4/my-wallet.gif";
-import SocialTradingGIF from "../../assets/images/home/Social-Trading.gif";
-import UniqueAssetGIF from "../../assets/images/home/Unique-Asset.gif";
-import IDOGIF from "../../assets/images/home/IDO.gif";
 import Alphabit from "../../assets/images/home/Alphabit.png";
 import NGC from "../../assets/images/home/NGC.png";
 import TheLeagueofTraders from "../../assets/images/home/TheLeagueofTraders.png";
@@ -58,17 +36,7 @@ import KPA from "../../assets/images/home/KPA.png";
 import Bounce from "../../assets/images/home/Bounce.png";
 import Tidal from "../../assets/images/home/TIDAL.png";
 import Darwinia from "../../assets/images/home/DARWINIA.png";
-import Inverst from "../../assets/images/home/Invest.png";
-import Communicate from "../../assets/images/home/Communicate.png";
-import Analyze from "../../assets/images/home/Analyze.png";
-import Bibox from "../../assets/images/home/Bibox.png";
-import Bitwell from "../../assets/images/home/Bitwell.png";
 import ETH_Ploygon from "../../assets/images/home/eth_polygon.png";
-import whitepaper from "../../assets/images/home/whitepaper.jpg";
-import SofiToken from "../../assets/images/home/sofitoken.png";
-import { ReactComponent as InvestIcon } from "../../assets/images/home/Invest.svg";
-import { ReactComponent as AnalyzeIcon } from "../../assets/images/home/Analyze.svg";
-import { ReactComponent as DaoIcon } from "../../assets/images/home/Dao.svg";
 import { ReactComponent as TwitterLogo } from "../../assets/images/home/svg/Twitter.svg";
 import { ReactComponent as MediumLogo } from "../../assets/images/home/svg/Medium.svg";
 import { ReactComponent as TelegramLogo } from "../../assets/images/home/svg/Telegram.svg";
@@ -85,14 +53,6 @@ import Sofihb from "../../assets/images/home/box/hb.png";
 import Sofibt from "../../assets/images/home/box/bitumb.png";
 import Sofibb from "../../assets/images/home/box/bibox.png";
 import swapImg from "../../assets/images/home/box/swap.jpg";
-import SwapSvg from "../../assets/images/home/box/swap.svg";
-import TradingSvg from "../../assets/images/home/box/trading.svg";
-import ChartSvg from "../../assets/images/home/box/chart.svg";
-import LineSvg from "../../assets/images/home/box/line.svg";
-import RaiSvg from "../../assets/images/home/box/rai.svg";
-import Graph1 from "../../assets/images/home/box/1.svg";
-import Graph2 from "../../assets/images/home/box/2.svg";
-import Graph3 from "../../assets/images/home/box/3.svg";
 import Bitcoins from "../../assets/images/home/bitcoins.png";
 import { WithScrollFreezing } from "./withScrollFreezingProps";
 import MainBlock from "./MainBlock";
@@ -771,6 +731,87 @@ export const formatDollarAmount = (num: any, digits: any) => {
   return formatter.format(num);
 };
 
+const slideArray = [
+  {
+    href: "https://app.rai.finance/#/predict",
+    title: "Discover the power of Prediction Trade with Predict",
+    description: <><p>Step into the future of trading and predictions with</p><p>the most advanced Web3 prediction market platform, <p>Empowering you to harness the collective intelligence of the world!</p></p></>,
+    buttonTitle: "Keep Or Sell",
+    backgroundFill: "#fff",
+    colorText: "#010101d9",
+    fill: "white",
+    list: [],
+    predictImgUrl: Bitcoins,
+    id: 0,
+  },
+  {
+    href: "https://app.rai.finance/#/sts/create",
+    title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
+    description: <><p>Take control of your investments, unleash your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
+    buttonTitle: "Pick Your Token",
+    backgroundFill: "#fff",
+    colorText: "#000000D9",
+    fill: "white",
+    list: [],
+    imgUrl: "",
+    id: 2,
+    translate: `20px, -12px`,
+    minHeight: "100vh",
+    mobileMinHeight: "60vh",
+    widthImg: "57vw",
+    mobile: {
+      translate: `0px, 10px`,
+      widthImg: "100%",
+      minHeight: "43vh",
+    },
+    desktopWidth: "68vw",
+  },
+  {
+    href: "https://app.rai.finance/#/sts",
+    title: "Step into the World of Social Trading",
+    description: <><p>Access intelligent management tools and endless opportunities</p> In the new age of Social + DeFi - SocialFi</>,
+    buttonTitle: "Just for you",
+    backgroundFill: "#fff",
+    colorText: "#000000D9",
+    fill: "white",
+    list: [],
+    imgUrl: "./Screenshots/line.png",
+    id: 4,
+    translate: `20px, -12px`,
+    minHeight: "100vh",
+    mobileMinHeight: "70vh",
+    widthImg: "57vw",
+    mobile: {
+      translate: `0px, 10px`,
+      widthImg: "100%",
+      minHeight: "43vh",
+    },
+    desktopWidth: "68vw",
+  },
+  {
+    href: "https://app.rai.finance/#/sts",
+    title: "Everything in RAI Finance",
+    description: "",
+    buttonTitle: "GO TO APP",
+    backgroundFill: "#fff",
+    colorText: "#000000D9",
+    fill: "white",
+    list: [],
+    imgUrl: "./Screenshots/rai.png",
+    id: 4,
+    translate: `20px, -12px`,
+    minHeight: "100vh",
+    mobileMinHeight: "70vh",
+    widthImg: "57vw",
+    mobile: {
+      translate: `0px, 10px`,
+      widthImg: "100%",
+      minHeight: "43vh",
+    },
+    desktopWidth: "68vw",
+  },
+];
+
 const Home: React.FC = () => {
   const GoverIssueBox: React.FC<any> = (props) => {
     const {
@@ -893,6 +934,51 @@ const Home: React.FC = () => {
   });
   let slideNum = 0;
   const scroll = useScroll(productRef);
+  const [slideList, setSlideList] = useState<any>(slideArray)
+
+  const contryList = [
+    'DZ',
+    'BD',
+    'BO',
+    'BY',
+    'BI',
+    'MM',
+    'CI',
+    'CU',
+    'CD',
+    'EC',
+    'IR',
+    'IQ',
+    'LR',
+    'LY',
+    'ML',
+    'MA',
+    'NP',
+    'KP',
+    'SO',
+    'SD',
+    'SY',
+    'VE',
+    'YE',
+    'ZW',
+    'CA',
+    'PA',
+    'US',
+    'GB',
+  ]
+  const getData = async () => {
+    const res = await axios.get(" https://geolocation-db.com/json/");
+    console.log(res.data);
+    if(contryList.includes(res.data.country_code)){
+      const list = [...slideList];
+      list.splice(0, 1);
+      setSlideList(list)
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const scrollHeader = () => {
     if (!document.querySelector(".ant-layout-header")) {
@@ -970,87 +1056,6 @@ const Home: React.FC = () => {
     }
     setScrollNum(num)
   };
-
-  const slideArray = [
-    {
-      href: "https://app.rai.finance/#/predict",
-      title: "Discover the power of Prediction Trade with Predict",
-      description: <><p>Step into the future of trading and predictions with</p><p>the most advanced Web3 prediction market platform, <p>Empowering you to harness the collective intelligence of the world!</p></p></>,
-      buttonTitle: "Keep Or Sell",
-      backgroundFill: "#fff",
-      colorText: "#010101d9",
-      fill: "white",
-      list: [],
-      predictImgUrl: Bitcoins,
-      id: 0,
-    },
-    {
-      href: "https://app.rai.finance/#/sts/create",
-      title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
-      description: <><p>Take control of your investments, unleash your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
-      buttonTitle: "Pick Your Token",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      imgUrl: "",
-      id: 2,
-      translate: `20px, -12px`,
-      minHeight: "100vh",
-      mobileMinHeight: "60vh",
-      widthImg: "57vw",
-      mobile: {
-        translate: `0px, 10px`,
-        widthImg: "100%",
-        minHeight: "43vh",
-      },
-      desktopWidth: "68vw",
-    },
-    {
-      href: "https://app.rai.finance/#/sts",
-      title: "Step into the World of Social Trading",
-      description: <><p>Access intelligent management tools and endless opportunities</p> In the new age of Social + DeFi - SocialFi</>,
-      buttonTitle: "Just for you",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      imgUrl: "./Screenshots/line.png",
-      id: 4,
-      translate: `20px, -12px`,
-      minHeight: "100vh",
-      mobileMinHeight: "70vh",
-      widthImg: "57vw",
-      mobile: {
-        translate: `0px, 10px`,
-        widthImg: "100%",
-        minHeight: "43vh",
-      },
-      desktopWidth: "68vw",
-    },
-    {
-      href: "https://app.rai.finance/#/sts",
-      title: "Everything in RAI Finance",
-      description: "",
-      buttonTitle: "GO TO APP",
-      backgroundFill: "#fff",
-      colorText: "#000000D9",
-      fill: "white",
-      list: [],
-      imgUrl: "./Screenshots/rai.png",
-      id: 4,
-      translate: `20px, -12px`,
-      minHeight: "100vh",
-      mobileMinHeight: "70vh",
-      widthImg: "57vw",
-      mobile: {
-        translate: `0px, 10px`,
-        widthImg: "100%",
-        minHeight: "43vh",
-      },
-      desktopWidth: "68vw",
-    },
-  ];
 
 
   return (
@@ -1161,7 +1166,7 @@ const Home: React.FC = () => {
           </div>
         </FirstContent>
         </section>
-        {slideArray.map((slide) => {
+        {slideList.map((slide: any) => {
           return <section><Slide key={slide.id} slide={slide} /></section>;
         })}
         <section style={{height: 'auto'}}>

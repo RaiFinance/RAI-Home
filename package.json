@@ -17,6 +17,7 @@
     "@types/styled-components": "^5.1.11",
     "ahooks": "^3.7.6",
     "antd": "^4.16.8",
+    "axios": "^1.4.0",
     "craco-less": "^1.18.0",
     "lottie-react": "^2.2.1",
     "react": "^17.0.2",
