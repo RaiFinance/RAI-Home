@@ -935,7 +935,7 @@ const Home: React.FC = () => {
   });
   let slideNum = 0;
   const scroll = useScroll(productRef);
-  const [showPredict, setShowPredict] = useState<boolean>(false)
+  const [showPredict, setShowPredict] = useState<boolean>(true)
 
   const contryList = [
     'DZ',
@@ -971,7 +971,7 @@ const Home: React.FC = () => {
     const res = await axios.get(" https://geolocation-db.com/json/");
     console.log(res.data);
     if(contryList.includes(res.data.country_code)){
-      setShowPredict(true)
+      setShowPredict(false)
     }
   };
 
