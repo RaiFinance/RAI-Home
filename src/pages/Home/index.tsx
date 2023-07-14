@@ -730,8 +730,7 @@ export const formatDollarAmount = (num: any, digits: any) => {
   });
   return formatter.format(num);
 };
-
-const slideArray = [
+const predictArray = [
   {
     href: "https://app.rai.finance/#/predict",
     title: "Discover the power of Prediction Trade with Predict",
@@ -743,7 +742,9 @@ const slideArray = [
     list: [],
     predictImgUrl: Bitcoins,
     id: 0,
-  },
+  }
+]
+const slideArray = [
   {
     href: "https://app.rai.finance/#/sts/create",
     title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
@@ -934,7 +935,7 @@ const Home: React.FC = () => {
   });
   let slideNum = 0;
   const scroll = useScroll(productRef);
-  const [slideList, setSlideList] = useState<any>(slideArray)
+  const [showPredict, setShowPredict] = useState<boolean>(false)
 
   const contryList = [
     'DZ',
@@ -970,9 +971,7 @@ const Home: React.FC = () => {
     const res = await axios.get(" https://geolocation-db.com/json/");
     console.log(res.data);
     if(contryList.includes(res.data.country_code)){
-      const list = [...slideList];
-      list.splice(0, 1);
-      setSlideList(list)
+      setShowPredict(true)
     }
   };
 
@@ -1166,7 +1165,10 @@ const Home: React.FC = () => {
           </div>
         </FirstContent>
         </section>
-        {slideList.map((slide: any) => {
+        {showPredict && predictArray.map((slide: any) => {
+          return <section><Slide key={slide.id} slide={slide} /></section>;
+        })}
+        {slideArray.map((slide: any) => {
           return <section><Slide key={slide.id} slide={slide} /></section>;
         })}
         <section style={{height: 'auto'}}>
