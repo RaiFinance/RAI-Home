@@ -730,20 +730,7 @@ export const formatDollarAmount = (num: any, digits: any) => {
   });
   return formatter.format(num);
 };
-const predictArray = [
-  {
-    href: "https://app.rai.finance/#/predict",
-    title: "Discover the power of Prediction Trade with Predict",
-    description: <><p>Step into the future of trading and predictions with</p><p>the most advanced Web3 prediction market platform, <p>Empowering you to harness the collective intelligence of the world!</p></p></>,
-    buttonTitle: "Keep Or Sell",
-    backgroundFill: "#fff",
-    colorText: "#010101d9",
-    fill: "white",
-    list: [],
-    predictImgUrl: Bitcoins,
-    id: 0,
-  }
-]
+
 const slideArray = [
   {
     href: "https://app.rai.finance/#/sts/create",
@@ -935,7 +922,6 @@ const Home: React.FC = () => {
   });
   let slideNum = 0;
   const scroll = useScroll(productRef);
-  const [showPredict, setShowPredict] = useState<boolean>(true)
 
   const contryList = [
     'DZ',
@@ -967,17 +953,6 @@ const Home: React.FC = () => {
     'US',
     'GB',
   ]
-  const getData = async () => {
-    const res = await axios.get(" https://geolocation-db.com/json/");
-    console.log(res.data);
-    if(contryList.includes(res.data.country_code)){
-      setShowPredict(false)
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const scrollHeader = () => {
     if (!document.querySelector(".ant-layout-header")) {
@@ -1165,9 +1140,6 @@ const Home: React.FC = () => {
           </div>
         </FirstContent>
         </section>
-        {showPredict && predictArray.map((slide: any) => {
-          return <section><Slide key={slide.id} slide={slide} /></section>;
-        })}
         {slideArray.map((slide: any) => {
           return <section><Slide key={slide.id} slide={slide} /></section>;
         })}
