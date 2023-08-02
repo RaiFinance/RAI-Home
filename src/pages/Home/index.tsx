@@ -798,6 +798,50 @@ const slideArray = [
     },
     desktopWidth: "68vw",
   },
+  {
+    href: "/",
+    title: "DEX, redefined",
+    description: "Incorporated with the innovative Discretized-Liquidity-AMM model, Rai Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.",
+    buttonTitle: "COMING SOON",
+    backgroundFill: "#fff",
+    colorText: "#000000D9",
+    fill: "white",
+    list: [],
+    imgUrl: "./Screenshots/dex.png",
+    id: 4,
+    translate: `20px, -12px`,
+    minHeight: "100vh",
+    mobileMinHeight: "70vh",
+    widthImg: "57vw",
+    mobile: {
+      translate: `0px, 10px`,
+      widthImg: "100%",
+      minHeight: "43vh",
+    },
+    desktopWidth: "68vw",
+  },
+  {
+    href: "/",
+    title: "Trade your NFT faster and worthy",
+    description: "NFT swap's proprietary AI-based appraisal model enables NFT pricing outputs with much higher precision, allowing users to unlock further value from NFT assets",
+    buttonTitle: "COMING SOON",
+    backgroundFill: "#fff",
+    colorText: "#000000D9",
+    fill: "white",
+    list: [],
+    imgUrl: "./Screenshots/nft.png",
+    id: 4,
+    translate: `20px, -12px`,
+    minHeight: "100vh",
+    mobileMinHeight: "70vh",
+    widthImg: "57vw",
+    mobile: {
+      translate: `0px, 10px`,
+      widthImg: "100%",
+      minHeight: "43vh",
+    },
+    desktopWidth: "68vw",
+  },
 ];
 
 const Home: React.FC = () => {
@@ -1317,58 +1361,6 @@ const Home: React.FC = () => {
                 </Row>
               </div>
             </FifthContent>
-          </section>
-          <section style={{height: 'auto'}}>
-            <SeventhContent>
-              <div>
-                <h2 style={{ textAlign: "center" }}>Contributors</h2>
-                <div className="parteners">
-                  <div>
-                    <img src={Alphabit} alt="" />
-                  </div>
-                  <div>
-                    <img src={NGC} alt="" />
-                  </div>
-                  <div>
-                    <img src={TheLeagueofTraders} alt="" />
-                  </div>
-                  <div>
-                    <img src={Avalanche} alt="" />
-                  </div>
-                </div>
-                <div className="parteners2">
-                  <div>
-                    <img src={Chainlink} alt="" />
-                  </div>
-                  <div>
-                    <img src={Cobak} alt="" />
-                  </div>
-                  <div>
-                    <img src={Litentry} alt="" />
-                  </div>
-                  <div>
-                    <img src={Launchpsl} alt="" />
-                  </div>
-                  <div>
-                    <img src={Thegraph} alt="" />
-                  </div>
-                </div>
-                <div className="parteners">
-                  <div>
-                    <img src={KPA} alt="" />
-                  </div>
-                  <div>
-                    <img src={Bounce} alt="" />
-                  </div>
-                  <div>
-                    <img src={Tidal} alt="" />
-                  </div>
-                  <div>
-                    <img src={Darwinia} alt="" />
-                  </div>
-                </div>
-              </div>
-            </SeventhContent>
             <div className="footer">
               <div className="content">
                 <div>

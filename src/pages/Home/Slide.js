@@ -101,6 +101,8 @@ const SubTitle = styled.h2`
 `;
 
 const SlideLink = styled.a`
+  display: inline-block;
+  margin-top: 20px;
   border-radius: 8px;
   padding: 14px 20px;
   width: auto;
@@ -309,9 +311,9 @@ const Slide = ({ slide }) => {
             <InfoBlock>
               <Title color={slide.colorText}>{slide.title}</Title>
               <p>{slide.description}</p>
-              {/* <SlideLink href={slide.href} target="_blank">
+              <SlideLink href={slide.href} target="_blank">
                 {slide.buttonTitle}
-              </SlideLink> */}
+              </SlideLink>
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (
