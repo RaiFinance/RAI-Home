@@ -717,7 +717,7 @@ const slideArray = [
   {
     href: "https://app.rai.finance/#/sts",
     title: "Step into the World of Social Trading",
-    description: <>Access intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboadring in a trending theme is easier than ever before.</>,
+    description: <>Access intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboarding in a trending theme is easier than ever before.</>,
     buttonTitle: "GO TO APP",
     backgroundFill: "#fff",
     colorText: "#000000D9",
@@ -739,7 +739,7 @@ const slideArray = [
   {
     href: "/",
     title: "DEX, redefined",
-    description: "Incorporated with the innovative Discretized-Liquidity-AMM model, Rai Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.",
+    description: "Incorporated with the innovative Discretized-Liquidity-AMM model, RAI Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.",
     buttonTitle: "COMING SOON",
     backgroundFill: "#fff",
     colorText: "#000000D9",
