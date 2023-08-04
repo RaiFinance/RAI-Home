@@ -717,7 +717,7 @@ const slideArray = [
   {
     href: "https://app.rai.finance/#/sts",
     title: "Step into the World of Social Trading",
-    description: <><p>Access intelligent management tools and endless opportunities</p> In the new age of Social + DeFi - SocialFi</>,
+    description: <>Access intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboadring in a trending theme is easier than ever before.</>,
     buttonTitle: "GO TO APP",
     backgroundFill: "#fff",
     colorText: "#000000D9",
@@ -1155,13 +1155,7 @@ const Home: React.FC = () => {
               Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals
               </div>
             </div>
-            <div className="swap">
-              <h2></h2>
-              <div className="box">
-                {/* <img src={ SwapSvg } alt="" /> */}
-                <img src={swapImg} alt="" />
-              </div>
-            </div>
+            <br/>
             <div className="gover">
               <h2>Governance</h2>
               <div

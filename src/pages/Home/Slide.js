@@ -66,7 +66,7 @@ const InfoBlock = styled.div`
   margin: 0 auto;
   width: 100%;
   h1{
-    font-size: 48px;
+    font-size: 52px;
     color: #18181B;
     font-weight: 700;
     line-height: 1.1;
