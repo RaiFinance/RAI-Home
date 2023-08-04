@@ -10,6 +10,7 @@ import Graph3 from "../../assets/images/home/box/3.svg";
 import { CloseOutlined } from "@ant-design/icons";
 import { Input, Slider as SliderC } from "antd";
 import './Slide.less';
+import Sider from "antd/lib/layout/Sider";
 
 const { Meta } = Card;
 
@@ -64,6 +65,17 @@ const Content = styled.div`
 const InfoBlock = styled.div`
   margin: 0 auto;
   width: 100%;
+  h1{
+    font-size: 48px;
+    color: #18181B;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  @media (max-width: 992px) {
+    h1{
+      font-size: 36px;
+    }
+  }
   p{
     font-size: 20px;
     margin-bottom: 0;
@@ -118,6 +130,9 @@ const SlideLink = styled.a`
   color: #fff;
   a{
     margin: 0;
+  }
+  &.coming{
+   background: rgba(85, 66, 246, 0.5);
   }
   @media (max-width: 992px) {
     max-width: 100%;
@@ -309,11 +324,19 @@ const Slide = ({ slide }) => {
         >
           <Content>
             <InfoBlock>
-              <Title color={slide.colorText}>{slide.title}</Title>
+              {slide.title === 'Everything in RAI Finance' && <h1>Everything in <br/>RAI Finance</h1>}
+              {slide.title !== 'Everything in RAI Finance' && <Title color={slide.colorText}>{slide.title}</Title>}
               <p>{slide.description}</p>
-              <SlideLink href={slide.href} target="_blank">
+             {slide.buttonTitle !== 'COMING SOON' && <SlideLink href={slide.href} target="_blank">
                 {slide.buttonTitle}
               </SlideLink>
+              }
+              
+             {slide.buttonTitle === 'COMING SOON' && <SlideLink className="coming" href="javascript:void(0)">
+                {slide.buttonTitle}
+              </SlideLink>
+              }
+              
             </InfoBlock>
           </Content>
           {slide.imgSvg ? (

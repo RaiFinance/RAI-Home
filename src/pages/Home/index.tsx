@@ -16,26 +16,11 @@ import {
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-import axios from "axios";
 import Logo from "../../assets/images/logo-dark.png";
 import Image1 from "../../assets/images/home/image1.jpg";
 import Bithumb from "../../assets/images/home/Bithumb.png";
 import HuoBiGlobal from "../../assets/images/home/HuoBiGlobal.png";
-import Dodo from "../../assets/images/home/Dodo.png";
 import PancakeSwap from "../../assets/images/home/PancakeSwap.png";
-import Alphabit from "../../assets/images/home/Alphabit.png";
-import NGC from "../../assets/images/home/NGC.png";
-import TheLeagueofTraders from "../../assets/images/home/TheLeagueofTraders.png";
-import Avalanche from "../../assets/images/home/AVALANCHE.png";
-import Chainlink from "../../assets/images/home/Chainlink.png";
-import Cobak from "../../assets/images/home/cobak.png";
-import Litentry from "../../assets/images/home/Litentry.png";
-import Launchpsl from "../../assets/images/home/Launchpsl.png";
-import Thegraph from "../../assets/images/home/thegraph.png";
-import KPA from "../../assets/images/home/KPA.png";
-import Bounce from "../../assets/images/home/Bounce.png";
-import Tidal from "../../assets/images/home/TIDAL.png";
-import Darwinia from "../../assets/images/home/DARWINIA.png";
 import ETH_Ploygon from "../../assets/images/home/eth_polygon.png";
 import { ReactComponent as TwitterLogo } from "../../assets/images/home/svg/Twitter.svg";
 import { ReactComponent as MediumLogo } from "../../assets/images/home/svg/Medium.svg";
@@ -53,9 +38,6 @@ import Sofihb from "../../assets/images/home/box/hb.png";
 import Sofibt from "../../assets/images/home/box/bitumb.png";
 import Sofibb from "../../assets/images/home/box/bibox.png";
 import swapImg from "../../assets/images/home/box/swap.jpg";
-import Bitcoins from "../../assets/images/home/bitcoins.png";
-import { WithScrollFreezing } from "./withScrollFreezingProps";
-import MainBlock from "./MainBlock";
 import Slide from "./Slide";
 import { useScroll } from "ahooks";
 // import '../../statics/fullpage.extensions.min.js'
@@ -763,7 +745,7 @@ const slideArray = [
     colorText: "#000000D9",
     fill: "white",
     list: [],
-    imgUrl: "./Screenshots/line.png",
+    imgUrl: "./Screenshots/side2.png",
     id: 4,
     translate: `20px, -12px`,
     minHeight: "100vh",
@@ -785,7 +767,7 @@ const slideArray = [
     colorText: "#000000D9",
     fill: "white",
     list: [],
-    imgUrl: "./Screenshots/dex.png",
+    imgUrl: "./Screenshots/side3.png",
     id: 4,
     translate: `20px, -12px`,
     minHeight: "100vh",
@@ -800,14 +782,14 @@ const slideArray = [
   },
   {
     href: "/",
-    title: "Trade your NFT faster and worthy",
+    title: <>Trade your NFT faster <br/>and worthy</>,
     description: "NFT swap's proprietary AI-based appraisal model enables NFT pricing outputs with much higher precision, allowing users to unlock further value from NFT assets",
     buttonTitle: "COMING SOON",
     backgroundFill: "#fff",
     colorText: "#000000D9",
     fill: "white",
     list: [],
-    imgUrl: "./Screenshots/nft.png",
+    imgUrl: "./Screenshots/side4.png",
     id: 4,
     translate: `20px, -12px`,
     minHeight: "100vh",
