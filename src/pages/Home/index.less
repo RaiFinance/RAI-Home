@@ -4,10 +4,11 @@
   scroll-behavior: smooth;
   .ant-layout-header{
       position: fixed;
-      z-index: 1;
+      z-index: 1000;
       width: 100%;
       background: #fff;
-      height: 72px;
+      height: 64px;
+      // height: 128px;
       padding: 0;
       line-height: 1;
       @media (max-width: 767px) {
@@ -111,6 +112,12 @@
         grid-template-areas: "logo burger";
       }
   }
+  .ant-layout-content{
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  }
   .ant-btn-primary{
       background: #5542F6;
       color: #fff;
@@ -160,7 +167,7 @@
     }
     li{
       display: flex;
-      height: 18px;
+      height: 16px;
       margin-right: 20px;
       font-size: 14px;
       img{
@@ -559,14 +566,16 @@
 
   }
   .tokenInfo{
-    background: #F3F4F6;
+    // background: #F3F4F6;
     border-radius: 12px;
-    padding: 24px;
-    margin-top: 20px;
+    // padding: 24px 0px;
+    // margin-top: 20px;
+    margin-bottom: 24px;
     .tokenName {
       img{
         height: 25px;
         width: auto;
+        cursor: pointer;
       }
     }
     p{
@@ -598,7 +607,7 @@
       color: #79869F;
   }
   img{
-      width: 100%;
+      // width: 100%;
   }
   .footer{
     box-shadow: inset 0px 1px 0px #D1D5DB;
@@ -622,3 +631,54 @@
     }
   }
 }
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+main {
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+main > section {
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  width: min(var(--slide-width), 100%);
+  margin-inline: auto;
+  padding-block: 2rem;
+  overflow: hidden;
+}
+
+
+:root {
+  --c-fg: black;
+  --c-bg: snow;
+  --c-primary: royalblue;
+  --c-neutral: lavender;
+  --c-notice: orange;
+  --c-lines: var(--c-primary);
+  --c-shadows: var(--c-neutral);
+  --slide-width: 65ch;
+  --slide-motion: 500ms ease;
+
+  font-family: sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+}
+
+::selection {
+  background-color: var(--c-primary);
+  color: var(--c-bg);
+}
+

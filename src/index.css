@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Graphik', sans-serif!important;
@@ -9,3 +10,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import './assets//css//font.css'
