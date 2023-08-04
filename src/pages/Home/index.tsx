@@ -715,32 +715,10 @@ export const formatDollarAmount = (num: any, digits: any) => {
 
 const slideArray = [
   {
-    href: "https://app.rai.finance/#/sts/create",
-    title: <>Your Portfolio, Your Way: <br/>Create Your Own Portfolio</>,
-    description: <><p>Take control of your investments, unleash your trading potential: </p>The Web3 Social Trading Platform for personalized portfolios</>,
-    buttonTitle: "Pick Your Token",
-    backgroundFill: "#fff",
-    colorText: "#000000D9",
-    fill: "white",
-    list: [],
-    imgUrl: "",
-    id: 2,
-    translate: `20px, -12px`,
-    minHeight: "100vh",
-    mobileMinHeight: "60vh",
-    widthImg: "57vw",
-    mobile: {
-      translate: `0px, 10px`,
-      widthImg: "100%",
-      minHeight: "43vh",
-    },
-    desktopWidth: "68vw",
-  },
-  {
     href: "https://app.rai.finance/#/sts",
     title: "Step into the World of Social Trading",
     description: <><p>Access intelligent management tools and endless opportunities</p> In the new age of Social + DeFi - SocialFi</>,
-    buttonTitle: "Just for you",
+    buttonTitle: "GO TO APP",
     backgroundFill: "#fff",
     colorText: "#000000D9",
     fill: "white",
