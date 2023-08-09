@@ -28,6 +28,10 @@ import { ReactComponent as TelegramLogo } from "../../assets/images/home/svg/Tel
 import { ReactComponent as GithubLogo } from "../../assets/images/home/svg/Github.svg";
 import { ReactComponent as KakaoLogo } from "../../assets/images/home/svg/Kakao.svg";
 import { ReactComponent as WeiboLogo } from "../../assets/images/home/svg/Weibo.svg";
+import { ReactComponent as EthereumLogo } from "../../assets/svg/ethereum.svg";
+import { ReactComponent as PolygonLogo } from "../../assets/svg/polygon.svg";
+import { ReactComponent as BaseLogo } from "../../assets/svg/base.svg";
+import { ReactComponent as TaikoLogo } from "../../assets/svg/taiko.svg";
 import "./index.less";
 import DeepFirst from "../../assets/images/home/deepOne.svg";
 import DeepSecond from "../../assets/images/home/deepSecond.svg";
@@ -1140,7 +1144,24 @@ const Home: React.FC = () => {
             <p className="launched">
               RAI Finance product is officially launched on
             </p>
-            <img className="eth_ploygon" src={ETH_Ploygon} alt="" />
+            <div className="networks">
+              <div>
+                <EthereumLogo/> 
+                <div>Ethereum</div>
+              </div>
+              <div>
+                <PolygonLogo/> 
+                <div>Polygon</div>
+              </div>
+              <div>
+                <BaseLogo/> 
+                <div>BASE</div>
+              </div>
+              <div>
+                <TaikoLogo/> 
+                <div>Taiko</div>
+              </div>
+            </div>
           </div>
         </FirstContent>
         </section>
