@@ -1509,7 +1509,7 @@ const Home: React.FC = () => {
                 <h1>For Everything Trading</h1>
                 <h3>Multiple DEXs for tokens, NFTs and Social Trading</h3>
                 <p style={{marginBottom:'50px'}}>
-                  RAI Finance is the hub for everything trading.Since 2020, our team has developed various DeFi, NFTFi, and Social Trading products that operate across multiple blockchain networks. RAI Finance boasts several customizable DEXs for both tokens and NFTs, in addition to Social Trading functionality. Whether you need a straightforward swap, NFT trading services, or index trading, Rai Finance offers a solution for everything trading.
+                  RAI Finance is the hub for everything trading. Since 2020, our team has developed various DeFi, NFTFi, and Social Trading products that operate across multiple blockchain networks. RAI Finance boasts several customizable DEXs for both tokens and NFTs, in addition to Social Trading functionality. Whether you need a straightforward swap, NFT trading services, or index trading, Rai Finance offers a solution for everything trading.
                 </p>
                 <MultipleButton>
                   <a
@@ -1553,7 +1553,7 @@ const Home: React.FC = () => {
               <SildeBoxImg src={homeImg2}></SildeBoxImg>
               <SildeBoxContent>
                 <RightousTitle>Step into the World of Social Trading</RightousTitle>
-                <PoppinsTxt>SAccess intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboarding in a trending theme is easier than ever before.</PoppinsTxt>
+                <PoppinsTxt>Access intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboarding in a trending theme is easier than ever before.</PoppinsTxt>
                 <MultipleButton>
                   <a
                     href="https://app.rai.finance/#/sts"
@@ -1618,7 +1618,7 @@ const Home: React.FC = () => {
                 data-aos="fade-up" data-aos-duration="1500"
                 className="item_box"
                 onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
+                  window.open("https://app.rai.finance/#/proposals/0xFFBd847806Cc462b1Df726C5363E8D40f52afa8f/49");
                 }}
               >
                 <GoverIssueBox
@@ -1638,7 +1638,7 @@ const Home: React.FC = () => {
                 className="item_box"
                 style={{ margin: '28px auto 52px'}}
                 onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
+                  window.open("https://app.rai.finance/#/proposals/0xFFBd847806Cc462b1Df726C5363E8D40f52afa8f/43");
                 }}
               >
                 <GoverIssueBox
@@ -1657,7 +1657,7 @@ const Home: React.FC = () => {
               <ColButton
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://app.rai.finance/#/"
+                href="https://app.rai.finance/#/proposals"
                 className="elementor-item"
               >
                 GO TO Governance
@@ -1720,7 +1720,7 @@ const Home: React.FC = () => {
                   <MyCheckBox
                     target="_blank"
                     rel="noopener"
-                    href="https://app.rai.finance/#/proposals"
+                    href="https://app.rai.finance/#/proposals/0xFFBd847806Cc462b1Df726C5363E8D40f52afa8f/49"
                   >
                     <div className="inner">
                       <div className="inner_left">
@@ -1735,7 +1735,7 @@ const Home: React.FC = () => {
                   <MyCheckBox
                     target="_blank"
                     rel="noopener"
-                    href="https://app.rai.finance/#/proposals"
+                    href="https://app.rai.finance/#/proposals/0xFFBd847806Cc462b1Df726C5363E8D40f52afa8f/49"
                   >
                     <div className="inner">
                       <div className="inner_left">
