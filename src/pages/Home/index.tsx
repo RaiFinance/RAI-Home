@@ -984,6 +984,8 @@ const MyCheckBox = styled.a`
   background: linear-gradient(122deg, rgba(212, 99, 252, 0.22) 0%, rgba(41, 163, 156, 0.15) 100%);
   padding: 30px 50px;
   z-index: 2;
+  top: 0px;
+  left: 0px;
 
   img {
     display: none;
@@ -997,6 +999,7 @@ const MyCheckBox = styled.a`
   &:hover {
     top: -10px;
     left: -40px;
+    transition: top 400ms, left 400ms;
     background: linear-gradient(122deg, rgba(212, 99, 252, 0.22) 0%, rgba(41, 163, 156, 0.15) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(185, 51, 207, 0.18) 51.58%, rgba(0, 0, 0, 0.00) 100%);
     backdrop-filter: blur(12px);
     img {
@@ -1411,7 +1414,7 @@ const Home: React.FC = () => {
     const timeout = setTimeout(() => {
       setBlockScroll(false)
       clearTimeout(timeout)
-    }, 1000)
+    }, 1500)
     if (num >= 1 && num <= 7) {
       setShowLeftContent(true);
     } else {
@@ -1546,7 +1549,7 @@ const Home: React.FC = () => {
           return <section><Slide key={slide.id} slide={slide} /></section>;
         })} */}
           <section>
-            <SildeBox data-aos="fade-up" data-aos-duration="1000">
+            <SildeBox data-aos="fade-up" data-aos-duration="1500">
               <SildeBoxImg src={homeImg2}></SildeBoxImg>
               <SildeBoxContent>
                 <RightousTitle>Step into the World of Social Trading</RightousTitle>
@@ -1564,7 +1567,7 @@ const Home: React.FC = () => {
             </SildeBox>
           </section>
           <section>
-            <SildeBox data-aos="fade-up" data-aos-duration="900">
+            <SildeBox data-aos="fade-up" data-aos-duration="1500">
               <SildeBoxContent>
                 <RightousTitle>DEX, redefined</RightousTitle>
                 <PoppinsTxt>Incorporated with the innovative Discretized-Liquidity-AMM model, RAI Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.</PoppinsTxt>
@@ -1576,7 +1579,7 @@ const Home: React.FC = () => {
             </SildeBox>
           </section>
           <section>
-            <SildeBox data-aos="fade-up" data-aos-duration="900">
+            <SildeBox data-aos="fade-up" data-aos-duration="1500">
               <SildeBoxImg src={homeImg4}></SildeBoxImg>
               <SildeBoxContent>
                 <RightousTitle>Trade your NFT faster and worthy</RightousTitle>
@@ -1588,7 +1591,7 @@ const Home: React.FC = () => {
             </SildeBox>
           </section>
           <section>
-            <EverythingBox data-aos="fade-up" data-aos-duration="900">
+            <EverythingBox data-aos="fade-up" data-aos-duration="1500">
               <EverythingBoxTitle1>Everything in</EverythingBoxTitle1>
               <EverythingBoxTitle2>RAI Finance</EverythingBoxTitle2>
               <EverythingBoxFoot>
@@ -1612,6 +1615,7 @@ const Home: React.FC = () => {
             </div>
             <div className="gover">
               <div
+                data-aos="fade-up" data-aos-duration="1500"
                 className="item_box"
                 onClick={() => {
                   window.open("https://app.rai.finance/#/proposals");
@@ -1630,6 +1634,7 @@ const Home: React.FC = () => {
                 />
               </div>
               <div
+                 data-aos="fade-up" data-aos-duration="1500"
                 className="item_box"
                 style={{ margin: '28px auto 52px'}}
                 onClick={() => {
@@ -1648,7 +1653,7 @@ const Home: React.FC = () => {
                 />
               </div>
             </div>
-            <div style={{textAlign: 'center'}}>
+            <div data-aos="fade-up" data-aos-duration="1500" style={{textAlign: 'center'}}>
               <ColButton
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1664,7 +1669,7 @@ const Home: React.FC = () => {
         <div style={{ background: '#000'}}>
             <div className="dive_box">
               <ColourfulText>Deep Dive in RAI.finance</ColourfulText>
-              <DiveContent>
+              <DiveContent data-aos="fade-up" data-aos-duration="1500">
                 <div className="dive_item">
                   <img src={userIcon} />
                   <div className="dive_account">9,870</div>
@@ -1701,7 +1706,7 @@ const Home: React.FC = () => {
                 </ColButton>
               </div>
               <div className="finance_box_right">
-                <div>
+                <div data-aos="fade-up" data-aos-duration="1500">
                   <GoverIssueBox
                     height={"100%"}
                     width={"100%"}
