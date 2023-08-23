@@ -84,12 +84,14 @@ const InfoBlock = styled.div`
 
 const Title = styled.h1`
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Righteous';
+  /* font-family: "Poppins", sans-serif; */
   font-style: normal;
   font-weight: bolder!important;
   font-size: 36px!important;
   line-height: 1.1;
-  color: ${(props) => props?.color && props?.color};
+  /* color: ${(props) => props?.color && props?.color}; */
+  color: #FFF !important;
   margin-bottom: 30px;
   @media (max-width: 992px) {
     font-size: 28px!important;
@@ -325,7 +327,7 @@ const Slide = ({ slide }) => {
           <Content>
             <InfoBlock>
               {slide.title === 'Everything in RAI Finance' && <h1>Everything in <br/>RAI Finance</h1>}
-              {slide.title !== 'Everything in RAI Finance' && <Title color={slide.colorText}>{slide.title}</Title>}
+              {slide.title !== 'Everything in RAI Finance' && <Title>{slide.title}</Title>}
               <p>{slide.description}</p>
              {slide.buttonTitle !== 'COMING SOON' && <SlideLink href={slide.href} target="_blank">
                 {slide.buttonTitle}
