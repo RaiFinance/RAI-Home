@@ -17,7 +17,12 @@ import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import Logo from "../../assets/images/logo-white.png"
-import Image1 from "../../assets/images/home/image1.jpg";
+// import Image1 from "../../assets/images/home/image1.jpg";
+import Image1 from "../../assets/images/home/home1.png";
+import homeImg2 from "../../assets/images/home/home2.png";
+import homeImg3 from "../../assets/images/home/home3.png";
+import homeImg4 from "../../assets/images/home/home4.png";
+import homeImg5 from "../../assets/images/home/home5.png";
 import Bithumb from "../../assets/images/home/Bithumb.png";
 import HuoBiGlobal from "../../assets/images/home/HuoBiGlobal.png";
 import PancakeSwap from "../../assets/images/home/PancakeSwap.png";
@@ -44,6 +49,8 @@ import Sofibb from "../../assets/images/home/box/bibox.png";
 import swapImg from "../../assets/images/home/box/swap.jpg";
 import Slide from "./Slide";
 import { useScroll } from "ahooks";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // import '../../statics/fullpage.extensions.min.js'
 // import '../../statics/fullpage.scrollOverflowReset.limited.min.js'
 
@@ -51,11 +58,12 @@ import { useScroll } from "ahooks";
 const pluginWrapper = () => {
   require('../../statics/fullpage.scrollOverflowReset.limited.min.js');
 };
+AOS.init();
 
 const { Header, Sider, Content } = Layout;
 const { Link } = Anchor;
 const HeaderContent = styled.div`
-  max-width: 1200px;
+  max-width: 1440px;
   padding: 0 50px;
   @media (max-width: 767px) {
     padding: 0 20px;
@@ -63,16 +71,21 @@ const HeaderContent = styled.div`
 `;
 
 const FirstContent = styled.div`
-  min-height: 100vh;
+  position: relative;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   background: url(${Image1}) no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: 600px 50px;
+  @media (max-width: 1440px) {
+    background-position: 300px 50px;
+  }
   & > div {
-    max-width: 1200px;
+    width: 1400px;
     margin: 0 auto;
     // padding: 150px 300px;
-    padding: 135px;
+    padding: 145px 0 0 130px;
     @media (max-width: 992px) {
       &:before {
         display: none;
@@ -82,44 +95,59 @@ const FirstContent = styled.div`
       padding: 100px 50px;
     }
     @media (max-width: 767px) {
-      padding: 100px 20px;
+      padding: 100px 24px;
     }
-    .ant-btn {
+    
+    /* .ant-btn {
       display: block;
       margin: 0 auto;
-    }
+    } */
   }
   h1 {
-    background: linear-gradient(84deg, #9E68DD 0%, #E594E5 45.31%, #6BDAB0 100%);
+    display: inline-block;
+    background: linear-gradient(84deg, #9E68DD 0%, #E594E5 45%, #6BDAB0 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 24px;
     font-family: Righteous;
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 700;
     color: #111827;
     /* text-align: center; */
     line-height: 1.2;
     @media (max-width: 767px) {
-      font-size: 40px;
+      font-size: 46px;
+    }
+  }
+  h3 {
+    margin-top: 0;
+    font-family: 'Poppins';
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    @media (max-width: 767px) {
+      font-size: 24px;
+      line-height: 1.3;
     }
   }
   p {
-    font-family: "Graphik";
+    font-family: 'Poppins';
+    max-width: 820px;
     color: #DDD1E1;
     font-weight: 400;
-    /* text-align: center; */
     font-style: normal;
-    font-size: 20px;
-    padding: 0px 10px;
+    font-size: 18px;
     line-height: 32px;
+    margin-bottom: 20px;
     @media (max-width: 767px) {
       font-size: 14px;
+      line-height: 1.6;
     }
   }
   .launched {
-    color: #6b7280;
+    color: #ddd1e1;
     font-size: 12px;
     margin-top: 100px;
   }
@@ -130,7 +158,10 @@ const FirstContent = styled.div`
     width: auto;
   }
 `;
-
+const HomeImg1 = styled.img`
+  width: 600px;
+  margin-left: -200px;
+`
 
 const DeepContent = styled.div`
   background: #f3f4f6;
@@ -684,6 +715,156 @@ const SlideLink = styled.a`
     padding: 10px;
   }
 `;
+const MultipleButton = styled(Button)`
+  display: flex;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(169deg, #9A51E3 0%, #C961DE 45.83%, #29A39C 100%);
+  box-shadow: 0px -3px 10px 0px rgba(0, 255, 240, 0.70) inset, 4px 5px 5px 0px rgba(255, 255, 255, 0.25) inset;
+  &:hover {
+    background: linear-gradient(169deg, #9A51E3 0%, #C961DE 45.83%, #29A39C 100%);
+  }
+  a {
+    font-family: Righteous;
+    color: #fff !important;
+  }
+`
+const SildeBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+`
+const SildeBoxImg = styled.img`
+  width: 660px;
+  @media (max-width: 767px) {
+    width: 100%;
+    order: 2;
+  }
+`
+const SildeBoxContent = styled.div`
+  width: 630px;
+  padding: 0 60px;
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0 24px;
+    order: 1;
+    margin-bottom: 30px;
+  }
+`
+const RightousTitle = styled.div`
+  color: #FFF;
+  font-family: Righteous;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  @media (max-width: 767px) {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+`
+const PoppinsTxt = styled.div`
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #DDD1E1;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+`
+const ComingSoonButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  position: relative;
+  box-sizing: border-box;
+  color: #FFF;
+  background: #000;
+  background-clip: padding-box;
+  border: solid 1px transparent;
+  border-radius: 25px;
+  font-family: 'Righteous';
+  font-size: 14px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(to right, #E477FF, #6BDAD0);
+  }
+`
+const EverythingBox = styled.div`
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background: url(${homeImg5}) no-repeat;
+  background-size: 100%;
+  background-position: center 35%;
+  text-align: center;
+  @media (max-width: 767px) {
+    height: 400px;
+    background-size: 240%;
+    background-position: center 10%;
+  }
+`
+const EverythingBoxTitle1 = styled.div`
+  color: #FFF;
+  font-family: 'Righteous';
+  font-size: 42px;
+  @media (max-width: 767px) {
+    font-size: 36px;
+    line-height: 1.6;
+  }
+`
+const EverythingBoxTitle2 = styled.div`
+  display: inline-block;
+  font-family: 'Righteous';
+  font-size: 72px;
+  background: linear-gradient(84deg, #9E68DD 0%, #E594E5 45.31%, #6BDAB0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @media (max-width: 767px) {
+    font-size: 46px;
+    line-height: 1.6;
+  }
+`
+const EverythingBoxFoot = styled.div`
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  @media (max-width: 767px) {
+    bottom: 20px;
+  }
+`
 
 export const proposalStatus = (state: number) => {
   const STATUS: any = {
@@ -769,7 +950,7 @@ const slideArray = [
   },
   {
     href: "/",
-    title: <>Trade your NFT faster <br/>and worthy</>,
+    title: <>Trade your NFT faster <br />and worthy</>,
     description: "NFT swap's proprietary AI-based appraisal model enables NFT pricing outputs with much higher precision, allowing users to unlock further value from NFT assets",
     buttonTitle: "COMING SOON",
     backgroundFill: "#fff",
@@ -839,17 +1020,16 @@ const Home: React.FC = () => {
         </div>
         <div className="third">
           <div
-            className={`tag ${
-              state === 0
-                ? "soon"
-                : state === 1 ||
-                  state === 4 ||
-                  state === 5 ||
-                  state === 7 ||
-                  state === 8
+            className={`tag ${state === 0
+              ? "soon"
+              : state === 1 ||
+                state === 4 ||
+                state === 5 ||
+                state === 7 ||
+                state === 8
                 ? "active"
                 : "closed"
-            }`}
+              }`}
             color={proposalStateColor[state]}
           >
             {proposalStatus(state)}
@@ -1036,9 +1216,9 @@ const Home: React.FC = () => {
       setBlockScroll(false)
       clearTimeout(timeout)
     }, 1000)
-    if(num >= 1 && num <= 7){
+    if (num >= 1 && num <= 7) {
       setShowLeftContent(true);
-    }else{
+    } else {
       setShowLeftContent(false);
     }
     setScrollNum(num)
@@ -1117,125 +1297,180 @@ const Home: React.FC = () => {
         </HeaderContent>
       </Header>
       <Content>
-      {/* <ReactPageScroller
+        {/* <ReactPageScroller
         pageOnChange={handlePageChange}
         blockScrollUp={blockScroll}
         blockScrollDown={blockScroll}
         onBeforePageScroll={() => setBlockScroll(true)}
        > */}
-       <main>
-      <section style={{height: 'auto'}}>
-        <FirstContent id="Join">
-          <div>
-            <h1>Join the new era of SocialFi</h1>
-            <p>
-              RAI Finance is a decentralized finance and social platform,
-              powered by blockchain technology and governed by a community DAO.
-              Its main features include Predict, Social trading, Social hub, and
-              Aggregator, making it the center hub of DeFi and Social in the
-              Web3 world. With its launch in 2020, RAI Finance is now available
-              on multiple blockchain networks, providing innovation and
-              accessibility to its users.
-            </p>
-            <Button type="primary">
-              <a
-                href="https://app.rai.finance"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ENTER MAINNET
-              </a>
-            </Button>
-            <p className="launched">
-              RAI Finance product is officially launched on
-            </p>
-            <div className="networks">
+        <main>
+          <section style={{ height: 'auto' }}>
+            <FirstContent id="Join">
               <div>
-                <EthereumLogo/> 
-                <div>Ethereum</div>
+                <h1>For Everything Trading</h1>
+                <h3>Multiple DEXs for tokens, NFTs and Social Trading</h3>
+                <p style={{marginBottom:'50px'}}>
+                  RAI Finance is the hub for everything trading.Since 2020, our team has developed various DeFi, NFTFi, and Social Trading products that operate across multiple blockchain networks. RAI Finance boasts several customizable DEXs for both tokens and NFTs, in addition to Social Trading functionality. Whether you need a straightforward swap, NFT trading services, or index trading, Rai Finance offers a solution for everything trading.
+                </p>
+                <MultipleButton>
+                  <a
+                    href="https://app.rai.finance"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ENTER MAINNET
+                  </a>
+                </MultipleButton>
+                <p className="launched">
+                  RAI Finance product is officially launched on
+                </p>
+                <div className="networks">
+                  <div>
+                    <EthereumLogo />
+                    <div>Ethereum</div>
+                  </div>
+                  <div>
+                    <PolygonLogo />
+                    <div>Polygon</div>
+                  </div>
+                  <div>
+                    <BaseLogo />
+                    <div>BASE</div>
+                  </div>
+                  <div>
+                    <TaikoLogo />
+                    <div>Taiko</div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <PolygonLogo/> 
-                <div>Polygon</div>
-              </div>
-              <div>
-                <BaseLogo/> 
-                <div>BASE</div>
-              </div>
-              <div>
-                <TaikoLogo/> 
-                <div>Taiko</div>
-              </div>
-            </div>
-          </div>
-        </FirstContent>
-        </section>
-        {slideArray.map((slide: any) => {
+              {/* <HomeImg1 src={Image1}></HomeImg1> */}
+            </FirstContent>
+          </section>
+          {/* {slideArray.map((slide: any) => {
           return <section><Slide key={slide.id} slide={slide} /></section>;
-        })}
-        <section style={{height: 'auto'}}>
-          <SofiContent id="Sofi">
-            <div className="head">
-              <h2>Anything else?</h2>
-              <div>
-              Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals
+        })} */}
+          <section>
+            <SildeBox data-aos="fade-up" data-aos-duration="1000">
+              <SildeBoxImg src={homeImg2}></SildeBoxImg>
+              <SildeBoxContent>
+                <RightousTitle>Step into the World of Social Trading</RightousTitle>
+                <PoppinsTxt>SAccess intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboarding in a trending theme is easier than ever before.</PoppinsTxt>
+                <MultipleButton>
+                  <a
+                    href="https://app.rai.finance/#/sts"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GO TO APP
+                  </a>
+                </MultipleButton>
+              </SildeBoxContent>
+            </SildeBox>
+          </section>
+          <section>
+            <SildeBox data-aos="fade-up" data-aos-duration="900">
+              <SildeBoxContent>
+                <RightousTitle>DEX, redefined</RightousTitle>
+                <PoppinsTxt>Incorporated with the innovative Discretized-Liquidity-AMM model, RAI Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.</PoppinsTxt>
+                <ComingSoonButton>
+                  <span>COMING SOON</span>
+                </ComingSoonButton>
+              </SildeBoxContent>
+              <SildeBoxImg src={homeImg3}></SildeBoxImg>
+            </SildeBox>
+          </section>
+          <section>
+            <SildeBox data-aos="fade-up" data-aos-duration="900">
+              <SildeBoxImg src={homeImg4}></SildeBoxImg>
+              <SildeBoxContent>
+                <RightousTitle>Trade your NFT faster and worthy</RightousTitle>
+                <PoppinsTxt>NFT swap's proprietary AI-based appraisal model enables NFT pricing outputs with much higher precision, allowing users to unlock further value from NFT assets</PoppinsTxt>
+                <ComingSoonButton>
+                  <span>COMING SOON</span>
+                </ComingSoonButton>
+              </SildeBoxContent>
+            </SildeBox>
+          </section>
+          <section>
+            <EverythingBox data-aos="fade-up" data-aos-duration="900">
+              <EverythingBoxTitle1>Everything in</EverythingBoxTitle1>
+              <EverythingBoxTitle2>RAI Finance</EverythingBoxTitle2>
+              <EverythingBoxFoot>
+                <MultipleButton>
+                  <a
+                    href="https://app.rai.finance/#/sts"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GO TO APP
+                  </a>
+                </MultipleButton>
+              </EverythingBoxFoot>
+            </EverythingBox>
+          </section>
+          <section style={{ height: 'auto' }}>
+            <SofiContent id="Sofi">
+              <div className="head">
+                <h2>Anything else?</h2>
+                <div>
+                  Share Investment Set, Communicate with KOL, Analyze investment data and Invest with professionals
+                </div>
               </div>
-            </div>
-            <br/>
-            <div className="gover">
-              <h2>Governance</h2>
-              <div
-                className="box"
-                onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
-                }}
-              >
-                <GoverIssueBox
-                  No="038"
-                  Title="Revise the UI & UX of RAI Finance app"
-                  subTitle="Marketing Campaign"
-                  height={"100%"}
-                  width={"100%"}
-                  className="issue"
-                  voteCounts={31}
-                  date={formatDate(new Date(1681272081000))}
-                  state={4}
-                />
+              <br />
+              <div className="gover">
+                <h2>Governance</h2>
+                <div
+                  className="box"
+                  onClick={() => {
+                    window.open("https://app.rai.finance/#/proposals");
+                  }}
+                >
+                  <GoverIssueBox
+                    No="038"
+                    Title="Revise the UI & UX of RAI Finance app"
+                    subTitle="Marketing Campaign"
+                    height={"100%"}
+                    width={"100%"}
+                    className="issue"
+                    voteCounts={31}
+                    date={formatDate(new Date(1681272081000))}
+                    state={4}
+                  />
+                </div>
+                <div
+                  className="box"
+                  onClick={() => {
+                    window.open("https://app.rai.finance/#/proposals");
+                  }}
+                >
+                  <GoverIssueBox
+                    No="032"
+                    Title="Add $LDO to Portfolio List"
+                    subTitle="Edit Portfolio List"
+                    height={"100%"}
+                    width={"100%"}
+                    voteCounts={31}
+                    date={formatDate(new Date(1679815844000))}
+                    state={4}
+                  />
+                </div>
               </div>
-              <div
-                className="box"
-                onClick={() => {
-                  window.open("https://app.rai.finance/#/proposals");
-                }}
+              <Button
+                type="primary"
+                style={{ fontFamily: "Graphik-bold", width: "320px" }}
               >
-                <GoverIssueBox
-                  No="032"
-                  Title="Add $LDO to Portfolio List"
-                  subTitle="Edit Portfolio List"
-                  height={"100%"}
-                  width={"100%"}
-                  voteCounts={31}
-                  date={formatDate(new Date(1679815844000))}
-                  state={4}
-                />
-              </div>
-            </div>
-            <Button
-              type="primary"
-              style={{ fontFamily: "Graphik-bold", width: "320px" }}
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.rai.finance/#/"
-                className="elementor-item"
-              >
-                Go To App
-              </a>
-            </Button>
-          </SofiContent>
-        </section>
-        <section style={{height: 'auto'}}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://app.rai.finance/#/"
+                  className="elementor-item"
+                >
+                  Go To App
+                </a>
+              </Button>
+            </SofiContent>
+          </section>
+          <section style={{ height: 'auto' }}>
             <DeepContent>
               <h2>Deep Dive in RAI.finance</h2>
               <div className="boxes">
@@ -1387,8 +1622,8 @@ const Home: React.FC = () => {
               </div>
             </div>
           </section>
-      {/* </ReactPageScroller> */}
-      </main>
+          {/* </ReactPageScroller> */}
+        </main>
       </Content>
     </Layout>
   );
