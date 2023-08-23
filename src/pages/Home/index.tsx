@@ -16,7 +16,7 @@ import {
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
-import Logo from "../../assets/images/logo-dark.png";
+import Logo from "../../assets/images/logo-white.png"
 import Image1 from "../../assets/images/home/image1.jpg";
 import Bithumb from "../../assets/images/home/Bithumb.png";
 import HuoBiGlobal from "../../assets/images/home/HuoBiGlobal.png";
@@ -90,11 +90,16 @@ const FirstContent = styled.div`
     }
   }
   h1 {
+    background: linear-gradient(84deg, #9E68DD 0%, #E594E5 45.31%, #6BDAB0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 24px;
+    font-family: Righteous;
     font-size: 64px;
     font-weight: 700;
     color: #111827;
-    text-align: center;
+    /* text-align: center; */
     line-height: 1.2;
     @media (max-width: 767px) {
       font-size: 40px;
@@ -102,9 +107,9 @@ const FirstContent = styled.div`
   }
   p {
     font-family: "Graphik";
-    color: #71717a;
+    color: #DDD1E1;
     font-weight: 400;
-    text-align: center;
+    /* text-align: center; */
     font-style: normal;
     font-size: 20px;
     padding: 0px 10px;
@@ -1048,7 +1053,7 @@ const Home: React.FC = () => {
       <Header>
         <HeaderContent
           className="header"
-          style={{ height: `64px` }}
+          style={{ height: `100px` }}
         >
           <img className="Logo" src={Logo} alt="logo" />
           <CSSTransition

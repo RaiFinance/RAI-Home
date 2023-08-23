@@ -29,8 +29,8 @@
       position: fixed;
       z-index: 1000;
       width: 100%;
-      background: #fff;
-      height: 64px;
+      background: #000;
+      height: 100px;
       // height: 128px;
       padding: 0;
       line-height: 1;
@@ -39,7 +39,7 @@
       }
   }
   .header{
-      background: #fff;
+      background: #000;
       width: 100%;
       margin: 0 auto;
       display: grid;
@@ -52,6 +52,9 @@
           align-items: center;
           justify-items: center;
           margin-right: -18px;
+          height: 60px;
+          border-radius: 60px;
+          background: linear-gradient(180deg, rgba(32, 26, 68, 0.90) 2.08%, rgba(18, 8, 49, 0.90) 20.31%, rgba(11, 10, 43, 0.90) 81.25%, rgba(35, 19, 55, 0.90) 98.44%);
           @media (max-width: 767px) {
             margin-right: 0;
           }
@@ -63,15 +66,15 @@
           grid-area: logo;
       }
         .Nav a {
-          color: #000;
+          color: #fff;
           font-size: 14px;
           font-weight: 500;
           transition: 0.5s;
           text-decoration: none;
           padding: 10px 16px;
           &:hover{
-            background: #F3F4F6;
-            border-radius: 4px;
+            // background: #F3F4F6;
+            // border-radius: 4px;
           }
         }
         
@@ -144,10 +147,11 @@
   .ant-btn-primary{
       background: #5542F6;
       color: #fff;
-      border-radius: 6px;
+      border-radius: 48px;
       height: 40px;
       line-height: 40px;
       padding: 0 16px;
+      padding: 0 30px;
       a{
         color: #fff!important;
         padding: 0!important;
@@ -668,8 +672,8 @@ body {
 
 
 main {
-  height: 100vh;
-  overflow: scroll;
+  // height: 100vh;
+  // overflow: scroll;
   scroll-snap-type: y mandatory;
 }
 
