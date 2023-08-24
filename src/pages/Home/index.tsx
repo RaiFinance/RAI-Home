@@ -18,7 +18,10 @@ import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import Logo from "../../assets/images/logo-white.png"
 // import Image1 from "../../assets/images/home/image1.jpg";
-import Image1 from "../../assets/images/home/home1.png";
+import Image1 from "../../assets/images/home_new/bg1.png";
+import ball1 from "../../assets/images/home_new/ball1.png";
+import ball2 from "../../assets/images/home_new/ball2.png";
+import ball3 from "../../assets/images/home_new/logo1.png";
 import homeImg2 from "../../assets/images/home/home2.png";
 import homeImg3 from "../../assets/images/home/home3.png";
 import homeImg4 from "../../assets/images/home/home4.png";
@@ -85,12 +88,12 @@ const FirstContent = styled.div`
   /* min-height: 100vh; */
   display: flex;
   align-items: center;
-  background: url(${Image1}) no-repeat;
+  /* background: url(${Image1}) no-repeat;
   background-size: contain;
-  background-position: 600px 50px;
-  @media (max-width: 1440px) {
+  background-position: 120%;
+  @media (max-width: 767px) {
     background-position: 300px 50px;
-  }
+  } */
   & > div {
     width: 1400px;
     margin: 0 auto;
@@ -949,6 +952,7 @@ const DiveContent = styled.div`
     height: 312px;
     text-align: center;
     color: #fff;
+    padding: 0 20px;
     &:hover {
       background-image: url(${boxIconHover});
     }
@@ -972,6 +976,8 @@ const DiveContent = styled.div`
     margin-bottom: 20px;
     .dive_item {
       margin-bottom: 10px;
+      width: 100%;
+      max-width: 360px;
     }
   }
 `;
@@ -1010,6 +1016,12 @@ const MyCheckBox = styled.a`
     }
     ${ColourfulText} {
       display: block;
+    }
+    .inner {
+      .icon {
+        background-color: #291C27;
+        border-color: #D08CDB;
+      }
     }
   }
   
@@ -1505,7 +1517,13 @@ const Home: React.FC = () => {
         <main>
           <section style={{ height: 'auto' }}>
             <FirstContent id="Join">
-              <div>
+              <span className="bg_box">
+                <img className="ball1" src={ball1} />
+                <img className="ball2" src={ball2} />
+                <img className="ball3" src={ball3} />
+                <img className="ball_bg" src={Image1} />
+              </span>
+              <div style={{position: 'relative', zIndex: 2}}>
                 <h1>For Everything Trading</h1>
                 <h3>Multiple DEXs for tokens, NFTs and Social Trading</h3>
                 <p style={{marginBottom:'50px'}}>
