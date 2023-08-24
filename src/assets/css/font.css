@@ -20,3 +20,10 @@
   font-display: swap;
   src: url("../fonts/Righteous-Regular.ttf");
 }
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Poppins-Regular.ttf");
+}
