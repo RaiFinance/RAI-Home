@@ -723,7 +723,7 @@ main > section {
   position: relative;
   overflow: hidden;
   @media (max-width: 767px) {
-    padding: 0 10px;
+    padding: 0 24px;
   }
   .inner_box {
     position: relative;
@@ -755,12 +755,11 @@ main > section {
   }
 }
 .dive_box {
-  padding-bottom: 130px;
-  padding-top: 50px;
+  padding: 50px 0 50px;
   text-align: center;
   background: linear-gradient(138deg, #1B0D26 0%, rgba(0, 0, 0, 0.74) 25.52%, rgba(0, 0, 0, 0.65) 71.88%, rgba(6, 64, 33, 0.30) 100%);
   @media (max-width: 767px) {
-    padding-bottom: 10px;
+    padding: 50px 24px 10px;
   }
 }
 .finance_box {
@@ -770,7 +769,7 @@ main > section {
 
   @media (max-width: 767px) {
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 24px;
     margin: 20px auto;
   }
 }
@@ -806,5 +805,55 @@ main > section {
   flex: auto;
   @media (max-width: 767px) {
     margin-top: 50px;
+  }
+}
+.bg_box {
+  width: 1200px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+}
+.ball_bg {
+  width: 100%;
+}
+.ball1 {
+  width: 190px;
+  position: absolute;
+  bottom: 500px;
+  right: 300px;
+  animation: fdball 2s ease-in-out infinite alternate;
+}
+.ball2 {
+  width: 260px;
+  position: absolute;
+  bottom: 220px;
+  right: 700px;
+  animation: fdball2 2s ease-in-out infinite alternate;
+}
+.ball3 {
+  width: 400px;
+  position: absolute;
+  bottom: 70px;
+  right: 290px;
+  animation: fdball3 3s ease-in-out infinite alternate;
+}
+
+@keyframes fdball {
+  from { transform: translate(0,0);}
+  to {transform: translate(0,16px)}
+}
+@keyframes fdball2 {
+  from { transform: translate(0,0);}
+  to {transform: translate(-12px,-18px)}
+}
+@keyframes fdball3 {
+  from { transform: translate(0,0);}
+  to {transform: translate(20px,22px)}
+}
+
+@media (max-width: 767px) {
+  .ball1, .ball2, .ball3 {
+    animation: none;
+    display: none;
   }
 }
