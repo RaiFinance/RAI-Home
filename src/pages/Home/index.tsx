@@ -132,7 +132,7 @@ const FirstContent = styled.div`
   }
   h3 {
     margin-top: 0;
-    font-family: 'Poppins';
+    font-family: Poppins;
     font-size: 28px;
     font-weight: 600;
     color: #fff;
@@ -143,7 +143,7 @@ const FirstContent = styled.div`
     }
   }
   p {
-    font-family: 'Poppins';
+    font-family: Poppins;
     max-width: 820px;
     color: #DDD1E1;
     font-weight: 400;
@@ -815,7 +815,7 @@ const PoppinsTxt = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   color: #DDD1E1;
-  font-family: Poppins;
+  font-family: "Poppins";
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
