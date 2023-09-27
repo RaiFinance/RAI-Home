@@ -18,6 +18,7 @@ import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import Logo from "../../assets/images/logo-white.png"
 // import Image1 from "../../assets/images/home/image1.jpg";
+import banner from "../../assets/images/home_new/banner.jpg";
 import Image1 from "../../assets/images/home_new/bg1.png";
 import ball1 from "../../assets/images/home_new/ball1.png";
 import ball2 from "../../assets/images/home_new/ball2.png";
@@ -1508,6 +1509,9 @@ const Home: React.FC = () => {
         </HeaderContent>
       </Header>
       <Content>
+        <div className="banner">
+          <img src={banner} alt="banner" />
+        </div>
         {/* <ReactPageScroller
         pageOnChange={handlePageChange}
         blockScrollUp={blockScroll}
