@@ -1716,7 +1716,7 @@ const Home: React.FC = () => {
                 <div className="dive_item">
                   <img src={coinIcon} />
                   <div className="dive_account">{ totalTx ?  totalTx.toLocaleString() : 0}</div>
-                  <div className="dive_type">Transaction</div>
+                  <div className="dive_type">Portfolios</div>
                 </div>
                 <div className="dive_item">
                   <img src={LinkIcon} />
