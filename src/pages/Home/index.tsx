@@ -55,6 +55,7 @@ import Slide from "./Slide";
 import { useScroll } from "ahooks";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { get } from '../../utils/request'
 // import '../../statics/fullpage.extensions.min.js'
 // import '../../statics/fullpage.scrollOverflowReset.limited.min.js'
 
@@ -1319,6 +1320,9 @@ const Home: React.FC = () => {
   const [blockScroll, setBlockScroll] = useState<boolean>(false)
   const carouselRef = useRef<any>();
   const productRef = useRef<any>();
+  const [totalUser, setTotalUser] = useState(0);
+  const [totalTx, setTotalTx] = useState(0);
+  const [totalToken, setTotalToken] = useState(0);
   let y = 0;
   const { current } = useRef<any>({
     isScroll: true,
@@ -1386,11 +1390,22 @@ const Home: React.FC = () => {
     }
   };
 
+  const loadTotal = async () => {
+      let a = await get("https://proapi.rai.finance/base/total")
+      if (a?.total_users)
+          setTotalUser(a.totalUsers)
+      if (a?.total_portoflios)
+          setTotalTx(a.total_portoflios)
+      if (a?.total_tokens)
+          setTotalToken(a.totalToken)
+  }
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
     scrollHeader();
+    loadTotal();
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
@@ -1694,17 +1709,17 @@ const Home: React.FC = () => {
               <DiveContent data-aos="fade-up" data-aos-duration="1500">
                 <div className="dive_item">
                   <img src={userIcon} />
-                  <div className="dive_account">9,870</div>
+                  <div className="dive_account">{ totalUser.toLocaleString() }</div>
                   <div className="dive_type">Users</div>
                 </div>
                 <div className="dive_item">
                   <img src={coinIcon} />
-                  <div className="dive_account">44,434</div>
+                  <div className="dive_account">{ totalTx.toLocaleString()}</div>
                   <div className="dive_type">Transaction</div>
                 </div>
                 <div className="dive_item">
                   <img src={LinkIcon} />
-                  <div className="dive_account">111</div>
+                  <div className="dive_account">{totalToken.toLocaleString()}</div>
                   <div className="dive_type">Tokens supported in Social Trading</div>
                 </div>
               </DiveContent>
