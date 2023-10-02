@@ -1526,7 +1526,12 @@ const Home: React.FC = () => {
       </Header>
       <Content>
         <div className="banner">
-          <img src={banner} alt="banner" />
+        <a
+          target="_blank"
+          href="https://app.rai.finance"
+          rel="noreferrer"
+        > <img src={banner} alt="banner" />
+        </a>
         </div>
         {/* <ReactPageScroller
         pageOnChange={handlePageChange}
