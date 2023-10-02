@@ -1391,13 +1391,14 @@ const Home: React.FC = () => {
   };
 
   const loadTotal = async () => {
-      let a = await get("https://proapi.rai.finance/base/total")
+      let a = await get("https://prodapi.rai.finance/base/total")
+      console.log(a)
       if (a?.total_users)
-          setTotalUser(a.totalUsers)
+          setTotalUser(a.total_users)
       if (a?.total_portoflios)
           setTotalTx(a.total_portoflios)
       if (a?.total_tokens)
-          setTotalToken(a.totalToken)
+          setTotalToken(a.total_tokens)
   }
 
   useEffect(() => {
@@ -1709,17 +1710,17 @@ const Home: React.FC = () => {
               <DiveContent data-aos="fade-up" data-aos-duration="1500">
                 <div className="dive_item">
                   <img src={userIcon} />
-                  <div className="dive_account">{ totalUser.toLocaleString() }</div>
+                  <div className="dive_account">{ totalUser ?  totalUser.toLocaleString() : 0 }</div>
                   <div className="dive_type">Users</div>
                 </div>
                 <div className="dive_item">
                   <img src={coinIcon} />
-                  <div className="dive_account">{ totalTx.toLocaleString()}</div>
+                  <div className="dive_account">{ totalTx ?  totalTx.toLocaleString() : 0}</div>
                   <div className="dive_type">Transaction</div>
                 </div>
                 <div className="dive_item">
                   <img src={LinkIcon} />
-                  <div className="dive_account">{totalToken.toLocaleString()}</div>
+                  <div className="dive_account">{totalToken  ?  totalToken.toLocaleString() : 0}</div>
                   <div className="dive_type">Tokens supported in Social Trading</div>
                 </div>
               </DiveContent>
