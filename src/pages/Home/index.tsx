@@ -1528,7 +1528,7 @@ const Home: React.FC = () => {
         <div className="banner">
         <a
           target="_blank"
-          href="https://app.rai.finance"
+          href="https://medium.com/rai-finance/explore-rai-finance-on-coinbase-wallet-a0e41c4ec40a"
           rel="noreferrer"
         > <img src={banner} alt="banner" />
         </a>
