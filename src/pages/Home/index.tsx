@@ -1395,8 +1395,8 @@ const Home: React.FC = () => {
       console.log(a)
       if (a?.total_users)
           setTotalUser(a.total_users)
-      if (a?.total_portoflios)
-          setTotalTx(a.total_portoflios)
+      if (a?.total_portfolios)
+          setTotalTx(a.total_portfolios)
       if (a?.total_tokens)
           setTotalToken(a.total_tokens)
   }
