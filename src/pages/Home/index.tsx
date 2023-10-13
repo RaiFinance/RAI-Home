@@ -13,6 +13,7 @@ import {
   Input,
   Slider as SliderC,
 } from "antd";
+import numeral from 'numeral';
 import { CSSTransition } from "react-transition-group";
 import { MenuOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
 import styled from "styled-components";
@@ -100,16 +101,19 @@ const FirstContent = styled.div`
     width: 1400px;
     margin: 0 auto;
     // padding: 150px 300px;
-    padding: 145px 0 0 130px;
+    padding: 100px 0 0 130px;
     @media (max-width: 992px) {
+      width: 100%;
       &:before {
         display: none;
       }
     }
     @media (max-width: 1200px) {
       padding: 100px 50px;
+      width: 100%;
     }
     @media (max-width: 767px) {
+      width: 100%;
       padding: 100px 24px;
     }
     
@@ -161,11 +165,6 @@ const FirstContent = styled.div`
       line-height: 1.6;
     }
   }
-  .launched {
-    color: #ddd1e1;
-    font-size: 12px;
-    margin-top: 100px;
-  }
   .eth_ploygon {
     height: 25px;
     margin: 0 auto;
@@ -173,287 +172,7 @@ const FirstContent = styled.div`
     width: auto;
   }
 `;
-const HomeImg1 = styled.img`
-  width: 600px;
-  margin-left: -200px;
-`
 
-const DeepContent = styled.div`
-  background: #f3f4f6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 96px 0px;
-  justify-content: center;
-  @media (max-width: 767px) {
-    padding: 20px;
-  }
-  h2 {
-    font-family: "Graphik-bold";
-    margin-bottom: 48px;
-    color: #18181b;
-    @media (max-width: 767px) {
-      font-size: 32px;
-    }
-  }
-  .boxes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 767px) {
-      flex-direction: column;
-      width: 100%;
-    }
-    .box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 336px;
-      height: 174px;
-      background: #ffffff;
-      border-radius: 12px;
-      margin-right: 24px;
-      padding: 24px 0px;
-      @media (max-width: 767px) {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-      img {
-        margin-bottom: 12px;
-        width: 64px;
-        height: 64px;
-      }
-      .account {
-        margin-bottom: 4px;
-        font-family: "Graphik-bold";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 26px;
-        text-align: center;
-        color: #18181b;
-      }
-      .type {
-        font-family: "Graphik";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
-        text-align: center;
-        color: #18181b;
-      }
-    }
-  }
-`;
-
-const SofiContent = styled.div`
-  width: 100%;
-  background: #ffffff;
-  margin: 0 auto;
-  padding: 96px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  // max-width: 1200px;
-  @media (max-width: 767px) {
-    padding: 0 20px;
-  }
-  .head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    @media (max-width: 767px) {
-    }
-    & > div {
-      font-family: "Graphik";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 26px;
-      text-align: center;
-      color: #71717a;
-      @media (max-width: 767px) {
-        font-size: 14px;
-      }
-    }
-    h2 {
-      font-family: "Graphik-bold";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 48px;
-      line-height: 64px;
-      text-align: center;
-      @media (max-width: 767px) {
-        font-size: 32px;
-      }
-    }
-  }
-  .swap {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 640px;
-    @media (max-width: 767px) {
-      align-items: flex-start;
-      width: 100%;
-    }
-    h2 {
-      font-family: "Graphik-bold";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 30px;
-      text-align: center;
-      @media (max-width: 767px) {
-        font-size: 20px;
-      }
-    }
-    .box {
-      img {
-        width: 640px;
-        height: auto;
-        background-size: cover;
-        @media (max-width: 767px) {
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
-  }
-  .gover {
-    margin-bottom: 48px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 640px;
-    @media (max-width: 767px) {
-      width: 100%;
-    }
-    h2 {
-      font-family: "Graphik-bold";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 30px;
-      text-align: center;
-      @media (max-width: 767px) {
-        font-size: 20px;
-      }
-    }
-    .box {
-      width: 100%;
-      height: 132px;
-      margin-bottom: 18px;
-    }
-  }
-`;
-
-const FifthContent = styled.div`
-  background: #fff;
-  & > div {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 100px 50px;
-    @media (max-width: 767px) {
-      padding: 100px 20px;
-    }
-  }
-  .whitepaper {
-    @media (max-width: 767px) {
-      text-align: center;
-    }
-    .img {
-      width: 100%;
-      margin-top: 20px;
-      @media (max-width: 767px) {
-        width: 100%;
-        height: auto;
-      }
-    }
-  }
-  .tokenDes {
-    text-align: left;
-    font-size: 14px;
-    line-height: 24px;
-    color: #79869f;
-    display: block;
-    width: 500px;
-    @media (max-width: 767px) {
-      width: 100%;
-    }
-  }
-  h2 {
-    font-weight: 700;
-    font-size: 48px;
-    color: #111827;
-    font-family: "Graphik-bold";
-    span {
-      color: #5542f6;
-    }
-    @media (max-width: 767px) {
-      font-size: 40px;
-    }
-  }
-  h3 {
-    margin-top: 0;
-    font-weight: 700;
-    font-size: 16px;
-    color: #111827;
-  }
-  p {
-    color: #6b7280;
-    font-size: 20px;
-  }
-`;
-const SixthContent = styled.div`
-  background: rgba(255, 255, 255, 0.6);
-  & > div {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 50px;
-    @media (max-width: 1200px) {
-      padding: 100px 50px;
-    }
-    @media (max-width: 767px) {
-      padding: 20px;
-    }
-  }
-  p {
-    padding: 20px 100px;
-    text-align: center;
-    @media (max-width: 767px) {
-      padding: 20px;
-    }
-  }
-  .ant-card-body {
-    margin: 0 auto;
-    text-align: center;
-  }
-`;
-
-const SeventhContent = styled.div`
-  background: #fff;
-  & > div {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 100px 50px;
-    @media (max-width: 767px) {
-      padding: 20px;
-    }
-    h2 {
-      font-family: "Graphik-bold";
-    }
-  }
-`;
 const StyledLink = styled.a`
   display: inline-block;
   margin: 0 10px;
@@ -785,6 +504,7 @@ const SildeBox = styled.div`
   margin: 0 auto;
   @media (max-width: 767px) {
     flex-direction: column;
+    max-width: 100%;
   }
 `
 const SildeBoxImg = styled.img`
@@ -1111,97 +831,6 @@ export const formatDollarAmount = (num: any, digits: any) => {
   return formatter.format(num);
 };
 
-const slideArray = [
-  {
-    href: "https://app.rai.finance/#/sts",
-    title: "Step into the World of Social Trading",
-    description: <>Access intelligent management tools and endless opportunities In the age of Social + DeFi = SocialFi. Easily create a portfolio with multiple tokens and explore other people's portfolios. Onboarding in a trending theme is easier than ever before.</>,
-    buttonTitle: "GO TO APP",
-    backgroundFill: "#fff",
-    colorText: "#000000D9",
-    fill: "white",
-    list: [],
-    imgUrl: "./Screenshots/side2.png",
-    id: 4,
-    translate: `20px, -12px`,
-    minHeight: "100vh",
-    mobileMinHeight: "70vh",
-    widthImg: "57vw",
-    mobile: {
-      translate: `0px, 10px`,
-      widthImg: "100%",
-      minHeight: "43vh",
-    },
-    desktopWidth: "68vw",
-  },
-  {
-    href: "/",
-    title: "DEX, redefined",
-    description: "Incorporated with the innovative Discretized-Liquidity-AMM model, RAI Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.",
-    buttonTitle: "COMING SOON",
-    backgroundFill: "#fff",
-    colorText: "#000000D9",
-    fill: "white",
-    list: [],
-    imgUrl: "./Screenshots/side3.png",
-    id: 4,
-    translate: `20px, -12px`,
-    minHeight: "100vh",
-    mobileMinHeight: "70vh",
-    widthImg: "57vw",
-    mobile: {
-      translate: `0px, 10px`,
-      widthImg: "100%",
-      minHeight: "43vh",
-    },
-    desktopWidth: "68vw",
-  },
-  {
-    href: "/",
-    title: <>Trade your NFT faster <br />and worthy</>,
-    description: "NFT swap's proprietary AI-based appraisal model enables NFT pricing outputs with much higher precision, allowing users to unlock further value from NFT assets",
-    buttonTitle: "COMING SOON",
-    backgroundFill: "#fff",
-    colorText: "#000000D9",
-    fill: "white",
-    list: [],
-    imgUrl: "./Screenshots/side4.png",
-    id: 4,
-    translate: `20px, -12px`,
-    minHeight: "100vh",
-    mobileMinHeight: "70vh",
-    widthImg: "57vw",
-    mobile: {
-      translate: `0px, 10px`,
-      widthImg: "100%",
-      minHeight: "43vh",
-    },
-    desktopWidth: "68vw",
-  },
-  {
-    href: "https://app.rai.finance/#/sts",
-    title: "Everything in RAI Finance",
-    description: "",
-    buttonTitle: "GO TO APP",
-    backgroundFill: "#fff",
-    colorText: "#000000D9",
-    fill: "white",
-    list: [],
-    imgUrl: "./Screenshots/rai.png",
-    id: 4,
-    translate: `20px, -12px`,
-    minHeight: "100vh",
-    mobileMinHeight: "70vh",
-    widthImg: "57vw",
-    mobile: {
-      translate: `0px, 10px`,
-      widthImg: "100%",
-      minHeight: "43vh",
-    },
-    desktopWidth: "68vw",
-  },
-];
-
 const Home: React.FC = () => {
   const GoverIssueBox: React.FC<any> = (props) => {
     const {
@@ -1259,59 +888,6 @@ const Home: React.FC = () => {
       </GoverIssue>
     );
   };
-  const getCustomPaging = (i: number) => {
-    switch (i) {
-      case 1:
-        return (
-          <>
-            <h2>STS</h2>
-            <p>
-              Social Trading System combines both digital asset trading and
-              socializing
-            </p>
-          </>
-        );
-      case 2:
-        return (
-          <>
-            <h2>Aggregator</h2>
-            <p>The fastest way to trade your multi-chain assets</p>
-          </>
-        );
-      case 3:
-        return (
-          <>
-            <h2>Governance</h2>
-            <p>
-              Decentralized governance to participate in the protocol upgrade
-            </p>
-          </>
-        );
-      case 4:
-        return (
-          <>
-            <h2>My Wallet</h2>
-            <p>Check your asset status and rebalance your portfolio</p>
-          </>
-        );
-    }
-  };
-  const settings = {
-    customPaging: function (i: number) {
-      return <a>{getCustomPaging(i + 1)}</a>;
-    },
-    dots: true,
-    dotsClass: "slick-dots slick-thumb",
-    infinite: true,
-    speed: 500,
-    autoplay: false,
-    autoplaySpeed: 4000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    cssEase: "linear",
-    nextArrow: <></>,
-    prevArrow: <></>,
-  };
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [scrollHeight, setScrollHeight] = useState(128);
@@ -1320,6 +896,9 @@ const Home: React.FC = () => {
   const [blockScroll, setBlockScroll] = useState<boolean>(false)
   const carouselRef = useRef<any>();
   const productRef = useRef<any>();
+  const [totalLocked, setTotalLocked] = useState(0);
+  const [totalVolume, setTotalVolume] = useState(0);
+  const [totalPortfolios, setTotalPortfolios] = useState(0);
   const [totalUser, setTotalUser] = useState(0);
   const [totalTx, setTotalTx] = useState(0);
   const [totalToken, setTotalToken] = useState(0);
@@ -1331,37 +910,6 @@ const Home: React.FC = () => {
   });
   let slideNum = 0;
   const scroll = useScroll(productRef);
-
-  const contryList = [
-    'DZ',
-    'BD',
-    'BO',
-    'BY',
-    'BI',
-    'MM',
-    'CI',
-    'CU',
-    'CD',
-    'EC',
-    'IR',
-    'IQ',
-    'LR',
-    'LY',
-    'ML',
-    'MA',
-    'NP',
-    'KP',
-    'SO',
-    'SD',
-    'SY',
-    'VE',
-    'YE',
-    'ZW',
-    'CA',
-    'PA',
-    'US',
-    'GB',
-  ]
 
   const scrollHeader = () => {
     if (!document.querySelector(".ant-layout-header")) {
@@ -1393,6 +941,12 @@ const Home: React.FC = () => {
   const loadTotal = async () => {
       let a = await get("https://prodapi.rai.finance/base/total")
       console.log(a)
+      if (a?.total_value_locked)
+          setTotalLocked(a.total_value_locked)
+      if (a?.total_volume)
+          setTotalVolume(a.total_volume)
+      if (a?.total_portfolios)
+          setTotalPortfolios(a.total_portfolios)
       if (a?.total_users)
           setTotalUser(a.total_users)
       if (a?.total_portfolios)
@@ -1554,34 +1108,60 @@ const Home: React.FC = () => {
                 <p style={{marginBottom:'50px'}}>
                   RAI Finance is the hub for everything trading. Since 2020, our team has developed various DeFi, NFTFi, and Social Trading products that operate across multiple blockchain networks. RAI Finance boasts several customizable DEXs for both tokens and NFTs, in addition to Social Trading functionality. Whether you need a straightforward swap, NFT trading services, or index trading, Rai Finance offers a solution for everything trading.
                 </p>
-                <MultipleButton>
-                  <a
-                    href="https://app.rai.finance"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    ENTER MAINNET
-                  </a>
-                </MultipleButton>
-                <p className="launched">
-                  RAI Finance product is officially launched on
-                </p>
-                <div className="networks">
+                <div className="chains">
+                  <MultipleButton>
+                    <a
+                      href="https://app.rai.finance"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      ENTER MAINNET
+                    </a>
+                  </MultipleButton>
                   <div>
-                    <EthereumLogo />
-                    <div>Ethereum</div>
+                    <p className="launched">
+                      RAI Finance product is officially launched on
+                    </p>
+                    <div className="networks">
+                      <div>
+                        <EthereumLogo />
+                        <div>Ethereum</div>
+                      </div>
+                      <div>
+                        <PolygonLogo />
+                        <div>Polygon</div>
+                      </div>
+                      <div>
+                        <BaseLogo />
+                        <div>BASE</div>
+                      </div>
+                      <div>
+                        <TaikoLogo />
+                        <div>Taiko</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="datas">
+                  <div>
+                    <div>TVL</div>
+                    <div>${numeral(totalLocked).format('0,0')}</div>
                   </div>
                   <div>
-                    <PolygonLogo />
-                    <div>Polygon</div>
+                    <div>Volume</div>
+                    <div>{numeral(totalVolume).format('0,0')}</div>
                   </div>
                   <div>
-                    <BaseLogo />
-                    <div>BASE</div>
+                    <div>Users</div>
+                    <div>{numeral(totalUser).format('0,0')}</div>
                   </div>
                   <div>
-                    <TaikoLogo />
-                    <div>Taiko</div>
+                    <div>Portfolios</div>
+                    <div>{numeral(totalPortfolios).format('0,0')}</div>
+                  </div>
+                  <div>
+                    <div>Tokens</div>
+                    <div>{numeral(totalToken).format('0,0')}</div>
                   </div>
                 </div>
               </div>
