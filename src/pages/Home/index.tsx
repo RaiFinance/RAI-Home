@@ -1149,7 +1149,7 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <div>Volume</div>
-                    <div>{numeral(totalVolume).format('0,0')}</div>
+                    <div>${numeral(totalVolume).format('0,0')}</div>
                   </div>
                   <div>
                     <div>Users</div>
