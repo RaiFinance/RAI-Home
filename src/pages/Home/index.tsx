@@ -1290,26 +1290,6 @@ const Home: React.FC = () => {
           <img className="b_img" src={coBg} />
         </section>
         <div style={{ background: '#000'}}>
-            <div className="dive_box">
-              <ColourfulText>Deep Dive in RAI.finance</ColourfulText>
-              <DiveContent data-aos="fade-up" data-aos-duration="1500">
-                <div className="dive_item">
-                  <img src={userIcon} />
-                  <div className="dive_account">{ totalUser ?  totalUser.toLocaleString() : 0 }</div>
-                  <div className="dive_type">Users</div>
-                </div>
-                <div className="dive_item">
-                  <img src={coinIcon} />
-                  <div className="dive_account">{ totalTx ?  totalTx.toLocaleString() : 0}</div>
-                  <div className="dive_type">Portfolios</div>
-                </div>
-                <div className="dive_item">
-                  <img src={LinkIcon} />
-                  <div className="dive_account">{totalToken  ?  totalToken.toLocaleString() : 0}</div>
-                  <div className="dive_type">Tokens supported in Social Trading</div>
-                </div>
-              </DiveContent>
-            </div>
             <div className="finance_box">
               <div className="finance_box_left">
                 <div className="finance_ex">Explore the SOFI at</div>
