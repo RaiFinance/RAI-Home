@@ -1194,9 +1194,15 @@ const Home: React.FC = () => {
               <SildeBoxContent>
                 <RightousTitle>DEX, redefined</RightousTitle>
                 <PoppinsTxt>Incorporated with the innovative Discretized-Liquidity-AMM model, RAI Finance’s Swap on multi-chains to maximize capital efficiency by realizing Limit Order / Pro mode / Analytics in a decentralized way.</PoppinsTxt>
-                <ComingSoonButton>
-                  <span>COMING SOON</span>
-                </ComingSoonButton>
+                <MultipleButton>
+                  <a
+                    href="https://soswappro.rai.finance"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GO TO APP
+                  </a>
+                </MultipleButton>
               </SildeBoxContent>
               <SildeBoxImg src={homeImg3}></SildeBoxImg>
             </SildeBox>
